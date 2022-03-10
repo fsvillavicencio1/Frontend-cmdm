@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+
+.container{
+    background-color: #ffffff;
+    width: 75%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 50px;
+}
+
+.panel{
+    width: 55%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #fff;
+}
+
+.panel .content{
+    text-align: center;
+    padding: 30px 15px;
+}
+
+.panel h3{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    color: #fff;
+    font-size: 20px;
+}
+
+.panel p{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    padding: 0px 30px 10px 30px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.left-panel{
+    width: 100%;
+    height: 100%;
+    background-color: #0A66C2;
+    border-radius: 0px 0px 400px 0px;
+    border: none;
+}
+
+.left-panel .image{
+    width: 57%;
+    margin-left: 150px;
+    
+}
+
+
+.formulario{
+    width: 45%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 100px 0px;
+    box-sizing: border-box;
+}
+
+.formulario .login{
+    width: 70%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.formulario .text{
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    color: #000;
+}
+
+.formulario form .data{
+    width: 100%;
+    margin: 20px 0;
+    box-sizing: border-box;
+}
+
+form .data input{
+    height: 35px;
+    width: 100%;
+    background-color: rgb(250, 251, 252);
+    border-color: rgb(223, 225, 230);
+    border-radius: 3px;
+    border-style: solid;
+    box-sizing: border-box;
+    color: #000;
+    display: flex;
+    flex: 1 0 auto;
+    font-size: 14px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    line-height: 1.42857;
+    max-width: 100%;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    border-width: 2px;
+    padding: 6px;
+}
+
+form button{
+    height: 45px;
+    width: 100%;
+    background-color: #0A66C2;
+    border: none;
+    color: #ffffff;
+    font-size: 16px; 
+    cursor: pointer;
+    padding-top: 15px;
+}
+
+.btn-registro{
+    height: 35px;
+    width: 125px;
+    border: solid 2px #fff;
+    background-color: transparent;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 13px; 
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+}
+
+::placeholder{
+    font-family: 'Quicksand', sans-serif;
+}
+
+form .data input:focus{
+    border-color: #0A66C2;
+    outline: none;
+}
+
+.alert, .error{
+    padding: 5px 0px 0px 0px;
+    color: red;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.error{
+    text-align: center;
+}
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #ffffff;
+    text-align: center;
+}
+
+

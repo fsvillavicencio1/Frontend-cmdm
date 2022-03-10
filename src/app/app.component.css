@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+.header_contactos{
+    background-color: #0A66C2;
+    height: 45px;
+}
+
+.contactos{
+    margin-right: 50px;
+}
+
+.contactos a{
+    font-family: 'Quicksand', sans-serif;
+    color: #ffffff;
+    font-weight: lighter;
+    font-size: 14px;
+    cursor: unset;
+    margin-left: 20px;
+}
+
+.spacer{
+    flex: 1 1 auto;
+}
+
+.sticky{
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    z-index: 10;
+    width: 100%;
+    height: 55px;
+    transition: 1s;
+    box-shadow: 0px 0px 5px 0px #000000;
+}
+
+.menu{
+    background-color: #F5F5F5;
+    height: 70px;
+}
+
+.menu_login{
+    background-color: #0A66C2;
+    height: 70px;
+}
+
+.icon{
+    font-family: 'Quicksand', sans-serif;
+    color: #34465D;
+    font-size: 18px;
+    font-weight: 580;
+    margin-left: 50px;
+    text-decoration: none;
+}
+
+.icon_login{
+    font-family: 'Quicksand', sans-serif;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 580;
+    margin-left: 50px;
+    text-decoration: none;
+}
+
+.icon:hover, .icon_login:hover{
+    color: #F57D00;
+    transition: 1s;
+}
+
+.opciones, .opciones_login{
+    margin-right: 50px;
+}
+
+
+.opciones a{
+    font-family: 'Quicksand', sans-serif;
+    color: #000000;
+    font-weight: 550;
+    font-size: 16px;
+    margin-left: 25px;
+    text-decoration: none;
+}
+
+.opciones_login a{
+    font-family: 'Quicksand', sans-serif;
+    color: #fff;
+    font-size: 15px;
+    margin-left: 25px;
+    text-decoration: none;
+}
+
+.username{
+    cursor: text;
+}
+
+
+
+.opciones_login button{
+    color: #ffffff;
+}
+
+.opciones a:hover{
+    color: #F57D00;
+}
+
+.opciones >.active{
+    color: #F57D00;
+}
+
+.opciones .username:hover{
+    color: #000;
+}
