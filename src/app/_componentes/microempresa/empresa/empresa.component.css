@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+.container{
+    background-color: #ffffff;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.container h1{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0px 0px 20px 40px;
+}
+
+.rigth-panel{
+    width: 50%;
+    height: 50%;
+    background-color: #fff;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.rigth-panel .image{
+    width: 40%;
+    margin-left: 0px;
+    
+}
+
+.rigth-panel h3{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    color: #000;
+    font-size: 20px;
+    padding: 20px 0px 0px 0px;
+}
+
+.rigth-panel p{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    padding: 0px 30px 10px 30px;
+    color: #000;
+    font-size: 16px;
+}
+
+.btn-registro{
+    height: 35px;
+    width: 200px;
+    border: solid 2px #0A66C2;
+    background-color: transparent;
+    border-radius: 10px;
+    color: #0A66C2;
+    font-size: 14px; 
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.formulario{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.formulario .login{
+    width: 30%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+.formulario .text{
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    color: #000;
+}
+
+.formulario form .data{
+    width: 100%;
+    margin: 20px 0;
+    box-sizing: border-box;
+}
+
+form .data input{
+    height: 35px;
+    width: 100%;
+    background-color: rgb(250, 251, 252);
+    border-color: rgb(223, 225, 230);
+    border-radius: 3px;
+    border-style: solid;
+    box-sizing: border-box;
+    color: #000;
+    display: flex;
+    flex: 1 0 auto;
+    font-size: 14px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    line-height: 1.42857;
+    max-width: 100%;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    border-width: 2px;
+    padding: 6px;
+}
+
+form button{
+    height: 45px;
+    width: 100%;
+    background-color: #0A66C2;
+    border: none;
+    color: #ffffff;
+    font-size: 16px; 
+    cursor: pointer;
+    padding-top: 15px;
+}

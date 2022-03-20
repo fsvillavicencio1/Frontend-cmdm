@@ -15,13 +15,17 @@
                     <mat-icon mat-list-icon class="nav__icon">dashboard</mat-icon>
                     <span *ngIf="isExpanded" class="nav__name">Dashboard</span>
                 </mat-list-item>
-                <mat-list-item class="nav__link" routerLink="/mi-empresa/datos" title="Áreas" routerLinkActive="active">
+                <mat-list-item class="nav__link" routerLink="/mi-empresa/datos" title="Mi empresa" routerLinkActive="active">
                     <mat-icon mat-list-icon class="nav__icon">apartment</mat-icon>
                     <span *ngIf="isExpanded" class="nav__name">Mi empresa</span>
                 </mat-list-item>
+                <mat-list-item class="nav__link" routerLink="/mi-empresa/evaluacion" title="Evaluación" routerLinkActive="active">
+                    <mat-icon mat-list-icon class="nav__icon">quiz</mat-icon>
+                    <span *ngIf="isExpanded" class="nav__name">Evaluación</span>
+                </mat-list-item>
                 <mat-list-item class="nav__link" routerLink="componentes" title="Componentes" routerLinkActive="active">
-                    <mat-icon mat-list-icon class="nav__icon">widgets</mat-icon>
-                    <span *ngIf="isExpanded" class="nav__name">Componentes</span>
+                    <mat-icon mat-list-icon class="nav__icon">article</mat-icon>
+                    <span *ngIf="isExpanded" class="nav__name">Resultados</span>
                 </mat-list-item>
 
             </mat-nav-list>

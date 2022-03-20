@@ -24,6 +24,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { DashboardComponent } from './_componentes/microempresa/dashboard/dashboard.component';
 import { EmpresaComponent } from './_componentes/microempresa/empresa/empresa.component';
+import { EvaluacionComponent } from './_componentes/microempresa/evaluacion/evaluacion.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { EmpresaComponent } from './_componentes/microempresa/empresa/empresa.co
     AuspiciantesComponent,
     MiEmpresaComponent,
     DashboardComponent,
-    EmpresaComponent
+    EmpresaComponent,
+    EvaluacionComponent
   ],
   imports: [
     BrowserModule,

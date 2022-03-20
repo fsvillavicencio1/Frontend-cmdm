@@ -1,1 +1,47 @@
-<p>empresa works!</p>
+<div class="container" *ngIf="!loading">
+    <h1>Mi empresa</h1>
+    <div class="rigth-panel" *ngIf="isEmpresa">
+        <h3>Nombre de la empresa:</h3>
+        <p>{{empresa[0].empresa}}</p>
+        <h3>RUC de la empresa:</h3>
+        <p>{{empresa[0].ruc}}</p>
+        <button class="btn-registro">
+            Modificaer datos
+        </button>
+    </div>
+
+    <div class="formulario">
+        <div class="login" *ngIf="!isEmpresa">
+            <div class="text">Datos de empresa</div>
+            <form name="form_empresa" (ngSubmit)="g.form.valid && onSubmitEmpresa()" #g="ngForm" novalidate>
+                <div class="data">
+                    <input type="text" name="empresa" [(ngModel)]="form_empresa.empresa" #empresa="ngModel"
+                        placeholder="Introducir el nombre de tu empresa" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="empresa.errors && g.submitted">Indica el nombre
+                        de tu empresa</div>
+                </div>
+
+                <div class="data">
+                    <input type="text" name="ruc" [(ngModel)]="form_empresa.ruc" #ruc="ngModel"
+                        placeholder="Introducir el ruc de tu empresa" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="ruc.errors && g.submitted">Indica el ruc de tu
+                        empresa</div>
+                </div>
+
+                <button type="submit">
+                    <p *ngIf="!loading_empresa">Registrar</p>
+                    <p>
+                        <mat-spinner style="margin:0 auto;" mode="indeterminate" class="spinner" *ngIf="loading"
+                            diameter="20"></mat-spinner>
+                    </p>
+                </button>
+                <div class="form-group">
+                    <div class="alert alert-danger error" role="alert" *ngIf="g.submitted && isSignUpFailed_empresa">{{
+                        errorMessage_empresa }}</div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<mat-spinner style="margin:0 auto;" mode="indeterminate" *ngIf="loading" diameter="30"></mat-spinner>

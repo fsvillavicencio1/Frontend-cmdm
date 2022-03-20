@@ -1,1 +1,104 @@
-<button mat-flat-button (click)="openDialog()">EVALÚATE</button>
+<div class="container">
+    <div class="formulario">
+        <div class="login" *ngIf="!isSuccessful">
+            <div class="text">1. Datos de usuario</div>
+            <form  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                <div class="data">
+                    <input type="text" name="nombres" [(ngModel)]="form.nombres" #nombres="ngModel"
+                        placeholder="Introducir los nombres" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="nombres.errors && f.submitted">Indica los nombres</div>
+                </div>
+
+                <div class="data">
+                    <input type="text" name="apellidos" [(ngModel)]="form.apellidos" #apellidos="ngModel"
+                        placeholder="Introducir los apellidos" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="apellidos.errors && f.submitted">Indica los apellidos</div>
+                </div>
+
+                <div class="data">
+                    <input type="email" name="email" [(ngModel)]="form.email" #email="ngModel"
+                        placeholder="Introducir correo electrónico" required
+                        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                    <div class="alert alert-danger" role="alert" *ngIf="email.errors && f.submitted">Indica el correo electrónico</div>
+                    <div class="alert alert-danger" role="alert" *ngIf="email.errors && f.submitted">
+                        Indica un correo electrónico valido
+                      </div>
+                </div>
+
+                <div class="data">
+                    <input type="text" name="username" [(ngModel)]="form.username" #username="ngModel"
+                        placeholder="Introducir nombre de usuario" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">Indica un nombre
+                        de usuario</div>
+                </div>
+
+                <div class="data">
+                    <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required
+                        #password="ngModel" placeholder="Introducir contraseña">
+                    <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">Indica tu
+                        contraseña</div>
+                </div>
+
+
+                <button type="submit">
+                    <p *ngIf="!loading">Continuar</p>
+                    <p>
+                        <mat-spinner style="margin:0 auto;" mode="indeterminate" class="spinner" *ngIf="loading"
+                            diameter="20"></mat-spinner>
+                    </p>
+                </button>
+                <div class="form-group">
+                    <div class="alert alert-danger error" role="alert" *ngIf="f.submitted && isSignUpFailed">{{
+                        errorMessage }}</div>
+                </div>
+            </form>
+        </div>
+
+        <div class="login" *ngIf="isSuccessful && !isSuccessful_empresa">
+            <div class="text">2. Datos de empresa</div>
+            <form  name="form_empresa" (ngSubmit)="g.form.valid && onSubmitEmpresa()" #g="ngForm" novalidate>
+                <div class="data">
+                    <input type="text" name="empresa" [(ngModel)]="form_empresa.empresa" #empresa="ngModel"
+                        placeholder="Introducir el nombre de tu empresa" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="empresa.errors && g.submitted">Indica el nombre de tu empresa</div>
+                </div>
+
+                <div class="data">
+                    <input type="text" name="ruc" [(ngModel)]="form_empresa.ruc" #ruc="ngModel"
+                        placeholder="Introducir el ruc de tu empresa" required >
+                    <div class="alert alert-danger" role="alert" *ngIf="ruc.errors && g.submitted">Indica el ruc de tu empresa</div>
+                </div>
+
+                <button type="submit">
+                    <p *ngIf="!loading_empresa">Registrar</p>
+                    <p>
+                        <mat-spinner style="margin:0 auto;" mode="indeterminate" class="spinner" *ngIf="loading"
+                            diameter="20"></mat-spinner>
+                    </p>
+                </button>
+                <div class="form-group">
+                    <div class="alert alert-danger error" role="alert" *ngIf="g.submitted && isSignUpFailed_empresa">{{
+                        errorMessage_empresa }}</div>
+                </div>
+            </form>
+        </div>
+        <div class="rigth-panel" *ngIf="isSuccessful && isSuccessful_empresa">
+            <img src="../../../assets/registerOk.svg" class="image" alt="" />
+            <h3>Tu empresa se registró con éxito!</h3>
+            <p>Ahora podrás evaluarte para conocer la competitividad y madurez digital de tu empresa</p>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="left-panel">
+            <div class="content">
+                <h3>¿Ya te registraste?</h3>
+                <p>Inicia sesión y evalúate para conocer la competitividad y madurez digital de tu empresa.</p>
+                <button class="btn-registro" routerLink="/mi-empresa">
+                    Inicia sesión
+                </button>
+            </div>
+            <img src="../../../assets/register.svg" class="image" alt="" />
+        </div>
+    </div>
+ 
+</div>

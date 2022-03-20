@@ -3,16 +3,16 @@ import { UserService } from 'src/app/_services/user.service';
 import { TokenStorageService } from '../../../_services/token-storage.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-evaluacion',
+  templateUrl: './evaluacion.component.html',
+  styleUrls: ['./evaluacion.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class EvaluacionComponent implements OnInit {
+
   isLoggedIn = false;
   id_user?: number;
   loading = false;
   isEmpresa = false;
-  isEvaluado = false;
   empresa: any = {};
 
   constructor(private tokenStorageService: TokenStorageService, private userService: UserService) { }
@@ -38,7 +38,6 @@ export class DashboardComponent implements OnInit {
         else{
           this.isEmpresa = true;
           this.empresa = data;
-          this.isEvaluado = this.empresa[0].evaluado;
           this.loading = false;
 
         }

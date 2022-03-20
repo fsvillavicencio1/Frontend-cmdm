@@ -9,7 +9,6 @@ import { faDribbble } from '@fortawesome/free-brands-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faRocket } from '@fortawesome/free-solid-svg-icons';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -37,7 +36,7 @@ export class AppComponent {
   elementPosition: any;
 
 
-  constructor(private tokenStorageService: TokenStorageService, private router: Router) { }
+  constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();

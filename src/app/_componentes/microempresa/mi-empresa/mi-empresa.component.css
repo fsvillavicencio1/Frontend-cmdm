@@ -13,7 +13,7 @@
 
 
 .mat-toolbar{
-    background-color: #12192C;
+    background-color: #ffffff;
     top: 0;
     bottom: auto;
     font-family: 'Quicksand', sans-serif;
@@ -30,9 +30,9 @@
 }
 
 .mat-sidenav{
-    background-color: #12192C;
+    background-color: #ffffff;
     position: fixed;
-    top: 135px;
+    top: 115px;
     height: 100%;
     padding: 5px;
     box-sizing: border-box;
@@ -58,7 +58,7 @@
 
 
 .nav__link{
-    color: #ffffff;
+    color: #000000;
     font-size: 1rem;
     transition: .3s;
     margin-top: 10px;
@@ -71,22 +71,24 @@
 }
 
 .nav__link:hover{
-    background-color: #5D4BFF;
+    background-color: #0A66C2;
+    
 }
 
 .mat-nav-list>.active{
-    background-color: #5D4BFF;
+    background-color: #0A66C2;
+    color: #ffffff;
 }
 
 .open {
-    color: #ffffff;
+    color: #000000;
     cursor: pointer;
-    margin-left: 50px;
+    margin-left: 10px;
 }
 
 .close{
-    color: #ffffff;
-    margin-left: 275px;
+    color: #000000;
+    margin-left: 230px;
     cursor: pointer;
 }
 
