@@ -3,11 +3,11 @@
 
 .container{
     background-color: #ffffff;
-    width: 75%;
+    width: 80%;
     margin: 0 auto;
     box-sizing: border-box;
     font-family: 'Quicksand', sans-serif;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .panel{
@@ -110,7 +110,7 @@
     box-sizing: border-box;
 }
 
-form .data input{
+form .data input, form .data textarea, form .data select{
     height: 35px;
     width: 100%;
     background-color: rgb(250, 251, 252);
@@ -130,6 +130,13 @@ form .data input{
     overflow-wrap: break-word;
     border-width: 2px;
     padding: 6px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+
+}
+
+form .data textarea{
+    height: 60px;
 }
 
 form button{
@@ -159,7 +166,7 @@ form button{
     font-family: 'Quicksand', sans-serif;
 }
 
-form .data input:focus{
+form .data input:focus, form .data textarea:focus, form .data select:focus{
     border-color: #0A66C2;
     outline: none;
 }

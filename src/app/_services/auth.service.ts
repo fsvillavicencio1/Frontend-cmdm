@@ -33,12 +33,16 @@ export class AuthService {
     });
   }
 
-  registerEmpresa(empresa: string, ruc: string, user: []): Observable<any> {
+  registerEmpresa(empresa: string, ruc: string, mision: string, vision: string, imagen: string, user: [], actividad: []): Observable<any> {
     return this.http.post(SERVICE_API + 'microempresa', {
       empresa,
       ruc,
+      mision,
+      vision,
+      imagen,
       evaluado: false,
-      user
+      user,
+      actividad
     });
   }
 

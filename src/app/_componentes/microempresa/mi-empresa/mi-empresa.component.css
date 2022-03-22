@@ -30,11 +30,10 @@
 }
 
 .mat-sidenav{
-    background-color: #ffffff;
+    background-color: #F5F5F5;
     position: fixed;
-    top: 115px;
     height: 100%;
-    padding: 5px;
+    padding: 15px;
     box-sizing: border-box;
 
 }
@@ -88,7 +87,7 @@
 
 .close{
     color: #000000;
-    margin-left: 230px;
+    margin-left: 250px;
     cursor: pointer;
 }
 

@@ -1,37 +1,85 @@
 <div class="container" *ngIf="!loading">
     <h1>Mi empresa</h1>
     <div class="rigth-panel" *ngIf="isEmpresa">
-        <h3>Nombre de la empresa:</h3>
-        <p>{{empresa[0].empresa}}</p>
-        <h3>RUC de la empresa:</h3>
-        <p>{{empresa[0].ruc}}</p>
-        <button class="btn-registro">
-            Modificaer datos
-        </button>
+        <div class="imagen" [ngStyle]="{'background-image': 'url(' + empresa[0].imagen + ')'}">
+            <div class="fondo">
+                <h1>{{empresa[0].empresa}}</h1>
+            </div>
+        </div>
+        <div class="detalles">
+            <p class="title">RUC: <span>{{empresa[0].ruc}}</span></p>
+            <p class="title">Misión:</p>
+            <p class="detalle">{{empresa[0].mision}}</p>
+            <p class="title">Visión:</p>
+            <p class="detalle">{{empresa[0].vision}}</p>
+            <p class="title">Actividad económica: <span>{{empresa[0].actividad[0].actividad}}</span></p>
+            <div class="button">
+                <button class="btn-registro" (click)="openDialogUpdate()">
+                    Modificar datos
+                </button>
+            </div>
+        </div>
+
     </div>
 
-    <div class="formulario">
-        <div class="login" *ngIf="!isEmpresa">
+    <div class="formulario" *ngIf="!isEmpresa">
+        <div class="login">
             <div class="text">Datos de empresa</div>
             <form name="form_empresa" (ngSubmit)="g.form.valid && onSubmitEmpresa()" #g="ngForm" novalidate>
                 <div class="data">
                     <input type="text" name="empresa" [(ngModel)]="form_empresa.empresa" #empresa="ngModel"
-                        placeholder="Introducir el nombre de tu empresa" required>
-                    <div class="alert alert-danger" role="alert" *ngIf="empresa.errors && g.submitted">Indica el nombre
+                        placeholder="Nombre de empresa" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="empresa.errors && g.submitted">Ingresa el nombre
                         de tu empresa</div>
                 </div>
 
                 <div class="data">
                     <input type="text" name="ruc" [(ngModel)]="form_empresa.ruc" #ruc="ngModel"
-                        placeholder="Introducir el ruc de tu empresa" required>
-                    <div class="alert alert-danger" role="alert" *ngIf="ruc.errors && g.submitted">Indica el ruc de tu
+                        placeholder="RUC de empresa" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="ruc.errors && g.submitted">Ingresa el ruc de tu
                         empresa</div>
+                </div>
+
+                <div class="data">
+                    <!--input type="text" name="mision" [(ngModel)]="form_empresa.mision" #mision="ngModel"
+                        placeholder="Misión de empresa" required >-->
+                    <textarea name="mision" [(ngModel)]="form_empresa.mision" #mision="ngModel"
+                        placeholder="Misión de empresa" required></textarea>
+                    <div class="alert alert-danger" role="alert" *ngIf="mision.errors && g.submitted">Ingresa la misión
+                        de tu empresa</div>
+                </div>
+
+                <div class="data">
+                    <!--<input type="text" name="vision" [(ngModel)]="form_empresa.vision" #vision="ngModel"
+                        placeholder="Visión de empresa" required >-->
+                    <textarea name="vision" [(ngModel)]="form_empresa.vision" #vision="ngModel"
+                        placeholder="Visión de empresa" required></textarea>
+                    <div class="alert alert-danger" role="alert" *ngIf="vision.errors && g.submitted">Ingresa la visión
+                        de tu empresa</div>
+                </div>
+
+                <div class="data">
+                    <select name="actividad" [(ngModel)]="form_empresa.actividad" #actividad="ngModel"
+                        placeholder="Actividad económica de tu empresa" required>
+                        <option [value]="null" [disabled]="true" [selected]="true">Actividad económica de tu empresa
+                        </option>
+                        <option [value]="a.actividad" *ngFor="let a of actividades">{{a.actividad}}</option>
+                    </select>
+                    <div class="alert alert-danger" role="alert" *ngIf="actividad.errors && g.submitted">Selecciona la
+                        actividad económica de tu empresa</div>
+                </div>
+
+                <div class="data">
+                    <input type="file" name="file" (change)="onChange($event)" [(ngModel)]="form_empresa.file"
+                        #file="ngModel" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="file.errors && g.submitted">Carga una
+                        Imagen</div>
                 </div>
 
                 <button type="submit">
                     <p *ngIf="!loading_empresa">Registrar</p>
                     <p>
-                        <mat-spinner style="margin:0 auto;" mode="indeterminate" class="spinner" *ngIf="loading"
+                        <mat-spinner style="margin:0 auto;" mode="indeterminate" class="spinner" *ngIf="loading_empresa"
                             diameter="20"></mat-spinner>
                     </p>
                 </button>

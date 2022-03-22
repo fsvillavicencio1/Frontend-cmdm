@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/_services/user.service';
 import { AuthService } from '../../_services/auth.service';
 
 
@@ -8,6 +9,7 @@ import { AuthService } from '../../_services/auth.service';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
+  actividades: any = [];
   form: any = {
     nombres: null,
     apellidos: null,
@@ -20,20 +22,40 @@ export class RegistroComponent implements OnInit {
   errorMessage = '';
   loading = false;
   usernameOk: any = [];
+  actividadOk: any = [];
 
   form_empresa: any = {
     empresa: null,
-    ruc: null
+    ruc: null,
+    mision: null,
+    vision: null,
+    actividad: null
   };
   isSuccessful_empresa = false;
   isSignUpFailed_empresa = false;
   errorMessage_empresa = '';
   loading_empresa = false;
 
-  constructor(private authService: AuthService) { }
+  selectedFiles!: FileList;
+  currentFile!: File;
+  url = "";
+
+  constructor(private authService: AuthService, private userService: UserService) { }
 
   
   ngOnInit(): void {
+    this.getActividades();
+  }
+
+  public getActividades(){
+    this.userService.getActividad().subscribe(
+      data => {
+        this.actividades = data;
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   
@@ -59,8 +81,23 @@ export class RegistroComponent implements OnInit {
 
   onSubmitEmpresa(): void {
     this.loading_empresa = true;
-    const { empresa, ruc } = this.form_empresa;
-    this.authService.registerEmpresa(empresa, ruc, this.usernameOk).subscribe(
+    this.userService.cargarImagen(this.currentFile).subscribe(
+      data => {
+        this.url = data;
+        this.cargarEmpresa(this.url);
+      },
+      err => {
+        this.errorMessage_empresa = err;
+        this.isSignUpFailed_empresa = true;
+        this.loading_empresa = false;
+      }
+    );
+  }
+
+  cargarEmpresa(imagen: string){
+    const { empresa, ruc, mision, vision, actividad } = this.form_empresa;
+    this.actividadOk.push(actividad);
+    this.authService.registerEmpresa(empresa, ruc, mision, vision, imagen, this.usernameOk, this.actividadOk).subscribe(
       data => {
         console.log(data);
         this.isSuccessful_empresa = true;
@@ -75,4 +112,11 @@ export class RegistroComponent implements OnInit {
     );
   }
 
+  onChange(event: any) {
+    this.selectedFiles = event.target.files;
+    const file: File | null = this.selectedFiles.item(0);
+    if(file){
+      this.currentFile = file;
+    }
+  }
 }

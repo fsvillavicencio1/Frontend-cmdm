@@ -17,15 +17,15 @@
             <form  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                 <div class="data">
                     <input type="text" name="username" [(ngModel)]="form.username" #username="ngModel"
-                        placeholder="Introducir nombre de usuario" required>
-                    <div class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">Indica un nombre
+                        placeholder="Nombre de usuario" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">Ingresa tu nombre
                         de usuario</div>
                 </div>
 
                 <div class="data">
                     <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required
-                        #password="ngModel" placeholder="Introducir contraseña">
-                    <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">Indica tu
+                        #password="ngModel" placeholder="Contraseña">
+                    <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">Ingresa tu
                         contraseña</div>
                 </div>
 

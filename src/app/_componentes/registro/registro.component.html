@@ -5,37 +5,37 @@
             <form  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                 <div class="data">
                     <input type="text" name="nombres" [(ngModel)]="form.nombres" #nombres="ngModel"
-                        placeholder="Introducir los nombres" required>
-                    <div class="alert alert-danger" role="alert" *ngIf="nombres.errors && f.submitted">Indica los nombres</div>
+                        placeholder="Nombres" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="nombres.errors && f.submitted">Ingresa tus nombres</div>
                 </div>
 
                 <div class="data">
                     <input type="text" name="apellidos" [(ngModel)]="form.apellidos" #apellidos="ngModel"
-                        placeholder="Introducir los apellidos" required>
-                    <div class="alert alert-danger" role="alert" *ngIf="apellidos.errors && f.submitted">Indica los apellidos</div>
+                        placeholder="Apellidos" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="apellidos.errors && f.submitted">Ingresa tus apellidos</div>
                 </div>
 
                 <div class="data">
                     <input type="email" name="email" [(ngModel)]="form.email" #email="ngModel"
-                        placeholder="Introducir correo electrónico" required
+                        placeholder="Correo electrónico" required
                         pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
-                    <div class="alert alert-danger" role="alert" *ngIf="email.errors && f.submitted">Indica el correo electrónico</div>
+                    <div class="alert alert-danger" role="alert" *ngIf="email.errors && f.submitted">Ingresa un correo electrónico</div>
                     <div class="alert alert-danger" role="alert" *ngIf="email.errors && f.submitted">
-                        Indica un correo electrónico valido
+                        Ingresa un correo electrónico correcto
                       </div>
                 </div>
 
                 <div class="data">
                     <input type="text" name="username" [(ngModel)]="form.username" #username="ngModel"
-                        placeholder="Introducir nombre de usuario" required>
-                    <div class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">Indica un nombre
+                        placeholder="Nombre de usuario" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">Ingresa un nombre
                         de usuario</div>
                 </div>
 
                 <div class="data">
                     <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required
-                        #password="ngModel" placeholder="Introducir contraseña">
-                    <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">Indica tu
+                        #password="ngModel" placeholder="Contraseña">
+                    <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">Ingresa una
                         contraseña</div>
                 </div>
 
@@ -59,20 +59,52 @@
             <form  name="form_empresa" (ngSubmit)="g.form.valid && onSubmitEmpresa()" #g="ngForm" novalidate>
                 <div class="data">
                     <input type="text" name="empresa" [(ngModel)]="form_empresa.empresa" #empresa="ngModel"
-                        placeholder="Introducir el nombre de tu empresa" required>
-                    <div class="alert alert-danger" role="alert" *ngIf="empresa.errors && g.submitted">Indica el nombre de tu empresa</div>
+                        placeholder="Nombre de empresa" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="empresa.errors && g.submitted">Ingresa el nombre de tu empresa</div>
                 </div>
 
                 <div class="data">
                     <input type="text" name="ruc" [(ngModel)]="form_empresa.ruc" #ruc="ngModel"
-                        placeholder="Introducir el ruc de tu empresa" required >
-                    <div class="alert alert-danger" role="alert" *ngIf="ruc.errors && g.submitted">Indica el ruc de tu empresa</div>
+                        placeholder="RUC de empresa" required >
+                    <div class="alert alert-danger" role="alert" *ngIf="ruc.errors && g.submitted">Ingresa el ruc de tu empresa</div>
+                </div>
+
+                <div class="data">
+                    <!--input type="text" name="mision" [(ngModel)]="form_empresa.mision" #mision="ngModel"
+                        placeholder="Misión de empresa" required >-->
+                    <textarea name="mision" [(ngModel)]="form_empresa.mision" #mision="ngModel"
+                    placeholder="Misión de empresa" required></textarea>
+                    <div class="alert alert-danger" role="alert" *ngIf="mision.errors && g.submitted">Ingresa la misión de tu empresa</div>
+                </div>
+
+                <div class="data">
+                    <!--<input type="text" name="vision" [(ngModel)]="form_empresa.vision" #vision="ngModel"
+                        placeholder="Visión de empresa" required >-->
+                    <textarea name="vision" [(ngModel)]="form_empresa.vision" #vision="ngModel"
+                    placeholder="Visión de empresa" required></textarea>
+                    <div class="alert alert-danger" role="alert" *ngIf="vision.errors && g.submitted">Ingresa la visión de tu empresa</div>
+                </div>
+
+                <div class="data">
+                    <select name="actividad" [(ngModel)]="form_empresa.actividad" #actividad="ngModel"
+                    placeholder="Actividad económica de tu empresa" required >
+                        <option [value]="null" [disabled]="true" [selected]="true">Actividad económica de tu empresa</option>
+                        <option [value]="a.actividad" *ngFor="let a of actividades">{{a.actividad}}</option>
+                    </select>
+                    <div class="alert alert-danger" role="alert" *ngIf="actividad.errors && g.submitted">Selecciona la actividad económica de tu empresa</div>
+                </div>
+
+                <div class="data">
+                    <input type="file" name="file" (change)="onChange($event)" [(ngModel)]="form_empresa.file" #file="ngModel"
+                        required>
+                    <div class="alert alert-danger" role="alert" *ngIf="file.errors && g.submitted">Carga una
+                        Imagen</div>
                 </div>
 
                 <button type="submit">
                     <p *ngIf="!loading_empresa">Registrar</p>
                     <p>
-                        <mat-spinner style="margin:0 auto;" mode="indeterminate" class="spinner" *ngIf="loading"
+                        <mat-spinner style="margin:0 auto;" mode="indeterminate" class="spinner" *ngIf="loading_empresa"
                             diameter="20"></mat-spinner>
                     </p>
                 </button>

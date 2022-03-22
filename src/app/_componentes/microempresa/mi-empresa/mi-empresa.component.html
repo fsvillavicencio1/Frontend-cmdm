@@ -2,8 +2,7 @@
     <mat-toolbar-row>
         <mat-icon mat-list-icon *ngIf="!isExpanded" (click)="isExpanded = !isExpanded"
             class="chevron-button sidenav-button open">menu</mat-icon>
-        <mat-icon mat-list-icon *ngIf="isExpanded" (click)="isExpanded = !isExpanded"
-            class="chevron-button sidenav-button close">close</mat-icon>
+
     </mat-toolbar-row>
 </mat-toolbar>
 
@@ -11,15 +10,20 @@
     <mat-sidenav-container autosize>
         <mat-sidenav [(opened)]="isExpanded" #sidenav mode="side">
             <mat-nav-list>
-                <mat-list-item class="nav__link" routerLink="/mi-empresa/dashboard" title="Dashboard" routerLinkActive="active">
+                <mat-icon mat-list-icon *ngIf="isExpanded" (click)="isExpanded = !isExpanded"
+                    class="chevron-button sidenav-button close">close</mat-icon>
+                <mat-list-item class="nav__link" routerLink="/mi-empresa/dashboard" title="Dashboard"
+                    routerLinkActive="active">
                     <mat-icon mat-list-icon class="nav__icon">dashboard</mat-icon>
                     <span *ngIf="isExpanded" class="nav__name">Dashboard</span>
                 </mat-list-item>
-                <mat-list-item class="nav__link" routerLink="/mi-empresa/datos" title="Mi empresa" routerLinkActive="active">
+                <mat-list-item class="nav__link" routerLink="/mi-empresa/datos" title="Mi empresa"
+                    routerLinkActive="active">
                     <mat-icon mat-list-icon class="nav__icon">apartment</mat-icon>
                     <span *ngIf="isExpanded" class="nav__name">Mi empresa</span>
                 </mat-list-item>
-                <mat-list-item class="nav__link" routerLink="/mi-empresa/evaluacion" title="Evaluación" routerLinkActive="active">
+                <mat-list-item class="nav__link" routerLink="/mi-empresa/evaluacion" title="Evaluación"
+                    routerLinkActive="active">
                     <mat-icon mat-list-icon class="nav__icon">quiz</mat-icon>
                     <span *ngIf="isExpanded" class="nav__name">Evaluación</span>
                 </mat-list-item>
@@ -35,7 +39,7 @@
             <router-outlet></router-outlet>
         </div>
     </mat-sidenav-container>
-    
+
 </div>
 
 <div class="no_autorizado" *ngIf="!isLoggedIn">

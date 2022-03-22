@@ -1,0 +1,73 @@
+<button mat-icon-button mat-dialog-title mat-dialog-close>
+    <mat-icon class="expand_more">close</mat-icon>
+</button>
+
+<mat-dialog-content class="mat-typography">
+    <div class="container">
+        <mat-spinner class="loading1" style="margin:0 auto;" mode="indeterminate" *ngIf="loading" diameter="30">
+        </mat-spinner>
+        <div *ngIf="!loading">
+            <div class="text" *ngIf="!isSuccessful">Actulización de datos</div>
+            <form  name="form_empresa" *ngIf="!isSuccessful" (ngSubmit)="g.form.valid && onSubmit()" #g="ngForm" novalidate>
+                <div class="data">
+                    <input type="text" name="empresa" [(ngModel)]="form_empresa.empresa" #empresa="ngModel"
+                        placeholder="Nombre de empresa" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="empresa.errors && g.submitted">Ingresa el nombre de tu empresa</div>
+                </div>
+
+                <div class="data">
+                    <input type="text" name="ruc" [(ngModel)]="form_empresa.ruc" #ruc="ngModel"
+                        placeholder="RUC de empresa" required >
+                    <div class="alert alert-danger" role="alert" *ngIf="ruc.errors && g.submitted">Ingresa el ruc de tu empresa</div>
+                </div>
+
+                <div class="data">
+                    <!--input type="text" name="mision" [(ngModel)]="form_empresa.mision" #mision="ngModel"
+                        placeholder="Misión de empresa" required >-->
+                    <textarea name="mision" [(ngModel)]="form_empresa.mision" #mision="ngModel"
+                    placeholder="Misión de empresa" required></textarea>
+                    <div class="alert alert-danger" role="alert" *ngIf="mision.errors && g.submitted">Ingresa la misión de tu empresa</div>
+                </div>
+
+                <div class="data">
+                    <!--<input type="text" name="vision" [(ngModel)]="form_empresa.vision" #vision="ngModel"
+                        placeholder="Visión de empresa" required >-->
+                    <textarea name="vision" [(ngModel)]="form_empresa.vision" #vision="ngModel"
+                    placeholder="Visión de empresa" required></textarea>
+                    <div class="alert alert-danger" role="alert" *ngIf="vision.errors && g.submitted">Ingresa la visión de tu empresa</div>
+                </div>
+
+                <div class="data">
+                    <select name="actividad" [(ngModel)]="form_empresa.actividad" #actividad="ngModel"
+                    placeholder="Actividad económica de tu empresa" required >
+                        <option [value]="null" [disabled]="true" [selected]="true">Actividad económica de tu empresa</option>
+                        <option [value]="a.actividad" *ngFor="let a of actividades">{{a.actividad}}</option>
+                    </select>
+                    <div class="alert alert-danger" role="alert" *ngIf="actividad.errors && g.submitted">Selecciona la actividad económica de tu empresa</div>
+                </div>
+
+                <div class="data">
+                    <input type="file" name="file" (change)="onChange($event)" [(ngModel)]="form_empresa.file" #file="ngModel">
+                    <div class="alert alert-danger" role="alert" *ngIf="file.errors && g.submitted">Carga una
+                        Imagen</div>
+                </div>
+
+                <button type="submit">
+                    <p *ngIf="!loading2">Actualizar</p>
+                    <p>
+                        <mat-spinner style="margin:0 auto;" class="loading2" mode="indeterminate" class="spinner" *ngIf="loading2"
+                            diameter="20"></mat-spinner>
+                    </p>
+                </button>
+                <div class="form-group">
+                    <div class="alert alert-danger error" role="alert" *ngIf="g.submitted && isSignUpFailed">{{
+                        errorMessage }}</div>
+                </div>
+            </form>
+        </div>
+        <div class="acceso-exitoso" *ngIf="isSuccessful">
+            <img src="../../../assets/updateOk.svg" class="image" alt="" />
+            <h3>Tu empresa se actualizó con éxito!</h3>
+        </div>
+    </div>
+</mat-dialog-content>

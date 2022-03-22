@@ -25,6 +25,7 @@ import { MatListModule } from '@angular/material/list';
 import { DashboardComponent } from './_componentes/microempresa/dashboard/dashboard.component';
 import { EmpresaComponent } from './_componentes/microempresa/empresa/empresa.component';
 import { EvaluacionComponent } from './_componentes/microempresa/evaluacion/evaluacion.component';
+import { UpdateEmpresaComponent } from './_componentes/microempresa/update-empresa/update-empresa.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { EvaluacionComponent } from './_componentes/microempresa/evaluacion/eval
     MiEmpresaComponent,
     DashboardComponent,
     EmpresaComponent,
-    EvaluacionComponent
+    EvaluacionComponent,
+    UpdateEmpresaComponent
   ],
   imports: [
     BrowserModule,
