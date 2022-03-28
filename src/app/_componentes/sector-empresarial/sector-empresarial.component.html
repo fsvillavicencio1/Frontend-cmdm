@@ -1,0 +1,30 @@
+<div class="contenido">
+    <h1 class="titulo">Sector microempresarial</h1>
+    <p class="subtitulo">Conoce las microempresas que se han evaluado</p>
+    <div class="empresas">
+        <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading" diameter="40"></mat-spinner>
+        <div class="empresas-card" *ngIf="!loading">
+            <div class="card" *ngFor="let m of micro_filter">
+                <div class="imagen" [ngStyle]="{'background-image': 'url(' + m.imagen + ')'}">
+                    <div class="fondo">
+                        <div class="marco">
+                            <div class="datos">
+                                <p>{{m.empresa}}</p>
+                                <p>Sector: {{m.actividad[0].actividad}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="boton">
+                <button (click)="loadMore()" *ngIf="boton_more">
+                    Ver más
+                </button>
+                <button (click)="loadMenos()" *ngIf="boton_menos">
+                    Ver menos
+                </button>
+            </div>
+        </div>
+        
+    </div>
+</div>

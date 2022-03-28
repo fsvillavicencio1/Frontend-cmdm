@@ -1,5 +1,5 @@
 <mat-toolbar class="animated fadeInDown" id="navbar">
-  <mat-toolbar-row class="header_contactos" *ngIf="isLoggedIn">
+  <mat-toolbar-row class="header_contactos" >
     <div class="spacer"></div>
     <span class="contactos">
       <a mat-button>
@@ -35,18 +35,6 @@
     </div>
   </mat-toolbar-row>
   
-  <mat-toolbar-row class="header_contactos" *ngIf="!isLoggedIn">
-    <div class="spacer"></div>
-    <span class="contactos">
-      <a mat-button>
-        <fa-icon [icon]="faPhone"></fa-icon> (593) 0997574718
-      </a>
-      <a mat-button>
-        <fa-icon [icon]="faEnvelope"></fa-icon> info@turuta.com
-      </a>
-    </span>
-  </mat-toolbar-row>
-
   <mat-toolbar-row class="menu" #stickyMenu [class.sticky]="sticky" *ngIf="!isLoggedIn">
     <span>
       <a mat-button routerLink="/home" class="icon">

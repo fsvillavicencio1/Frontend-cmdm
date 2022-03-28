@@ -181,9 +181,4 @@ form .data input:focus, form .data textarea:focus, form .data select:focus{
     text-align: center;
 }
 
-::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
-    stroke: #ffffff;
-    text-align: center;
-}
-
 

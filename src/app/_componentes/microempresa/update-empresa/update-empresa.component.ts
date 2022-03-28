@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { UserService } from 'src/app/_services/user.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-update-empresa',
@@ -29,6 +31,10 @@ export class UpdateEmpresaComponent implements OnInit {
   imagen = "";
   actividadOk: any = [];
 
+  color: ThemePalette = 'primary';
+  color2: ThemePalette = 'warn';
+  mode: ProgressSpinnerMode = 'indeterminate';
+
   constructor(private userService: UserService, @Inject(MAT_DIALOG_DATA) public d: any) { }
 
   ngOnInit(): void {
@@ -36,7 +42,7 @@ export class UpdateEmpresaComponent implements OnInit {
     this.getMicroempresa();
   }
 
-  public getMicroempresa(){
+  public getMicroempresa() {
     this.loading = true;
     this.userService.getEmpresaId(this.d.id).subscribe(
       data => {
@@ -55,7 +61,7 @@ export class UpdateEmpresaComponent implements OnInit {
     );
   }
 
-  public getActividades(){
+  public getActividades() {
     this.loading = true;
     this.userService.getActividad().subscribe(
       data => {
@@ -115,9 +121,21 @@ export class UpdateEmpresaComponent implements OnInit {
     else {
       this.userService.updateEmpresa(this.microempresa.id, empresa, ruc, mision, vision, imagen, this.actividadOk).subscribe(
         data => {
-          this.isSuccessful = true;
-          this.isSignUpFailed = false;
-          this.loading2 = false;
+
+          this.userService.updateEmpresaJSON(this.microempresa.empresa, empresa).subscribe(
+            data => {
+              this.isSuccessful = true;
+              this.isSignUpFailed = false;
+              this.loading2 = false;
+              console.log(this.microempresa.empresa, empresa);
+            },
+            err => {
+              this.errorMessage = err.error.message;
+              this.isSignUpFailed = true;
+              this.loading2 = false;
+    
+            }
+          )
         },
         err => {
           this.errorMessage = err.error.message;
@@ -140,3 +158,4 @@ export class UpdateEmpresaComponent implements OnInit {
   }
 
 }
+

@@ -102,17 +102,3 @@ form button{
     transform: translate(-50%, -50%);
     margin-top: 30px;
 }
-
-::ng-deep .loading1 {
-    stroke:  #0A66C2
-}
-
-::ng-deep .loading2 {
-    stroke:  #ffffff;
-    text-align: center;
-}
-
-::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
-    stroke: #ffffff;
-    text-align: center;
-}

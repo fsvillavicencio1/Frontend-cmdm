@@ -70,11 +70,12 @@
 }
 
 .dsc-carousel_content-item .content button{
-    background-color: #F57D00;
-    color: #ffffff;
+    background-color: #F4AB14;
+    color: #0A66C2;
     padding: 0.5em 3em;
     margin: 0px 0px 60px 0px;
     font-family: 'Quicksand', sans-serif;
     font-size: 15px;
     z-index: 2;
+    font-weight: 600;
 }

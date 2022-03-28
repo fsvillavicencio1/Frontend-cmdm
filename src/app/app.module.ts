@@ -26,6 +26,11 @@ import { DashboardComponent } from './_componentes/microempresa/dashboard/dashbo
 import { EmpresaComponent } from './_componentes/microempresa/empresa/empresa.component';
 import { EvaluacionComponent } from './_componentes/microempresa/evaluacion/evaluacion.component';
 import { UpdateEmpresaComponent } from './_componentes/microempresa/update-empresa/update-empresa.component';
+import { ResultadosComponent } from './_componentes/microempresa/resultados/resultados.component';
+import { CompeDigitalComponent } from './_componentes/compe-digital/compe-digital.component';
+import { ParallaxComponent } from './_componentes/parallax/parallax.component';
+import { ParallaxScrollModule } from 'ng2-parallaxscroll';
+import { SectorEmpresarialComponent } from './_componentes/sector-empresarial/sector-empresarial.component';
 
 
 @NgModule({
@@ -40,7 +45,11 @@ import { UpdateEmpresaComponent } from './_componentes/microempresa/update-empre
     DashboardComponent,
     EmpresaComponent,
     EvaluacionComponent,
-    UpdateEmpresaComponent
+    UpdateEmpresaComponent,
+    ResultadosComponent,
+    CompeDigitalComponent,
+    ParallaxComponent,
+    SectorEmpresarialComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +66,8 @@ import { UpdateEmpresaComponent } from './_componentes/microempresa/update-empre
     BrowserAnimationsModule,
     CarouselModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    ParallaxScrollModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

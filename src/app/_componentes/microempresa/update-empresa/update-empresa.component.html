@@ -4,7 +4,7 @@
 
 <mat-dialog-content class="mat-typography">
     <div class="container">
-        <mat-spinner class="loading1" style="margin:0 auto;" mode="indeterminate" *ngIf="loading" diameter="30">
+        <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading" diameter="30">
         </mat-spinner>
         <div *ngIf="!loading">
             <div class="text" *ngIf="!isSuccessful">Actulización de datos</div>
@@ -55,7 +55,7 @@
                 <button type="submit">
                     <p *ngIf="!loading2">Actualizar</p>
                     <p>
-                        <mat-spinner style="margin:0 auto;" class="loading2" mode="indeterminate" class="spinner" *ngIf="loading2"
+                        <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color2" *ngIf="loading2"
                             diameter="20"></mat-spinner>
                     </p>
                 </button>

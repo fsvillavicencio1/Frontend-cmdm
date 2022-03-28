@@ -37,7 +37,9 @@
               "./node_modules/aos/dist/aos.css"
             ],
             "scripts": [
-              "./node_modules/aos/dist/aos.js"
+              "./node_modules/aos/dist/aos.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/jsapi.js"
             ]
           },
           "configurations": {

@@ -6,6 +6,7 @@ import { DashboardComponent } from './_componentes/microempresa/dashboard/dashbo
 import { EmpresaComponent } from './_componentes/microempresa/empresa/empresa.component';
 import { EvaluacionComponent } from './_componentes/microempresa/evaluacion/evaluacion.component';
 import { MiEmpresaComponent } from './_componentes/microempresa/mi-empresa/mi-empresa.component';
+import { ResultadosComponent } from './_componentes/microempresa/resultados/resultados.component';
 import { RegistroComponent } from './_componentes/registro/registro.component';
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
     { path: 'datos', component: EmpresaComponent },
     { path: 'evaluacion', component: EvaluacionComponent },
+    { path: 'resultados', component: ResultadosComponent },
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
   ] },
   

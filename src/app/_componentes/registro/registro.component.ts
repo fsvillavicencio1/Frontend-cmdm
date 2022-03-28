@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/_services/user.service';
 import { AuthService } from '../../_services/auth.service';
-
+import {ThemePalette} from '@angular/material/core';
+import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-registro',
@@ -39,6 +40,9 @@ export class RegistroComponent implements OnInit {
   selectedFiles!: FileList;
   currentFile!: File;
   url = "";
+
+  color: ThemePalette = 'warn';
+  mode: ProgressSpinnerMode = 'indeterminate';
 
   constructor(private authService: AuthService, private userService: UserService) { }
 

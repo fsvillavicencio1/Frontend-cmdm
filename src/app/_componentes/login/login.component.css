@@ -145,9 +145,5 @@ form .data input:focus{
     text-align: center;
 }
 
-::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
-    stroke: #ffffff;
-    text-align: center;
-}
 
 

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+.parallax{
+    background-image: url('../../../assets/parallax.jpg');
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 60px;
+      
+}
+
+.parallax h1{
+    font-family: 'Quicksand', sans-serif;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 34px;
+    margin: 0 auto;
+    width: 65%;
+    text-align: center;
+    line-height: 50px;
+    z-index: 2;
+}
+
+.fondo{
+    height: 500px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.48);
+    display: flex;
+    align-items: center; 
+}
+
+
+
+

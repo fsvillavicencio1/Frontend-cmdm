@@ -3,6 +3,8 @@ import { AuthService } from '../../_services/auth.service';
 import { TokenStorageService } from '../../_services/token-storage.service';
 import { ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import {ThemePalette} from '@angular/material/core';
+import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +22,9 @@ export class LoginComponent implements OnInit {
   loading = false;
   errorMessage = '';
   roles: string[] = [];
+
+  color: ThemePalette = 'warn';
+  mode: ProgressSpinnerMode = 'indeterminate';
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router:Router) { }
 

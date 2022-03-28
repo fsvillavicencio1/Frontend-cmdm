@@ -4,6 +4,8 @@ import { TokenStorageService } from '../../../_services/token-storage.service';
 import { AuthService } from '../../../_services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateEmpresaComponent } from '../update-empresa/update-empresa.component';
+import {ThemePalette} from '@angular/material/core';
+import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-empresa',
@@ -17,7 +19,6 @@ export class EmpresaComponent implements OnInit {
   loading = false;
   isEmpresa = false;
   empresa: any = {};
-
   form_empresa: any = {
     empresa: null,
     ruc: null,
@@ -36,6 +37,10 @@ export class EmpresaComponent implements OnInit {
   selectedFiles!: FileList;
   currentFile!: File;
   url = "";
+
+  color: ThemePalette = 'primary';
+  color2: ThemePalette = 'warn';
+  mode: ProgressSpinnerMode = 'indeterminate';
 
   constructor(private tokenStorageService: TokenStorageService, private userService: UserService, private authService: AuthService, public dialogUpdate: MatDialog) { }
 

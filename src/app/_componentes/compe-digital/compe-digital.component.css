@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+
+.container{
+    background-color: #ffffff;
+    width: 85%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 30px;
+}
+
+.competitividad, .digital{
+    width: 48%;
+    display: inline-block;
+    background-color: #ffffff;
+}
+
+.digital{
+    float: right;
+}
+
+.competitividad .imagen{
+    width: 100%;
+    background-image: url("../../../assets/competitividad.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 350px;
+}
+
+.digital .imagen{
+    width: 100%;
+    background-image: url("../../../assets/empresa.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 350px;
+}
+
+.competitividad .fondo, .digital .fondo{
+    height: 350px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center; 
+}
+
+.competitividad .texto, .digital .texto{
+    margin-top: 20px;
+    background-color: #ffffff;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.competitividad .texto h3, .digital .texto h3{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.competitividad .texto p, .digital .texto p{
+    font-size: 15px;
+    font-weight: 400;
+    text-align: justify;
+}
+
+.competitividad .boton, .digital .boton{
+    margin-top: 20px;
+}
+
+.competitividad .boton button, .digital .boton button{
+        height: 45px;
+        width: 25%;
+        background-color: #F4AB14;
+        border: none;
+        color: #0A66C2;
+        font-size: 15px; 
+        cursor: pointer;
+        float: right;
+        font-weight: 550;
+}

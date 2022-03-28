@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/_services/user.service';
 import { TokenStorageService } from '../../../_services/token-storage.service';
+import {ThemePalette} from '@angular/material/core';
+import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +17,11 @@ export class DashboardComponent implements OnInit {
   isEvaluado = false;
   empresa: any = {};
 
+  color: ThemePalette = 'primary';
+  mode: ProgressSpinnerMode = 'indeterminate';
+
   constructor(private tokenStorageService: TokenStorageService, private userService: UserService) { }
+
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -27,15 +33,15 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  public getExistEmpresa(){
+  public getExistEmpresa() {
     this.loading = true;
     this.userService.getEmpresa(this.id_user!).subscribe(
       data => {
-        if (Object.keys(data).length == 0){
+        if (Object.keys(data).length == 0) {
           this.isEmpresa = false;
           this.loading = false;
         }
-        else{
+        else {
           this.isEmpresa = true;
           this.empresa = data;
           this.isEvaluado = this.empresa[0].evaluado;

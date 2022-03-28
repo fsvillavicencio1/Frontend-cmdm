@@ -43,7 +43,7 @@
                 <button type="submit">
                     <p *ngIf="!loading">Continuar</p>
                     <p>
-                        <mat-spinner style="margin:0 auto;" mode="indeterminate" class="spinner" *ngIf="loading"
+                        <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading"
                             diameter="20"></mat-spinner>
                     </p>
                 </button>
@@ -104,7 +104,7 @@
                 <button type="submit">
                     <p *ngIf="!loading_empresa">Registrar</p>
                     <p>
-                        <mat-spinner style="margin:0 auto;" mode="indeterminate" class="spinner" *ngIf="loading_empresa"
+                        <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading_empresa"
                             diameter="20"></mat-spinner>
                     </p>
                 </button>

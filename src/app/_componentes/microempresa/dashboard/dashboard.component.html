@@ -1,24 +1,26 @@
-<div class="container" *ngIf="!loading">
+<div class="container" >
     <h1>Dashboard</h1>
-    <div class="rigth-panel" *ngIf="!isEmpresa">
-        <img src="../../../assets/empresaNot.svg" class="image" alt="" />
-        <h3>Tu empresa aún no está registrada</h3>
-        <p>Registrala para evaluarte y conocer la competitividad y madurez digital de tu empresa</p>
-        <button class="btn-registro" routerLink="/mi-empresa/datos">
-            Registra tu empresa
-        </button>
+    <div *ngIf="!loading">
+        <div class="rigth-panel" *ngIf="!isEmpresa">
+            <img src="../../../assets/empresaNot.svg" class="image" alt="" />
+            <h3>Tu empresa aún no está registrada</h3>
+            <p>Registrala para evaluarte y conocer la competitividad y madurez digital de tu empresa</p>
+            <button class="btn-registro" routerLink="/mi-empresa/datos">
+                Registra tu empresa
+            </button>
+        </div>
+        <div class="rigth-panel" *ngIf="isEmpresa && !isEvaluado" >
+            <img src="../../../assets/evaluacionNot.svg" class="image" alt="" />
+            <h3>Aún no te haz evaluado</h3>
+            <p>Evalúate para conocer la competitividad y madurez digital de tu empresa</p>
+            <button class="btn-registro" routerLink="/mi-empresa/evaluacion">
+                Evalúate
+            </button>
+        </div>
+        <div class="rigth-panel" *ngIf="isEmpresa && isEvaluado">
+            <p>Dashboard</p>
+        </div>
     </div>
-    <div class="rigth-panel" *ngIf="isEmpresa && !isEvaluado" >
-        <img src="../../../assets/evaluacionNot.svg" class="image" alt="" />
-        <h3>Aún no te haz evaluado</h3>
-        <p>Evalúate para conocer la competitividad y madurez digital de tu empresa</p>
-        <button class="btn-registro" routerLink="/mi-empresa/evaluacion">
-            Evalúate
-        </button>
-    </div>
-    <div class="rigth-panel" *ngIf="isEmpresa && isEvaluado">
-        <p>Dashboard</p>
-    </div>
+    <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading" diameter="30"></mat-spinner>
 </div>
 
-<mat-spinner style="margin:0 auto;" mode="indeterminate" *ngIf="loading" diameter="30"></mat-spinner>

@@ -12,7 +12,7 @@
     font-family: 'Quicksand', sans-serif;
     font-size: 20px;
     font-weight: 600;
-    padding: 0px 0px 20px 40px;
+    padding: 0px 0px 0px 40px;
 }
 
 .rigth-panel{
@@ -21,6 +21,11 @@
     background-color: #fff;
     text-align: center;
     margin: 0 auto;
+}
+
+.evaluacion{
+    width: 100%;
+    background-color: #fff;
 }
 
 .rigth-panel .image{
