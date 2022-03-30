@@ -20,6 +20,10 @@ export class DashboardComponent implements OnInit {
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'indeterminate';
 
+  private roles: string[] = [];
+  showAdminBoard = false;
+  showMicroBoard = false;
+  
   constructor(private tokenStorageService: TokenStorageService, private userService: UserService) { }
 
 
@@ -27,7 +31,10 @@ export class DashboardComponent implements OnInit {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
       this.id_user = user.id;
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showMicroBoard = this.roles.includes('ROLE_MICRO');
       console.log(this.id_user);
       this.getExistEmpresa();
     }

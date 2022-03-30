@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ActividadesComponent } from './_componentes/administrador/actividades/actividades.component';
+import { CompetitividadComponent } from './_componentes/administrador/competitividad/competitividad.component';
 import { HomeComponent } from './_componentes/home/home.component';
 import { LoginComponent } from './_componentes/login/login.component';
 import { DashboardComponent } from './_componentes/microempresa/dashboard/dashboard.component';
@@ -18,9 +20,10 @@ const routes: Routes = [
     { path: 'datos', component: EmpresaComponent },
     { path: 'evaluacion', component: EvaluacionComponent },
     { path: 'resultados', component: ResultadosComponent },
+    { path: 'actividades', component: ActividadesComponent },
+    { path: 'competitividad', component: CompetitividadComponent },
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
   ] },
-  
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

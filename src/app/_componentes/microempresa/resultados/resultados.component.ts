@@ -17,6 +17,10 @@ export class ResultadosComponent implements OnInit {
   isEvaluado = false;
   empresa: any = {};
 
+  private roles: string[] = [];
+  showAdminBoard = false;
+  showMicroBoard = false;
+  
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'indeterminate';
 
@@ -27,6 +31,9 @@ export class ResultadosComponent implements OnInit {
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
       this.id_user = user.id;
+      this.roles = user.roles;
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showMicroBoard = this.roles.includes('ROLE_MICRO');
       console.log(this.id_user);
       this.getExistEmpresa();
     }

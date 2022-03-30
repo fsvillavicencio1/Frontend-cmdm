@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { TokenStorageService } from './_services/token-storage.service';
-
+import { Router } from '@angular/router';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
@@ -36,7 +36,7 @@ export class AppComponent {
   elementPosition: any;
 
 
-  constructor(private tokenStorageService: TokenStorageService) { }
+  constructor(private tokenStorageService: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -53,7 +53,6 @@ export class AppComponent {
   logout(): void {
     this.tokenStorageService.signOut();
     window.location.reload();
-    //this.router.navigate(['competitividad']);
   }
 
   ngAfterViewInit() {

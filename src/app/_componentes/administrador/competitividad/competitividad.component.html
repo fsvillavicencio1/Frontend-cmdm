@@ -1,0 +1,101 @@
+<div class="container">
+    <mat-toolbar>
+        <mat-toolbar-row>
+            <span>Publicaciones</span>
+            <span class="example-spacer"></span>
+            <button *ngIf="showAdminBoard && boton_add" mat-stroked-button class="login-button"
+                (click)="addPublicacion()">
+                <mat-icon mat-list-icon class="nav__icon">add</mat-icon> Nueva Publicación
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <div *ngIf="!loading">
+        <div class="left-panel" *ngIf="!showAdminBoard">
+            <img src="../../../assets/seguridad.svg" class="image" alt="" />
+            <h3>NO AUTORIZADO</h3>
+            <p>Tu rol no te permite acceder a esta sección</p>
+        </div>
+        <div *ngIf="showAdminBoard" class="wrapper">
+
+            <div class="tabla" *ngIf="!create_post">
+                <table mat-table [dataSource]="dataSource">
+                    <ng-container matColumnDef="titulo">
+                        <th mat-header-cell *matHeaderCellDef> Publicación </th>
+                        <td mat-cell *matCellDef="let element"> {{element.titulo}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="opciones">
+                        <th mat-header-cell *matHeaderCellDef> Opciones </th>
+                        <td mat-cell *matCellDef="let element">
+                            <button mat-icon-button [matMenuTriggerFor]="menu">
+                                <mat-icon class="expand_more">more_vert</mat-icon>
+                            </button>
+
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item (click)="openDialogView(element.id)">
+                                    <mat-icon class="account_circle">preview</mat-icon>
+                                    <span>Visualizar</span>
+                                </button>
+                                <button mat-menu-item (click)="openDialogUpdate(element.id)">
+                                    <mat-icon class="account_circle">edit_note</mat-icon>
+                                    <span>Editar</span>
+                                </button>
+                                <button mat-menu-item (click)="openDialogDelete(element.id)">
+                                    <mat-icon class="account_circle">delete_outline</mat-icon>
+                                    <span>Eliminar</span>
+                                </button>
+                            </mat-menu>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+            <div class="formulario" *ngIf="create_post">
+                <div class="login">
+                    <div class="text">Crear Publicación</div>
+                    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+                        novalidate>
+                        <div class="data">
+                            <input type="text" name="titulo" [(ngModel)]="form.titulo" #titulo="ngModel"
+                                placeholder="Título de la Publicación" required>
+                            <div class="alert alert-danger" role="alert" *ngIf="titulo.errors && f.submitted">Ingresa el
+                                título de la publicación</div>
+                        </div>
+                        <div class="data">
+                            <input type="file" name="file" (change)="onChange($event)" [(ngModel)]="form.file"
+                                #file="ngModel" required>
+                            <div class="alert alert-danger" role="alert" *ngIf="file.errors && f.submitted">Carga una
+                                Imagen</div>
+                        </div>
+                        <div class="data2">
+                            <ckeditor [editor]="Editor" name="descripcion" [(ngModel)]="form.descripcion" required
+                                #descripcion="ngModel" placeholder="Cuerpo de la publicación"></ckeditor>
+                            <div class="alert alert-danger" role="alert" *ngIf="descripcion.errors && f.submitted">
+                                Ingresa el cuerpo de la publicación</div>
+                        </div>
+                        <div class="botones">
+                            <button type="submit">
+                                <p *ngIf="!loading2">Registrar</p>
+                                <p>
+                                    <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color2" *ngIf="loading2"
+                                        diameter="20">
+                                    </mat-spinner>
+                                </p>
+                            </button>
+                            <button *ngIf="!loading2" type="button" (click)="removePublicacion()" class="cancelar"><p>Cancelar</p></button>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="alert alert-danger error" role="alert" *ngIf="f.submitted && isSignUpFailed">{{
+                                errorMessage }}</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading" diameter="30"></mat-spinner>
+</div>

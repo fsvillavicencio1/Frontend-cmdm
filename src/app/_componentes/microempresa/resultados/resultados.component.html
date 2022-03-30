@@ -1,24 +1,31 @@
 <div class="container" >
     <h1>Resultados</h1>
     <div *ngIf="!loading">
-        <div class="rigth-panel" *ngIf="!isEmpresa">
-            <img src="../../../assets/empresaNot.svg" class="image" alt="" />
-            <h3>Tu empresa aún no está registrada</h3>
-            <p>Registrala para evaluarte y conocer la competitividad y madurez digital de tu empresa</p>
-            <button class="btn-registro" routerLink="/mi-empresa/datos">
-                Registra tu empresa
-            </button>
+        <div class="left-panel" *ngIf="!showMicroBoard">
+            <img src="../../../assets/seguridad.svg" class="image" alt="" />
+            <h3>NO AUTORIZADO</h3>
+            <p>Tu rol no te permite acceder a esta sección</p>
         </div>
-        <div class="rigth-panel" *ngIf="isEmpresa && !isEvaluado" >
-            <img src="../../../assets/evaluacionNot.svg" class="image" alt="" />
-            <h3>Aún no te haz evaluado</h3>
-            <p>Evalúate para conocer la competitividad y madurez digital de tu empresa</p>
-            <button class="btn-registro" routerLink="/mi-empresa/evaluacion">
-                Evalúate
-            </button>
-        </div>
-        <div class="rigth-panel" *ngIf="isEmpresa && isEvaluado">
-            <p>Resultados</p>
+        <div *ngIf="showMicroBoard">
+            <div class="rigth-panel" *ngIf="!isEmpresa">
+                <img src="../../../assets/empresaNot.svg" class="image" alt="" />
+                <h3>Tu empresa aún no está registrada</h3>
+                <p>Registrala para evaluarte y conocer la competitividad y madurez digital de tu empresa</p>
+                <button class="btn-registro" routerLink="/mi-empresa/datos">
+                    Registra tu empresa
+                </button>
+            </div>
+            <div class="rigth-panel" *ngIf="isEmpresa && !isEvaluado" >
+                <img src="../../../assets/evaluacionNot.svg" class="image" alt="" />
+                <h3>Aún no te haz evaluado</h3>
+                <p>Evalúate para conocer la competitividad y madurez digital de tu empresa</p>
+                <button class="btn-registro" routerLink="/mi-empresa/evaluacion">
+                    Evalúate
+                </button>
+            </div>
+            <div class="rigth-panel" *ngIf="isEmpresa && isEvaluado">
+                <p>Resultados</p>
+            </div>
         </div>
     </div>
     <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading" diameter="30"></mat-spinner>

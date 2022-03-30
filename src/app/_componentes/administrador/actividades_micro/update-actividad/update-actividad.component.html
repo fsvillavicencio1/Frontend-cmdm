@@ -1,0 +1,34 @@
+<button mat-icon-button mat-dialog-title mat-dialog-close>
+    <mat-icon class="expand_more">close</mat-icon>
+</button>
+
+<mat-dialog-content class="mat-typography">
+    <div class="container">
+        <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color2" *ngIf="loading" diameter="30"></mat-spinner>
+        <div *ngIf="!isSuccessful && !loading" class="text">Actualizar Actividad</div>
+        <form *ngIf="!isSuccessful && !loading" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <div class="data">
+                <textarea type="text" name="actividad" [(ngModel)]="form.actividad" required #actividad="ngModel"
+                    placeholder="Actividad"></textarea>
+                <div class="alert alert-danger" role="alert" *ngIf="actividad.errors && f.submitted">Ingresa la
+                    actividad</div>
+            </div>
+            <button type="submit">
+                <p *ngIf="!loading2">Actualizar</p>
+                <p>
+                    <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading2" diameter="20">
+                    </mat-spinner>
+                </p>
+            </button>
+            <div class="form-group">
+                <div class="alert alert-danger error" role="alert" *ngIf="f.submitted && isSignUpFailed">{{
+                    errorMessage }}</div>
+            </div>
+        </form>
+
+        <div class="acceso-exitoso" *ngIf="isSuccessful">
+            <img src="../../../assets/OkActividad.svg" class="image" alt="" />
+            <h3>La actividad se actualizó con éxito!</h3>
+        </div>
+    </div>
+</mat-dialog-content>

@@ -21,7 +21,11 @@ export class EvaluacionComponent implements OnInit {
 
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'indeterminate';
- 
+  
+  private roles: string[] = [];
+  showAdminBoard = false;
+  showMicroBoard = false;
+
   cadena = "//survey123.arcgis.com/share/dd498dbccd344e6fa27c45c062e53ec0";
 
   constructor(private tokenStorageService: TokenStorageService, private userService: UserService, private sanitizer: DomSanitizer) {
@@ -33,6 +37,9 @@ export class EvaluacionComponent implements OnInit {
       const user = this.tokenStorageService.getUser();
       this.id_user = user.id;
       console.log(this.id_user);
+      this.roles = user.roles;
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showMicroBoard = this.roles.includes('ROLE_MICRO');
       this.getExistEmpresa();
     }
   }

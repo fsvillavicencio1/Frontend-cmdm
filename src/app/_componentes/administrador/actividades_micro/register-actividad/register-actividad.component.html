@@ -1,0 +1,33 @@
+<button mat-icon-button mat-dialog-title mat-dialog-close>
+    <mat-icon class="expand_more">close</mat-icon>
+</button>
+
+<mat-dialog-content class="mat-typography">
+    <div class="container">
+        <div *ngIf="!isSuccessful" class="text">Registro de Actividad</div>
+        <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <div class="data">
+                <textarea type="text" name="actividad" [(ngModel)]="form.actividad" required #actividad="ngModel"
+                    placeholder="Actividad"></textarea>
+                <div class="alert alert-danger" role="alert" *ngIf="actividad.errors && f.submitted">Ingresa la
+                    actividad</div>
+            </div>
+            <button type="submit">
+                <p *ngIf="!loading">Registrar</p>
+                <p>
+                    <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading" diameter="20">
+                    </mat-spinner>
+                </p>
+            </button>
+            <div class="form-group">
+                <div class="alert alert-danger error" role="alert" *ngIf="f.submitted && isSignUpFailed">{{
+                    errorMessage }}</div>
+            </div>
+        </form>
+
+        <div class="acceso-exitoso" *ngIf="isSuccessful">
+            <img src="../../../assets/OkActividad.svg" class="image" alt="" />
+            <h3>La actividad se registró con éxito!</h3>
+        </div>
+    </div>
+</mat-dialog-content>

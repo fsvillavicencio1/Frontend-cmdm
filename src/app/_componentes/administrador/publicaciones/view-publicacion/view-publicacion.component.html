@@ -1,0 +1,16 @@
+<button mat-icon-button mat-dialog-title mat-dialog-close>
+    <mat-icon class="expand_more">close</mat-icon>
+</button>
+
+<mat-dialog-content class="mat-typography">
+    <div class="container">
+        <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading" diameter="30"></mat-spinner>
+        <div class="imagen">
+            <img src="{{publicacion.imagen}}" alt="">
+        </div>
+        <div class="cuerpo">
+            <h3>{{publicacion.titulo}}</h3>
+            <p [innerHTML]="publicacion.descripcion"></p>
+        </div>
+    </div>
+</mat-dialog-content>

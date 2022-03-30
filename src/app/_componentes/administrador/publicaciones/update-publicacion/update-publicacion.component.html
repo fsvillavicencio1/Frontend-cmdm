@@ -1,0 +1,50 @@
+<button mat-icon-button mat-dialog-title mat-dialog-close>
+    <mat-icon class="expand_more">close</mat-icon>
+</button>
+<mat-dialog-content class="mat-typography">
+    <div class="container">
+        <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading" diameter="30">
+        </mat-spinner>
+        <div *ngIf="!loading">
+            <div class="text" *ngIf="!isSuccessful">Modificar publicación</div>
+            <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                <div class="data">
+                    <input type="text" name="titulo" [(ngModel)]="form.titulo" #titulo="ngModel"
+                        placeholder="Título de la Publicación" required>
+                    <div class="alert alert-danger" role="alert" *ngIf="titulo.errors && f.submitted">Ingresa el
+                        título de la publicación</div>
+                </div>
+                <div class="data">
+                    <input type="file" name="file" (change)="onChange($event)" [(ngModel)]="form.file" #file="ngModel">
+                    <div class="alert alert-danger" role="alert" *ngIf="file.errors && f.submitted">Carga una
+                        Imagen</div>
+                </div>
+                <div class="data2">
+                    <ckeditor [editor]="Editor" name="descripcion" [(ngModel)]="form.descripcion" required
+                        #descripcion="ngModel" placeholder="Cuerpo de la publicación"></ckeditor>
+                    <div class="alert alert-danger" role="alert" *ngIf="descripcion.errors && f.submitted">
+                        Ingresa el cuerpo de la publicación</div>
+                </div>
+                <div class="botones">
+                    <button type="submit">
+                        <p *ngIf="!loading2">Guardar cambios</p>
+                        <p>
+                            <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color2" *ngIf="loading2"
+                                diameter="20">
+                            </mat-spinner>
+                        </p>
+                    </button>
+                </div>
+
+                <div class="form-group">
+                    <div class="alert alert-danger error" role="alert" *ngIf="f.submitted && isSignUpFailed">{{
+                        errorMessage }}</div>
+                </div>
+            </form>
+        </div>
+        <div class="acceso-exitoso" *ngIf="isSuccessful">
+            <img src="../../../assets/updateOk.svg" class="image" alt="" />
+            <h3>La publicación se actualizó con éxito!</h3>
+        </div>
+    </div>
+</mat-dialog-content>

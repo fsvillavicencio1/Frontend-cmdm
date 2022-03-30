@@ -25,6 +25,18 @@ export class UserService {
     return this.http.get(SERVICE_API + 'actividad', {responseType: 'json'});
   }
 
+  getActividadId(id: number): Observable<any>{
+    return this.http.get(SERVICE_API + 'actividad-id/' + id, {responseType: 'json'})
+  }
+
+  registerActividad(actividad: string): Observable<any> {
+    return this.http.post(SERVICE_API + 'actividad', {
+      actividad
+    });
+  }
+
+  
+
   cargarImagen(file: File): Observable<any> {
     let formData = new FormData();
     formData.append('file', file);
@@ -53,6 +65,12 @@ export class UserService {
     });
   }
 
+  updateActividad(id:number, actividad: string): Observable<any> {
+    return this.http.put(SERVICE_API + 'update-actividad/' + id, {
+      actividad
+    });
+  }
+
   getEmpresaId(id: number): Observable<any> {
     return this.http.get(SERVICE_API + 'microempresa/' + id, { responseType: 'json' });
   }
@@ -67,6 +85,44 @@ export class UserService {
 
   getAllEmpresas(): Observable<any> {
     return this.http.get(SERVICE_API + 'microempresas', { responseType: 'json' });
+  }
+
+  /*POSTS*/
+
+  getPublicaciones(): Observable<any> {
+    return this.http.get(SERVICE_API + 'posts', {responseType: 'json'});
+  }
+
+  registerPublicacion(titulo: string, descripcion: string, imagen: string): Observable<any> {
+    return this.http.post(SERVICE_API + 'post', {
+      titulo,
+      descripcion, 
+      imagen
+    });
+  }
+
+  getPublicacionesId(id: number): Observable<any> {
+    return this.http.get(SERVICE_API + 'post-id/' + id, {responseType: 'json'});
+  }
+
+  updatePublicacion(id:number, titulo: string, descripcion: string, imagen: string): Observable<any> {
+    return this.http.put(SERVICE_API + 'update-post/' + id, {
+      titulo,
+      descripcion,
+      imagen
+    });
+  }
+
+  updatePublicacionDetalles(id:number, titulo: string, descripcion: string, imagen: string): Observable<any> {
+    return this.http.put(SERVICE_API + 'update-post-detalles/' + id, {
+      titulo,
+      descripcion,
+      imagen
+    });
+  }
+
+  deletePublicacion(id: number): Observable<any> {
+    return this.http.delete(SERVICE_API + 'delete-post/' + id, {responseType: 'text'})
   }
 
 }

@@ -12,24 +12,43 @@
             <mat-nav-list>
                 <mat-icon mat-list-icon *ngIf="isExpanded" (click)="isExpanded = !isExpanded"
                     class="chevron-button sidenav-button close">close</mat-icon>
-                <mat-list-item class="nav__link" routerLink="/mi-empresa/dashboard" title="Dashboard"
+                <mat-list-item *ngIf="showMicroBoard" class="nav__link" routerLink="/mi-empresa/dashboard" title="Dashboard"
                     routerLinkActive="active">
                     <mat-icon mat-list-icon class="nav__icon">dashboard</mat-icon>
                     <span *ngIf="isExpanded" class="nav__name">Dashboard</span>
                 </mat-list-item>
-                <mat-list-item class="nav__link" routerLink="/mi-empresa/datos" title="Mi empresa"
+                <mat-list-item *ngIf="showMicroBoard" class="nav__link" routerLink="/mi-empresa/datos" title="Mi empresa"
                     routerLinkActive="active">
                     <mat-icon mat-list-icon class="nav__icon">apartment</mat-icon>
                     <span *ngIf="isExpanded" class="nav__name">Mi empresa</span>
                 </mat-list-item>
-                <mat-list-item class="nav__link" routerLink="/mi-empresa/evaluacion" title="Evaluación"
+                <mat-list-item *ngIf="showMicroBoard" class="nav__link" routerLink="/mi-empresa/evaluacion" title="Evaluación"
                     routerLinkActive="active">
                     <mat-icon mat-list-icon class="nav__icon">quiz</mat-icon>
                     <span *ngIf="isExpanded" class="nav__name">Evaluación</span>
                 </mat-list-item>
-                <mat-list-item class="nav__link" routerLink="/mi-empresa/resultados" title="Resultados" routerLinkActive="active">
+                <mat-list-item *ngIf="showMicroBoard" class="nav__link" routerLink="/mi-empresa/resultados" title="Resultados" routerLinkActive="active">
                     <mat-icon mat-list-icon class="nav__icon">article</mat-icon>
                     <span *ngIf="isExpanded" class="nav__name">Resultados</span>
+                </mat-list-item>
+
+                <!--Administrador-->
+                <mat-list-item *ngIf="showAdminBoard" class="nav__link" routerLink="/mi-empresa/dashboard" title="Dashboard"
+                    routerLinkActive="active">
+                    <mat-icon mat-list-icon class="nav__icon">dashboard</mat-icon>
+                    <span *ngIf="isExpanded" class="nav__name">Dashboard</span>
+                </mat-list-item>
+
+                <mat-list-item *ngIf="showAdminBoard" class="nav__link" routerLink="/mi-empresa/actividades" title="Actividades"
+                    routerLinkActive="active">
+                    <mat-icon mat-list-icon class="nav__icon">category</mat-icon>
+                    <span *ngIf="isExpanded" class="nav__name">Actividades</span>
+                </mat-list-item>
+
+                <mat-list-item *ngIf="showAdminBoard" class="nav__link" routerLink="/mi-empresa/competitividad" title="Competitividad"
+                    routerLinkActive="active">
+                    <mat-icon mat-list-icon class="nav__icon">post_add</mat-icon>
+                    <span *ngIf="isExpanded" class="nav__name">Publicaciones</span>
                 </mat-list-item>
 
             </mat-nav-list>

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+.container{
+    background-color: #ffffff;
+    width: 400px;
+    padding: 0px 10px 10px 10px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.container .text{
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    color: #000;
+}
+
+.botones{
+    width: 100%;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.botones .cancelar{
+    background-color: rgb(145, 140, 140);
+}
+
+.container button{
+    height: 45px;
+    width: 25%;
+    display: inline-block;
+    background-color: #0A66C2;
+    border: none;
+    color: #ffffff;
+    font-size: 16px; 
+    cursor: pointer;
+    padding-top: 15px;
+    margin-right: 10px;
+}
+
+.acceso-exitoso{
+    text-align: center;
+}
+
+.acceso-exitoso p{
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.acceso-exitoso img{
+    width: 40%;
+    margin-bottom: 20px;
+}
+
+.nav__icon{
+    color: #0A66C2;
+    font-size: 60px;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 30px;
+}

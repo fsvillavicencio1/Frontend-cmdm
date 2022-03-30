@@ -42,6 +42,10 @@ export class EmpresaComponent implements OnInit {
   color2: ThemePalette = 'warn';
   mode: ProgressSpinnerMode = 'indeterminate';
 
+  private roles: string[] = [];
+  showAdminBoard = false;
+  showMicroBoard = false;
+
   constructor(private tokenStorageService: TokenStorageService, private userService: UserService, private authService: AuthService, public dialogUpdate: MatDialog) { }
 
   ngOnInit(): void {
@@ -51,6 +55,9 @@ export class EmpresaComponent implements OnInit {
       this.id_user = user.id;
       this.usernameOk = [user.username];
       console.log(this.id_user);
+      this.roles = user.roles;
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showMicroBoard = this.roles.includes('ROLE_MICRO');
       this.getExistEmpresa();
       this.getActividades();
     }

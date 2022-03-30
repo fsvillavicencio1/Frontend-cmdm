@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+.container{
+    background-color: #ffffff;
+    width: 700px;
+    padding: 0px 10px 40px 10px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.container .text{
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    color: #000;
+}
+
+.container form .data{
+    width: 100%;
+    margin: 20px 0;
+}
+
+
+form .data input, form .data textarea, form .data select{
+    height: 35px;
+    width: 100%;
+    background-color: rgb(250, 251, 252);
+    border-color: rgb(223, 225, 230);
+    border-radius: 3px;
+    border-style: solid;
+    box-sizing: border-box;
+    color: #000;
+    display: flex;
+    flex: 1 0 auto;
+    font-size: 14px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    line-height: 1.42857;
+    max-width: 100%;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    border-width: 2px;
+    padding: 6px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+
+}
+
+form .data textarea{
+    height: 60px;
+}
+
+form .data input:focus, form .data textarea:focus, form .data select:focus{
+    border-color: #0A66C2;
+    outline: none;
+}
+
+form button{
+    height: 45px;
+    width: 100%;
+    background-color: #0A66C2;
+    border: none;
+    color: #ffffff;
+    font-size: 16px; 
+    cursor: pointer;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+::placeholder{
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+.alert, .error{
+    padding: 5px 0px 0px 0px;
+    color: red;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.error{
+    text-align: center;
+}
+
+.acceso-exitoso{
+    text-align: center;
+}
+
+.acceso-exitoso p{
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.acceso-exitoso img{
+    width: 40%;
+    margin-bottom: 20px;
+}
+
+.nav__icon{
+    color: #0A66C2;
+    font-size: 60px;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 30px;
+}

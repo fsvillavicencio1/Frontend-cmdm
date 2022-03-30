@@ -31,7 +31,15 @@ import { CompeDigitalComponent } from './_componentes/compe-digital/compe-digita
 import { ParallaxComponent } from './_componentes/parallax/parallax.component';
 import { ParallaxScrollModule } from 'ng2-parallaxscroll';
 import { SectorEmpresarialComponent } from './_componentes/sector-empresarial/sector-empresarial.component';
-
+import { ActividadesComponent } from './_componentes/administrador/actividades/actividades.component';
+import { CompetitividadComponent } from './_componentes/administrador/competitividad/competitividad.component';
+import { MatTableModule } from '@angular/material/table';
+import { RegisterActividadComponent } from './_componentes/administrador/actividades_micro/register-actividad/register-actividad.component';
+import { UpdateActividadComponent } from './_componentes/administrador/actividades_micro/update-actividad/update-actividad.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { ViewPublicacionComponent } from './_componentes/administrador/publicaciones/view-publicacion/view-publicacion.component';
+import { UpdatePublicacionComponent } from './_componentes/administrador/publicaciones/update-publicacion/update-publicacion.component';
+import { DeletePublicacionComponent } from './_componentes/administrador/publicaciones/delete-publicacion/delete-publicacion.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +57,14 @@ import { SectorEmpresarialComponent } from './_componentes/sector-empresarial/se
     ResultadosComponent,
     CompeDigitalComponent,
     ParallaxComponent,
-    SectorEmpresarialComponent
+    SectorEmpresarialComponent,
+    ActividadesComponent,
+    CompetitividadComponent,
+    RegisterActividadComponent,
+    UpdateActividadComponent,
+    ViewPublicacionComponent,
+    UpdatePublicacionComponent,
+    DeletePublicacionComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +82,9 @@ import { SectorEmpresarialComponent } from './_componentes/sector-empresarial/se
     CarouselModule,
     MatSidenavModule,
     MatListModule,
-    ParallaxScrollModule
+    ParallaxScrollModule,
+    MatTableModule,
+    CKEditorModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
