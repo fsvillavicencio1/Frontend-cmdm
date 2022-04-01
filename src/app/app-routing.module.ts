@@ -9,11 +9,13 @@ import { EmpresaComponent } from './_componentes/microempresa/empresa/empresa.co
 import { EvaluacionComponent } from './_componentes/microempresa/evaluacion/evaluacion.component';
 import { MiEmpresaComponent } from './_componentes/microempresa/mi-empresa/mi-empresa.component';
 import { ResultadosComponent } from './_componentes/microempresa/resultados/resultados.component';
+import { PublicacionComponent } from './_componentes/publicacion/publicacion.component';
 import { RegistroComponent } from './_componentes/registro/registro.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'registro', component: RegistroComponent },
+  { path: 'publicacion/:nombre', component: PublicacionComponent},
   { path: 'mi-empresa', component: LoginComponent,
   children: [
     { path: 'dashboard', component: DashboardComponent },

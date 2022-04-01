@@ -1,0 +1,28 @@
+<div class="contenido">
+    <h1 class="titulo">Proceso de Competitividad</h1>
+    <p class="subtitulo">Pasos y consejos para mejorar en Competitividad y Madurez Digital</p>
+    <div class="empresas">
+        <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading" diameter="40"></mat-spinner>
+        <div class="empresas-card" *ngIf="!loading">
+            <div class="card" *ngFor="let m of publi_filter">
+                <div class="imagen" [ngStyle]="{'background-image': 'url(' + m.imagen + ')'}">
+                    <div class="fondo">
+                        <div class="marco"></div>
+                    </div>
+                </div>
+                <div class="texto">
+                    <p routerLink="/publicacion/{{m.titulo}}">{{m.titulo}}</p>
+                </div>
+            </div>
+            <div class="boton">
+                <button (click)="loadMore()" *ngIf="boton_more">
+                    Ver más
+                </button>
+                <button (click)="loadMenos()" *ngIf="boton_menos">
+                    Ver menos
+                </button>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -40,6 +40,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ViewPublicacionComponent } from './_componentes/administrador/publicaciones/view-publicacion/view-publicacion.component';
 import { UpdatePublicacionComponent } from './_componentes/administrador/publicaciones/update-publicacion/update-publicacion.component';
 import { DeletePublicacionComponent } from './_componentes/administrador/publicaciones/delete-publicacion/delete-publicacion.component';
+import { ProcesoCompetitividadComponent } from './_componentes/proceso-competitividad/proceso-competitividad.component';
+import { PublicacionComponent } from './_componentes/publicacion/publicacion.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { DeletePublicacionComponent } from './_componentes/administrador/publica
     UpdateActividadComponent,
     ViewPublicacionComponent,
     UpdatePublicacionComponent,
-    DeletePublicacionComponent
+    DeletePublicacionComponent,
+    ProcesoCompetitividadComponent,
+    PublicacionComponent
   ],
   imports: [
     BrowserModule,

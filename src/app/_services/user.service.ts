@@ -105,6 +105,10 @@ export class UserService {
     return this.http.get(SERVICE_API + 'post-id/' + id, {responseType: 'json'});
   }
 
+  getPublicacionNombre(nombre: String): Observable<any> {
+    return this.http.get(SERVICE_API + 'post-nombre/' + nombre, {responseType: 'json'});
+  }
+
   updatePublicacion(id:number, titulo: string, descripcion: string, imagen: string): Observable<any> {
     return this.http.put(SERVICE_API + 'update-post/' + id, {
       titulo,

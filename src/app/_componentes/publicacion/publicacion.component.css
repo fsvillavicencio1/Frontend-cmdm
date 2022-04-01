@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+
+.contenedor{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.contenedor .publicacion{
+    width: 70%;
+    display: inline-block;
+}
+
+.contenedor .publicacion .titulo{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.contenedor .publicacion .titulo p{
+    font-size: 30px;
+    font-family: 'Quicksand', sans-serif;
+    line-height: 40px;
+    font-weight: 550;
+    padding: 10px 0px 0px 0px;
+}
+
+.contenedor .publicacion .imagen{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.contenedor .publicacion .imagen img{
+    width: 100%;
+}
+
+.contenedor .publicacion .texto{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: justify;
+    font-size: 15px;
+    line-height: 25px;
+}
+
+.contenedor .otras{
+    width: 29%;
+    display: inline-block;
+    vertical-align: top;
+    border-left: 2px solid #000000;
+}
+
+.contenedor .otras .titulo_otras{
+    font-size: 15px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 550;
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+.contenedor .otras .list_publicaciones .pub{
+    font-size: 15px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 550;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    color: #0A66C2;
+}
+
+.contenedor .otras .list_publicaciones .pub p:hover{
+    color: #F4AB14;
+    cursor: pointer;
+}
+
