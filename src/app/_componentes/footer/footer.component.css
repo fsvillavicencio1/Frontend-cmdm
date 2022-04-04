@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+.contenido {
+    width: 100%;
+    background-color: #263238;
+    margin-top: 40px;
+}
+
+.menu {
+    width: 100%;
+    background-color: #263238;
+    padding: 3em 0em 1em 0em;
+    box-sizing: border-box;
+}
+
+.line1 {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.derechos,
+.web,
+.contactos {
+    display: inline-block;
+    width: 33%;
+    vertical-align: top;
+}
+
+.derechos {
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    color: #ffffff;
+}
+
+.line1 img {
+    width: 35% !important;
+}
+
+.web {
+    text-align: center;
+    vertical-align: top;
+
+}
+
+.contactos .info {
+    width: 50%;
+    margin: 0 auto;
+    color: #ffffff;
+}
+
+.web a {
+    color: #ffffff;
+    font-size: 17px;
+    margin-left: 10px;
+    top: 0px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: solid 2px #ffffff;
+    padding: 0.5em 1em;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.web a:hover {
+    background-color: #F4AB14;
+}
+
+@media screen and (max-width: 1100px) {
+    .derechos {
+        width: 100%;
+    }
+
+    .web,
+    .contactos {
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .contactos .info {
+        width: 100%;
+        margin: 0 auto;
+        color: #ffffff;
+        text-align: center;
+    }
+}

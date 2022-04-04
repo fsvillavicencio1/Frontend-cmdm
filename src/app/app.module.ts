@@ -42,6 +42,8 @@ import { UpdatePublicacionComponent } from './_componentes/administrador/publica
 import { DeletePublicacionComponent } from './_componentes/administrador/publicaciones/delete-publicacion/delete-publicacion.component';
 import { ProcesoCompetitividadComponent } from './_componentes/proceso-competitividad/proceso-competitividad.component';
 import { PublicacionComponent } from './_componentes/publicacion/publicacion.component';
+import { FooterComponent } from './_componentes/footer/footer.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,8 @@ import { PublicacionComponent } from './_componentes/publicacion/publicacion.com
     UpdatePublicacionComponent,
     DeletePublicacionComponent,
     ProcesoCompetitividadComponent,
-    PublicacionComponent
+    PublicacionComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +91,8 @@ import { PublicacionComponent } from './_componentes/publicacion/publicacion.com
     MatListModule,
     ParallaxScrollModule,
     MatTableModule,
-    CKEditorModule
+    CKEditorModule,
+    FlexLayoutModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

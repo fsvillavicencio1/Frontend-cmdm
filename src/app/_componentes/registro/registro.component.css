@@ -181,4 +181,33 @@ form .data input:focus, form .data textarea:focus, form .data select:focus{
     text-align: center;
 }
 
+@media screen and (max-width: 900px){
+    .panel{
+        width: 100%;
+    }
+    
+    .left-panel{
+        width: 100%;
+        background-color: #0A66C2;
+        border-radius: 10px;
+
+    }
+    
+    .left-panel .image{
+        display: none;
+    }
+    
+    
+    .formulario{
+        width: 100%;
+    }
+
+    .formulario .login {
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+}
+
+
 

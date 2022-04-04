@@ -8,6 +8,7 @@
     box-sizing: border-box;
     font-family: 'Quicksand', sans-serif;
     margin-top: 30px;
+    height: auto;
 }
 
 .competitividad, .digital{
@@ -75,4 +76,31 @@
         cursor: pointer;
         float: right;
         font-weight: 550;
+}
+
+@media screen and (max-width: 900px){
+    .container{
+        width: 75%;
+        height: 175vh;
+    }
+
+    .competitividad, .digital{
+        width: 100%;   
+    }
+
+    .digital{
+        margin-top: 30px;
+    }
+
+    .competitividad .boton button, .digital .boton button{
+        height: 45px;
+        width: 30%;
+        background-color: #F4AB14;
+        border: none;
+        color: #0A66C2;
+        font-size: 15px; 
+        cursor: pointer;
+        float: right;
+        font-weight: 550;
+}
 }

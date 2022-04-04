@@ -1,5 +1,5 @@
 <mat-toolbar class="animated fadeInDown" id="navbar">
-  <mat-toolbar-row class="header_contactos" >
+  <mat-toolbar-row class="header_contactos">
     <div class="spacer"></div>
     <span class="contactos">
       <a mat-button>
@@ -17,7 +17,7 @@
       </a>
     </span>
     <div class="spacer"></div>
-    <div class="opciones">
+    <div class="opciones" fxShow="true" fxHide.lt-md>
       <a mat-button class="username">{{username}}</a>
       <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon class="expand_more">expand_more</mat-icon>
@@ -33,8 +33,26 @@
         </button>
       </mat-menu>
     </div>
+
+    <div fxShow="true" fxHide.gt-sm>
+      <button mat-icon-button [matMenuTriggerFor]="dropMenu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #dropMenu="matMenu">
+        <a mat-button class="username">{{username}}</a>
+        <button mat-menu-item>
+          <mat-icon class="account_circle">person_outline</mat-icon>
+          <span>Perfíl</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon class="logout">logout</mat-icon>
+          <span>Cerrar sesión</span>
+        </button>
+      </mat-menu>
+    </div>
+
   </mat-toolbar-row>
-  
+
   <mat-toolbar-row class="menu" #stickyMenu [class.sticky]="sticky" *ngIf="!isLoggedIn">
     <span>
       <a mat-button routerLink="/home" class="icon">
@@ -42,13 +60,27 @@
       </a>
     </span>
     <div class="spacer"></div>
-    <div class="opciones">
+    <div class="opciones" fxShow="true" fxHide.lt-md>
       <a mat-button routerLink="/home" routerLinkActive="active">Inicio</a>
       <a mat-button routerLink="/r" routerLinkActive="active">Proyectos</a>
       <a mat-button routerLink="a" routerLinkActive="active">Contactos</a>
       <a mat-button routerLink="/registro" routerLinkActive="active">Regístrate</a>
       <a mat-button routerLink="/mi-empresa" routerLinkActive="active">Evalúate</a>
     </div>
+
+    <div fxShow="true" fxHide.gt-sm>
+      <button mat-icon-button [matMenuTriggerFor]="dropMenu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #dropMenu="matMenu">
+        <button mat-menu-item><a mat-button routerLink="/home" routerLinkActive="active">Inicio</a></button>
+        <button mat-menu-item><a mat-button routerLink="/r" routerLinkActive="active">Proyectos</a></button>
+        <button mat-menu-item><a mat-button routerLink="a" routerLinkActive="active">Contactos</a></button>
+        <button mat-menu-item><a mat-button routerLink="/registro" routerLinkActive="active">Regístrate</a></button>
+        <button mat-menu-item><a mat-button routerLink="/mi-empresa" routerLinkActive="active">Evalúate</a></button>
+      </mat-menu>
+    </div>
+
   </mat-toolbar-row>
 
 </mat-toolbar>
