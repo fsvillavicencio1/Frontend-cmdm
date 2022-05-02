@@ -3,6 +3,7 @@ import { UserService } from 'src/app/_services/user.service';
 import { TokenStorageService } from '../../../_services/token-storage.service';
 import {ThemePalette} from '@angular/material/core';
 import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,6 +17,9 @@ export class DashboardComponent implements OnInit {
   isEmpresa = false;
   isEvaluado = false;
   empresa: any = {};
+  trustedDashboardUrl?: SafeUrl;
+
+  cadena = "https://app.powerbi.com/reportEmbed?reportId=0335a70b-d55a-4e18-86a0-26cbd205829f&autoAuth=true&ctid=6eeb49aa-436d-43e6-becd-bbdf79e5077d&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWNlbnRyYWwtdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D";
 
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'indeterminate';
@@ -24,7 +28,7 @@ export class DashboardComponent implements OnInit {
   showAdminBoard = false;
   showMicroBoard = false;
   
-  constructor(private tokenStorageService: TokenStorageService, private userService: UserService) { }
+  constructor(private tokenStorageService: TokenStorageService, private userService: UserService, private sanitizer: DomSanitizer) { }
 
 
   ngOnInit(): void {
@@ -54,6 +58,9 @@ export class DashboardComponent implements OnInit {
           this.isEvaluado = this.empresa[0].evaluado;
           this.loading = false;
 
+          this.trustedDashboardUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+            this.cadena
+            + "&filter=CMVIEW/empresa eq '" + this.empresa[0].empresa + "'");
         }
       },
       err => {

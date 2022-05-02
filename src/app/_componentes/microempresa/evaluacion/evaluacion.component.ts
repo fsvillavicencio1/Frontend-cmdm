@@ -1,9 +1,9 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/_services/user.service';
 import { TokenStorageService } from '../../../_services/token-storage.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import {ThemePalette} from '@angular/material/core';
-import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-evaluacion',
@@ -17,11 +17,12 @@ export class EvaluacionComponent implements OnInit {
   loading = false;
   isEmpresa = false;
   empresa: any = {};
-  trustedDashboardUrl? : SafeUrl;
+  trustedDashboardUrl?: SafeUrl;
+  user?: any;
 
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'indeterminate';
-  
+
   private roles: string[] = [];
   showAdminBoard = false;
   showMicroBoard = false;
@@ -34,10 +35,10 @@ export class EvaluacionComponent implements OnInit {
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (this.isLoggedIn) {
-      const user = this.tokenStorageService.getUser();
-      this.id_user = user.id;
+      this.user = this.tokenStorageService.getUser();
+      this.id_user = this.user.id;
       console.log(this.id_user);
-      this.roles = user.roles;
+      this.roles = this.user.roles;
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showMicroBoard = this.roles.includes('ROLE_MICRO');
       this.getExistEmpresa();
@@ -55,10 +56,12 @@ export class EvaluacionComponent implements OnInit {
         else {
           this.isEmpresa = true;
           this.empresa = data;
+          
           this.trustedDashboardUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-            this.cadena 
-            + "?field:_11_raz_n_social=" + this.empresa[0].empresa 
+            this.cadena
+            + "?field:_11_raz_n_social=" + this.empresa[0].empresa
             + "&field:_12_ruc=" + this.empresa[0].ruc
+            + "&field:_15_correo_electr_nico=" + this.user.email
             + "&hide=navbar"
             + "&autoRefresh=3");
           this.loading = false;

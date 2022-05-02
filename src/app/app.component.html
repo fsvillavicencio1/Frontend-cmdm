@@ -64,6 +64,7 @@
       <a mat-button routerLink="/home" routerLinkActive="active">Inicio</a>
       <a mat-button routerLink="/r" routerLinkActive="active">Proyectos</a>
       <a mat-button routerLink="a" routerLinkActive="active">Contactos</a>
+      <a mat-button routerLink="/b" routerLinkActive="active">Blog</a>
       <a mat-button routerLink="/registro" routerLinkActive="active">Regístrate</a>
       <a mat-button routerLink="/mi-empresa" routerLinkActive="active">Evalúate</a>
     </div>
@@ -73,11 +74,30 @@
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #dropMenu="matMenu">
-        <button mat-menu-item><a mat-button routerLink="/home" routerLinkActive="active">Inicio</a></button>
-        <button mat-menu-item><a mat-button routerLink="/r" routerLinkActive="active">Proyectos</a></button>
-        <button mat-menu-item><a mat-button routerLink="a" routerLinkActive="active">Contactos</a></button>
-        <button mat-menu-item><a mat-button routerLink="/registro" routerLinkActive="active">Regístrate</a></button>
-        <button mat-menu-item><a mat-button routerLink="/mi-empresa" routerLinkActive="active">Evalúate</a></button>
+        <button mat-menu-item routerLink="/home" class="hover" routerLinkActive="active">
+          <mat-icon class="account_circle" class="opciones_menu">home</mat-icon>
+          <span class="opciones_menu">Inicio</span>
+        </button>
+        <button mat-menu-item routerLink="/r" class="hover" routerLinkActive="active">
+          <mat-icon class="account_circle" class="opciones_menu">work</mat-icon>
+          <span class="opciones_menu">Proyectos</span>
+        </button>
+        <button mat-menu-item routerLink="/a" class="hover" routerLinkActive="active">
+          <mat-icon class="account_circle" class="opciones_menu">call</mat-icon>
+          <span class="opciones_menu">Contactos</span>
+        </button>
+        <button mat-menu-item routerLink="/b" class="hover" routerLinkActive="active">
+          <mat-icon class="account_circle" class="opciones_menu">rss_feed</mat-icon>
+          <span class="opciones_menu">Blog</span>
+        </button>
+        <button mat-menu-item routerLink="/registro" class="hover" routerLinkActive="active">
+          <mat-icon class="account_circle" class="opciones_menu">app_registration</mat-icon>
+          <span class="opciones_menu">Regístrate</span>
+        </button>
+        <button mat-menu-item routerLink="/mi-empresa" class="hover" routerLinkActive="active">
+          <mat-icon class="account_circle" class="opciones_menu">login</mat-icon>
+          <span class="opciones_menu">Evalúate</span>
+        </button>
       </mat-menu>
     </div>
 

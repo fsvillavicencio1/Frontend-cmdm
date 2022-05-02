@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 const SERVICE_API = 'http://localhost:8081/cmdm/services/';
 const SERVICE_API_AZURE = 'https://prod-49.eastus2.logic.azure.com:443/workflows/47c4a422bf8745099ff2ff6ac93f5e03/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=9g623ShbKSK9zGa0v04p3RY1YLe4YFrVjGzNxSDQLcc';
-
+const SERVICE_API_EMAIL = 'https://prod-53.eastus2.logic.azure.com:443/workflows/344b41cea2af418fa8abca356e4418fd/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=DeS4uTENIbg1W8ZRsQixnB_uRDCFXWN1gSgmV_3TOE0';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'} )
 };
@@ -80,6 +80,14 @@ export class UserService {
       empresa_antes,
       empresa_ahora
     
+    }, httpOptions);
+  }
+
+  sendEmailStudent(email: string, cuerpo: string, url: string): Observable<any> {
+    return this.http.post(SERVICE_API_EMAIL, {
+      email,
+      cuerpo,
+      url
     }, httpOptions);
   }
 

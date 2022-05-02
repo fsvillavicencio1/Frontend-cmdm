@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="formulario">
+        <div class="login">
+            <div class="text">Envíar correo electrónico</div>
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+                novalidate>
+                <div class="data">
+                    <input type="email" name="correo" [(ngModel)]="form.correo" #correo="ngModel"
+                        placeholder="Correo electrónico" required
+                        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                    <div class="alert alert-danger" role="alert" *ngIf="correo.errors && f.submitted">Ingresa un correo electrónico</div>
+                    <div class="alert alert-danger" role="alert" *ngIf="correo.errors && f.submitted">
+                        Ingresa un correo electrónico correcto
+                      </div>
+                </div>
+                
+                <div class="data2">
+                    <ckeditor [editor]="Editor" name="cuerpo" [(ngModel)]="form.cuerpo" required
+                        #cuerpo="ngModel" placeholder="Cuerpo del correo electrónico"></ckeditor>
+                    <div class="alert alert-danger" role="alert" *ngIf="cuerpo.errors && f.submitted">
+                        Ingresa el cuerpo del correo electrónico</div>
+                </div>
+                <div class="botones">
+                    <button type="submit">
+                        <p *ngIf="!loading">Envíar correo</p>
+                        <p>
+                            <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color2" *ngIf="loading"
+                                diameter="20">
+                            </mat-spinner>
+                        </p>
+                    </button>
+                </div>
+    
+                <div class="form-group">
+                    <div class="alert alert-danger error" role="alert" *ngIf="f.submitted && isSignUpFailed">{{
+                        errorMessage }}</div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -44,6 +44,7 @@ import { ProcesoCompetitividadComponent } from './_componentes/proceso-competiti
 import { PublicacionComponent } from './_componentes/publicacion/publicacion.component';
 import { FooterComponent } from './_componentes/footer/footer.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SendEmailComponent } from './_componentes/send-email/send-email.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     DeletePublicacionComponent,
     ProcesoCompetitividadComponent,
     PublicacionComponent,
-    FooterComponent
+    FooterComponent,
+    SendEmailComponent
   ],
   imports: [
     BrowserModule,

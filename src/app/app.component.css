@@ -106,3 +106,15 @@
 .opciones .username:hover{
     color: #000;
 }
+
+.opciones_menu{
+    color: #000;
+}
+
+.hover:hover{
+    background-color: #F4AB14;
+}
+
+.menu >.active{
+    background-color: #F4AB14;
+}

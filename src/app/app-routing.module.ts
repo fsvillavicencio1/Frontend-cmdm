@@ -11,11 +11,13 @@ import { MiEmpresaComponent } from './_componentes/microempresa/mi-empresa/mi-em
 import { ResultadosComponent } from './_componentes/microempresa/resultados/resultados.component';
 import { PublicacionComponent } from './_componentes/publicacion/publicacion.component';
 import { RegistroComponent } from './_componentes/registro/registro.component';
+import { SendEmailComponent } from './_componentes/send-email/send-email.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'publicacion/:nombre', component: PublicacionComponent},
+  { path: 'share', component: SendEmailComponent},
   { path: 'mi-empresa', component: LoginComponent,
   children: [
     { path: 'dashboard', component: DashboardComponent },
