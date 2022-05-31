@@ -10,11 +10,11 @@ import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-  actividades: any = [];
+  tipos: any = [];
   form: any = {
     nombres: null,
     apellidos: null,
-    email: null,
+    //email: null,
     username: null,
     password: null
   };
@@ -26,16 +26,28 @@ export class RegistroComponent implements OnInit {
   actividadOk: any = [];
 
   form_empresa: any = {
-    empresa: null,
+    razonSocial: null,
     ruc: null,
-    mision: null,
-    vision: null,
-    actividad: null
+    direccion: null,
+    telefono: null,
+    correo: null,
+    paginaWeb: null,
+    empleadosHombres: null,
+    empleadosMujeres: null,
+    tipo: null,
+    actividad: null,
+    subactividad: null,
+    perteneceAsociacion: null,
+    quiereAsociacion: null,
+    provincia: null
   };
   isSuccessful_empresa = false;
   isSignUpFailed_empresa = false;
   errorMessage_empresa = '';
   loading_empresa = false;
+
+  imagen = false;
+  imagen_defecto = "https://adlsutpl.blob.core.windows.net/imagen-microempresas/man-giving-business-presentation-using-high-technology-digital-pen.jpg";
 
   selectedFiles!: FileList;
   currentFile!: File;
@@ -43,18 +55,25 @@ export class RegistroComponent implements OnInit {
 
   color: ThemePalette = 'warn';
   mode: ProgressSpinnerMode = 'indeterminate';
+  
+  pertenece = ["Si", "No"]
+  provincias = ["Azuay","Bolívar","Cañar","Carchi","Chimborazo","Cotopaxi","El Oro",
+  "Esmeraldas","Galápagos","Guayas","Imbabura","Loja","Los Ríos",
+  "Manabí","Morona Santiago","Napo","Orellana",
+  "Pastaza","Pichincha","Santa Elena","Santo Domingo",
+  "Sucumbíos","Tungurahua","Zamora Chinchipe"];
 
   constructor(private authService: AuthService, private userService: UserService) { }
 
   
   ngOnInit(): void {
-    this.getActividades();
+    this.getTipos();
   }
 
-  public getActividades(){
-    this.userService.getActividad().subscribe(
+  public getTipos(){
+    this.userService.getTipos().subscribe(
       data => {
-        this.actividades = data;
+        this.tipos = data;
       },
       err => {
         console.log(err);
@@ -65,8 +84,8 @@ export class RegistroComponent implements OnInit {
   
   onSubmit(): void {
     this.loading = true;
-    const { nombres, apellidos, email, username, password } = this.form;
-    this.authService.registerUser(nombres, apellidos, email, username, password).subscribe(
+    const { nombres, apellidos, /*email,*/ username, password } = this.form;
+    this.authService.registerUser(nombres, apellidos, /*email,*/ username, password).subscribe(
       data => {
         console.log(data);
         this.isSuccessful = true;
@@ -85,23 +104,31 @@ export class RegistroComponent implements OnInit {
 
   onSubmitEmpresa(): void {
     this.loading_empresa = true;
-    this.userService.cargarImagen(this.currentFile).subscribe(
-      data => {
-        this.url = data;
-        this.cargarEmpresa(this.url);
-      },
-      err => {
-        this.errorMessage_empresa = err;
-        this.isSignUpFailed_empresa = true;
-        this.loading_empresa = false;
-      }
-    );
+    if(this.imagen == true){
+      this.userService.cargarImagen(this.currentFile).subscribe(
+        data => {
+          this.url = data;
+          this.cargarEmpresa(this.url);
+        },
+        err => {
+          this.errorMessage_empresa = err;
+          this.isSignUpFailed_empresa = true;
+          this.loading_empresa = false;
+        }
+      );
+    }
+    else{
+      this.cargarEmpresa(this.imagen_defecto);
+    }
+    
   }
 
   cargarEmpresa(imagen: string){
-    const { empresa, ruc, mision, vision, actividad } = this.form_empresa;
-    this.actividadOk.push(actividad);
-    this.authService.registerEmpresa(empresa, ruc, mision, vision, imagen, this.usernameOk, this.actividadOk).subscribe(
+    const { razonSocial, ruc, direccion, telefono, correo, 
+      paginaWeb, empleadosHombres, empleadosMujeres, tipo, 
+      actividad, subactividad, perteneceAsociacion, quiereAsociacion, provincia} = this.form_empresa;
+    
+    this.authService.registerEmpresa(razonSocial, ruc, direccion, telefono, correo, paginaWeb, parseInt(empleadosHombres), parseInt(empleadosMujeres), tipo, actividad, subactividad, perteneceAsociacion, quiereAsociacion, provincia, imagen, this.usernameOk).subscribe(
       data => {
         console.log(data);
         this.isSuccessful_empresa = true;
@@ -121,6 +148,10 @@ export class RegistroComponent implements OnInit {
     const file: File | null = this.selectedFiles.item(0);
     if(file){
       this.currentFile = file;
+      this.imagen = true;
+    }
+    else{
+      this.imagen = false;
     }
   }
 }

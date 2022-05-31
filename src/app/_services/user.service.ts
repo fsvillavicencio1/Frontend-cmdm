@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
 const SERVICE_API = 'http://localhost:8081/cmdm/services/';
 const SERVICE_API_AZURE = 'https://prod-49.eastus2.logic.azure.com:443/workflows/47c4a422bf8745099ff2ff6ac93f5e03/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=9g623ShbKSK9zGa0v04p3RY1YLe4YFrVjGzNxSDQLcc';
 const SERVICE_API_EMAIL = 'https://prod-53.eastus2.logic.azure.com:443/workflows/344b41cea2af418fa8abca356e4418fd/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=DeS4uTENIbg1W8ZRsQixnB_uRDCFXWN1gSgmV_3TOE0';
+const UPDATE_RUC_LOGIC_APP = "https://prod-25.eastus2.logic.azure.com:443/workflows/ba2e772f85d2493b84d6e723450589ee/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=cNR-TqWuEcpMAPNIFjLfOs2KG2jjUj5b8TM8zmkPc34";
+/*const SRI_API = 'https://srienlinea.sri.gob.ec/sri-catastro-sujeto-servicio-internet/rest/ConsolidadoContribuyente/obtenerPorNumerosRuc';*/
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'} )
 };
@@ -21,8 +24,8 @@ export class UserService {
     return this.http.get(SERVICE_API + 'get-microempresa-user/' + id, { responseType: 'json' });
   }
 
-  getActividad(): Observable<any> {
-    return this.http.get(SERVICE_API + 'actividad', {responseType: 'json'});
+  getTipos(): Observable<any> {
+    return this.http.get(SERVICE_API + 'tipos-microempresa', {responseType: 'json'});
   }
 
   getActividadId(id: number): Observable<any>{
@@ -43,25 +46,63 @@ export class UserService {
     return this.http.post(SERVICE_API + 'upload', formData, { responseType: 'text' });
   }
 
-  updateEmpresa(id:number, empresa: string, ruc: string, mision: string, vision: string, imagen: string, actividad: []): Observable<any> {
-    return this.http.put(SERVICE_API + 'update-microempresa/' + id, {
-      empresa,
+  updateEmpresaNombre(id:number, razonSocial: string, ruc: string, direccion: string, telefono: string, correo: string, paginaWeb: string, empleadosHombres: Number, empleadosMujeres: Number, tipo: string, actividad: string, subactividad: string, perteneceAsociacion: string, quiereAsociacion: string, provincia: string, imagen: string): Observable<any> {
+    return this.http.put(SERVICE_API + 'update-microempresa-nombre/' + id, {
+      razonSocial,
       ruc,
-      mision,
-      vision,
-      imagen,
-      actividad
+      direccion,
+      telefono,
+      correo,
+      paginaWeb,
+      empleadosHombres,
+      empleadosMujeres,
+      tipo,
+      actividad,
+      subactividad,
+      perteneceAsociacion,
+      quiereAsociacion,
+      provincia,
+      imagen
     });
   }
 
-  updateEmpresaDetalles(id:number, empresa: string, ruc: string, mision: string, vision: string, imagen: string, actividad: []): Observable<any> {
-    return this.http.put(SERVICE_API + 'update-microempresa-detalles/' + id, {
-      empresa,
+  updateEmpresaRuc(id:number, razonSocial: string, ruc: string, direccion: string, telefono: string, correo: string, paginaWeb: string, empleadosHombres: Number, empleadosMujeres: Number, tipo: string, actividad: string, subactividad: string, perteneceAsociacion: string, quiereAsociacion: string, provincia: string, imagen: string): Observable<any> {
+    return this.http.put(SERVICE_API + 'update-microempresa-ruc/' + id, {
+      razonSocial,
       ruc,
-      mision,
-      vision,
-      imagen,
-      actividad
+      direccion,
+      telefono,
+      correo,
+      paginaWeb,
+      empleadosHombres,
+      empleadosMujeres,
+      tipo,
+      actividad,
+      subactividad,
+      perteneceAsociacion,
+      quiereAsociacion,
+      provincia,
+      imagen
+    });
+  }
+
+  updateEmpresaDetalles(id:number, razonSocial: string, ruc: string, direccion: string, telefono: string, correo: string, paginaWeb: string, empleadosHombres: Number, empleadosMujeres: Number, tipo: string, actividad: string, subactividad: string, perteneceAsociacion: string, quiereAsociacion: string, provincia: string, imagen: string): Observable<any> {
+    return this.http.put(SERVICE_API + 'update-microempresa-detalles/' + id, {
+      razonSocial,
+      ruc,
+      direccion,
+      telefono,
+      correo,
+      paginaWeb,
+      empleadosHombres,
+      empleadosMujeres,
+      tipo,
+      actividad,
+      subactividad,
+      perteneceAsociacion,
+      quiereAsociacion,
+      provincia,
+      imagen
     });
   }
 
@@ -75,11 +116,10 @@ export class UserService {
     return this.http.get(SERVICE_API + 'microempresa/' + id, { responseType: 'json' });
   }
 
-  updateEmpresaJSON(empresa_antes: string, empresa_ahora: string): Observable<any> {
-    return this.http.post(SERVICE_API_AZURE, {
-      empresa_antes,
-      empresa_ahora
-    
+  updateEmpresaRUC_JSON(ruc_antiguo: string, ruc_nuevo: string): Observable<any> {
+    return this.http.post(UPDATE_RUC_LOGIC_APP, {
+      ruc_antiguo,
+      ruc_nuevo
     }, httpOptions);
   }
 
@@ -136,6 +176,8 @@ export class UserService {
   deletePublicacion(id: number): Observable<any> {
     return this.http.delete(SERVICE_API + 'delete-post/' + id, {responseType: 'text'})
   }
+
+
 
 }
 

@@ -3,31 +3,31 @@
 
 .container {
     background-color: #ffffff;
-    width: 75%;
+    width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
     font-family: 'Quicksand', sans-serif;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    /*margin-top: 50px;
+    margin-bottom: 50px;*/
 }
 
 .panel {
-    width: 55%;
+    width: 50%;
     height: 100%;
     display: inline-block;
     vertical-align: top;
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
 .panel .content {
     text-align: center;
-    padding: 30px 15px;
+    padding: 75px 15px;
 }
 
 .panel h3 {
     font-family: 'Quicksand', sans-serif;
     font-weight: 700;
-    color: #fff;
+    color: #0A66C2;
     font-size: 20px;
 }
 
@@ -35,38 +35,38 @@
     font-family: 'Quicksand', sans-serif;
     font-weight: 500;
     padding: 0px 30px 10px 30px;
-    color: #fff;
-    font-size: 16px;
+    color: #000000;
+    font-size: 20px;
+    line-height: 30px;
 }
 
 .left-panel {
     width: 100%;
     height: 100%;
-    background-color: #0A66C2;
-    border-radius: 0px 0px 400px 0px;
-    border: none;
+    background-color: #ffffff;
 }
 
 .left-panel .image {
-    width: 57%;
-    margin-left: 150px;
+    width: 40%;
+    margin-left: 240px;
 
 }
 
-
 .formulario {
-    width: 45%;
+    width: 50%;
     height: 100%;
     display: inline-block;
     vertical-align: top;
-    padding: 100px 0px;
+    padding: 130px 0px;
     box-sizing: border-box;
 }
 
 .formulario .login {
-    width: 70%;
+    width: 75%;
+    padding: 30px 30px;
     margin: 0 auto;
     box-sizing: border-box;
+    box-shadow: 0px 0px 10px #383838;
 }
 
 .formulario .text {
@@ -76,9 +76,13 @@
     color: #000;
 }
 
+.campo-requerido{
+    color: red;
+}
+
 .formulario form .data {
     width: 100%;
-    margin: 20px 0;
+    margin: 10px 0;
     box-sizing: border-box;
 }
 

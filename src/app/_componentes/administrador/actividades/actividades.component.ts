@@ -48,7 +48,7 @@ export class ActividadesComponent implements OnInit {
 
   public getAllActividades(){
     this.loading = true;
-    let resp = this.userService.getActividad();
+    /*let resp = this.userService.getActividad();
     resp.subscribe(
       report => {
         this.dataSource.data = report as Actividad[];
@@ -58,7 +58,7 @@ export class ActividadesComponent implements OnInit {
         this.loading = false;
         console.log(err);
       }
-    );
+    );*/
   }
 
   openDialogRegister(){

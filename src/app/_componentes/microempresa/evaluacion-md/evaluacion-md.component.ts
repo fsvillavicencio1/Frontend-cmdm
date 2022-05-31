@@ -6,11 +6,11 @@ import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
-  selector: 'app-evaluacion',
-  templateUrl: './evaluacion.component.html',
-  styleUrls: ['./evaluacion.component.css']
+  selector: 'app-evaluacion-md',
+  templateUrl: './evaluacion-md.component.html',
+  styleUrls: ['./evaluacion-md.component.css']
 })
-export class EvaluacionComponent implements OnInit {
+export class EvaluacionMdComponent implements OnInit {
 
   isLoggedIn = false;
   id_user?: number;
@@ -27,7 +27,7 @@ export class EvaluacionComponent implements OnInit {
   showAdminBoard = false;
   showMicroBoard = false;
 
-  cadena = "//survey123.arcgis.com/share/330866db6b3541a59b4108e63e663bbd";
+  cadena = "//survey123.arcgis.com/share/8816ad8e141d461ca305210a58637439";
 
   constructor(private tokenStorageService: TokenStorageService, private userService: UserService, private sanitizer: DomSanitizer) {
   }
@@ -85,7 +85,5 @@ export class EvaluacionComponent implements OnInit {
       }
     );
   }
-
-
 
 }

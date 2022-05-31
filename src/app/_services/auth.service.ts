@@ -23,26 +23,35 @@ export class AuthService {
     }, httpOptions);
   }
 
-  registerUser(nombres: string, apellidos: string, email: string, username: string, password: string): Observable<any> {
+  registerUser(nombres: string, apellidos: string, /*email: string,*/ username: string, password: string): Observable<any> {
     return this.http.post(AUTH_API + 'signup', {
       nombres,
       apellidos,
-      email,
+      /*email,*/
       username,
       password
     });
   }
 
-  registerEmpresa(empresa: string, ruc: string, mision: string, vision: string, imagen: string, user: [], actividad: []): Observable<any> {
+  registerEmpresa(razonSocial: string, ruc: string, direccion: string, telefono: string, correo: string, paginaWeb: string, empleadosHombres: Number, empleadosMujeres: Number, tipo: string, actividad: string, subactividad: string, perteneceAsociacion: string, quiereAsociacion: string, provincia: string, imagen: string, user: []): Observable<any> {
     return this.http.post(SERVICE_API + 'microempresa', {
-      empresa,
+      razonSocial,
       ruc,
-      mision,
-      vision,
+      direccion,
+      telefono,
+      correo,
+      paginaWeb,
+      empleadosHombres,
+      empleadosMujeres,
+      tipo,
+      actividad,
+      subactividad,
+      perteneceAsociacion,
+      quiereAsociacion,
+      provincia,
       imagen,
       evaluado: false,
-      user,
-      actividad
+      user
     });
   }
 

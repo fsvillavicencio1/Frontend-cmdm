@@ -6,6 +6,7 @@ import { HomeComponent } from './_componentes/home/home.component';
 import { LoginComponent } from './_componentes/login/login.component';
 import { DashboardComponent } from './_componentes/microempresa/dashboard/dashboard.component';
 import { EmpresaComponent } from './_componentes/microempresa/empresa/empresa.component';
+import { EvaluacionMdComponent } from './_componentes/microempresa/evaluacion-md/evaluacion-md.component';
 import { EvaluacionComponent } from './_componentes/microempresa/evaluacion/evaluacion.component';
 import { MiEmpresaComponent } from './_componentes/microempresa/mi-empresa/mi-empresa.component';
 import { ResultadosComponent } from './_componentes/microempresa/resultados/resultados.component';
@@ -22,7 +23,8 @@ const routes: Routes = [
   children: [
     { path: 'dashboard', component: DashboardComponent },
     { path: 'datos', component: EmpresaComponent },
-    { path: 'evaluacion', component: EvaluacionComponent },
+    { path: 'evaluacion-competitividad', component: EvaluacionComponent },
+    { path: 'evaluacion-madurez-digital', component: EvaluacionMdComponent },
     { path: 'resultados', component: ResultadosComponent },
     { path: 'actividades', component: ActividadesComponent },
     { path: 'competitividad', component: CompetitividadComponent },

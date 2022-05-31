@@ -12,7 +12,7 @@ export class ProcesoCompetitividadComponent implements OnInit {
   loading = false;
   publicaciones: any = [];
 
-  separar = 4;
+  separar = 5;
   start = 0;
   publi_filter: any = [];
   boton_more = true;

@@ -13,7 +13,7 @@
   <mat-toolbar-row class="menu" *ngIf="isLoggedIn">
     <span>
       <a mat-button routerLink="/mi-empresa" class="icon">
-        <fa-icon [icon]="faRocket"></fa-icon> Competitividad
+        <fa-icon [icon]="faRocket"></fa-icon><span> Digi&Com</span>
       </a>
     </span>
     <div class="spacer"></div>
@@ -56,7 +56,7 @@
   <mat-toolbar-row class="menu" #stickyMenu [class.sticky]="sticky" *ngIf="!isLoggedIn">
     <span>
       <a mat-button routerLink="/home" class="icon">
-        <fa-icon [icon]="faRocket"></fa-icon> Competitividad
+        <fa-icon [icon]="faRocket"></fa-icon><span> Digi&Com</span>
       </a>
     </span>
     <div class="spacer"></div>

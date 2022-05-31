@@ -12,7 +12,7 @@ export class SectorEmpresarialComponent implements OnInit {
   loading = false;
   microempresas: any = [];
 
-  separar = 4;
+  separar = 5;
 
   start = 0;
   micro_filter: any = [];
@@ -25,7 +25,9 @@ export class SectorEmpresarialComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+   
     this.getEmpresas();
+  
   }
 
   public getEmpresas() {

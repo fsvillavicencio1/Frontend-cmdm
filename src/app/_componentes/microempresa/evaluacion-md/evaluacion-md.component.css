@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+.container{
+    background-color: #ffffff;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.container h1{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0px 0px 0px 40px;
+}
+
+.rigth-panel{
+    width: 50%;
+    height: 50%;
+    background-color: #fff;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.evaluacion{
+    width: 100%;
+    background-color: #fff;
+}
+
+.rigth-panel .image{
+    width: 30%;
+    margin-left: 0px;
+    
+}
+
+.rigth-panel h3{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    color: #000;
+    font-size: 20px;
+    padding: 20px 0px 0px 0px;
+}
+
+.rigth-panel p{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    padding: 0px 30px 10px 30px;
+    color: #000;
+    font-size: 16px;
+}
+
+.btn-registro{
+    height: 35px;
+    width: 200px;
+    border: solid 2px #0A66C2;
+    background-color: transparent;
+    border-radius: 10px;
+    color: #0A66C2;
+    font-size: 14px; 
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.left-panel{
+    width: 50%;
+    height: 50%;
+    background-color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 75px;
+}
+
+.left-panel .image{
+    width: 30%;
+    margin-left: 0px;
+    
+}
+
+.left-panel h3{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    color: #000;
+    font-size: 20px;
+    padding: 20px 0px 0px 0px;
+}
+
+.left-panel p{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    padding: 0px 30px 10px 30px;
+    color: #000;
+    font-size: 16px;
+}

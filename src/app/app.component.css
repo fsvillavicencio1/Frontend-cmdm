@@ -45,10 +45,15 @@
 .icon{
     font-family: 'Quicksand', sans-serif;
     color: #0A66C2;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 580;
     margin-left: 50px;
     text-decoration: none;
+}
+
+.icon span{
+    font-size: 18px;
+    color: #000000;
 }
 
 .icon_login{
@@ -78,6 +83,7 @@
     margin-left: 25px;
     text-decoration: none;
 }
+
 
 .opciones_login a{
     font-family: 'Quicksand', sans-serif;

@@ -13,18 +13,27 @@ import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
   styleUrls: ['./empresa.component.css']
 })
 export class EmpresaComponent implements OnInit {
-  actividades: any = [];
+  tipos: any = [];
   isLoggedIn = false;
   id_user?: number;
   loading = false;
   isEmpresa = false;
   empresa: any = {};
   form_empresa: any = {
-    empresa: null,
+    razonSocial: null,
     ruc: null,
-    mision: null,
-    vision: null,
-    actividad: null
+    direccion: null,
+    telefono: null,
+    correo: null,
+    paginaWeb: null,
+    empleadosHombres: null,
+    empleadosMujeres: null,
+    tipo: null,
+    actividad: null,
+    subactividad: null,
+    perteneceAsociacion: null,
+    quiereAsociacion: null,
+    provincia: null
   };
   isSuccessful_empresa = false;
   isSignUpFailed_empresa = false;
@@ -46,6 +55,16 @@ export class EmpresaComponent implements OnInit {
   showAdminBoard = false;
   showMicroBoard = false;
 
+  imagen = false;
+  imagen_defecto = "https://adlsutpl.blob.core.windows.net/imagen-microempresas/man-giving-business-presentation-using-high-technology-digital-pen.jpg";
+
+  pertenece = ["Si", "No"]
+  provincias = ["Azuay","Bolívar","Cañar","Carchi","Chimborazo","Cotopaxi","El Oro",
+  "Esmeraldas","Galápagos","Guayas","Imbabura","Loja","Los Ríos",
+  "Manabí","Morona Santiago","Napo","Orellana",
+  "Pastaza","Pichincha","Santa Elena","Santo Domingo",
+  "Sucumbíos","Tungurahua","Zamora Chinchipe"];
+
   constructor(private tokenStorageService: TokenStorageService, private userService: UserService, private authService: AuthService, public dialogUpdate: MatDialog) { }
 
   ngOnInit(): void {
@@ -59,14 +78,14 @@ export class EmpresaComponent implements OnInit {
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showMicroBoard = this.roles.includes('ROLE_MICRO');
       this.getExistEmpresa();
-      this.getActividades();
+      this.getTipos();
     }
   }
 
-  public getActividades(){
-    this.userService.getActividad().subscribe(
+  public getTipos(){
+    this.userService.getTipos().subscribe(
       data => {
-        this.actividades = data;
+        this.tipos = data;
       },
       err => {
         console.log(err);
@@ -97,23 +116,30 @@ export class EmpresaComponent implements OnInit {
 
   onSubmitEmpresa(): void {
     this.loading_empresa = true;
-    this.userService.cargarImagen(this.currentFile).subscribe(
-      data => {
-        this.url = data;
-        this.cargarEmpresa(this.url);
-      },
-      err => {
-        this.errorMessage_empresa = err;
-        this.isSignUpFailed_empresa = true;
-        this.loading_empresa = false;
-      }
-    );
+    if(this.imagen == true){
+      this.userService.cargarImagen(this.currentFile).subscribe(
+        data => {
+          this.url = data;
+          this.cargarEmpresa(this.url);
+        },
+        err => {
+          this.errorMessage_empresa = err;
+          this.isSignUpFailed_empresa = true;
+          this.loading_empresa = false;
+        }
+      );
+    }
+    else{
+      this.cargarEmpresa(this.imagen_defecto);
+    }
   }
 
   cargarEmpresa(imagen: string){
-    const { empresa, ruc, mision, vision, actividad } = this.form_empresa;
-    this.actividadOk.push(actividad);
-    this.authService.registerEmpresa(empresa, ruc, mision, vision, imagen, this.usernameOk, this.actividadOk).subscribe(
+    const { razonSocial, ruc, direccion, telefono, correo, 
+      paginaWeb, empleadosHombres, empleadosMujeres, tipo, 
+      actividad, subactividad, perteneceAsociacion, quiereAsociacion, provincia} = this.form_empresa;
+    //this.actividadOk.push(actividad);
+    this.authService.registerEmpresa(razonSocial, ruc, direccion, telefono, correo, paginaWeb, parseInt(empleadosHombres), parseInt(empleadosMujeres), tipo, actividad, subactividad, perteneceAsociacion, quiereAsociacion, provincia, imagen, this.usernameOk).subscribe(
       data => {
         console.log(data);
         this.isSuccessful_empresa = true;
@@ -134,6 +160,11 @@ export class EmpresaComponent implements OnInit {
     const file: File | null = this.selectedFiles.item(0);
     if(file){
       this.currentFile = file;
+      this.imagen = true;
+    }
+    else{
+      this.imagen = false;
+
     }
   }
 

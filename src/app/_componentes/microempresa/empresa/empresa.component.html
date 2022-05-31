@@ -1,4 +1,4 @@
-<div class="container" >
+<div class="container">
     <h1>Mi empresa</h1>
     <div *ngIf="!loading">
         <div class="left-panel" *ngIf="!showMicroBoard">
@@ -10,96 +10,172 @@
             <div class="rigth-panel" *ngIf="isEmpresa">
                 <div class="imagen" [ngStyle]="{'background-image': 'url(' + empresa[0].imagen + ')'}">
                     <div class="fondo">
-                        <h1>{{empresa[0].empresa}}</h1>
+                        <h1>{{empresa[0].razonSocial}}</h1>
                     </div>
                 </div>
                 <div class="detalles">
                     <p class="title">RUC: <span>{{empresa[0].ruc}}</span></p>
-                    <p class="title">Misión:</p>
-                    <p class="detalle">{{empresa[0].mision}}</p>
-                    <p class="title">Visión:</p>
-                    <p class="detalle">{{empresa[0].vision}}</p>
-                    <p class="title">Actividad económica: <span>{{empresa[0].actividad[0].actividad}}</span></p>
+                    <p class="title">Dirección: <span>{{empresa[0].direccion}}</span></p>
+                    <p class="title">Teléfono: <span>{{empresa[0].telefono}}</span></p>
+                    <p class="title">Correo electrónico: <span>{{empresa[0].correo}}</span></p>
+                    <p class="title">Página web: <span>{{empresa[0].paginaWeb}}</span></p>
+                    <p class="title">Número de empleados (Hombres): <span>{{empresa[0].empleadosHombres}}</span></p>
+                    <p class="title">Número de empleados (Mujeres): <span>{{empresa[0].empleadosMujeres}}</span></p>
+                    <p class="title">Tipo de microempresa: <span>{{empresa[0].tipo}}</span></p>
+                    <p class="title">Actividad de la microempresa: <span>{{empresa[0].actividad}}</span></p>
+                    <p class="title">Subactividad de la microempresa: <span>{{empresa[0].subactividad}}</span></p>
+                    <p class="title">¿Pertenece a alguna asociación relacionada con la actividad que realiza la microempresa?: <span>{{empresa[0].perteneceAsociacion}}</span></p>
+                    <p class="title">¿En caso de no pertenecer a una asociación, estaría dispuesto a asociarse?: <span>{{empresa[0].quiereAsociacion}}</span></p>
+                    <p class="title">Provincia: <span>{{empresa[0].provincia}}</span></p>
                     <div class="button">
                         <button class="btn-registro" (click)="openDialogUpdate()">
                             Modificar datos
                         </button>
                     </div>
                 </div>
-        
+
             </div>
-        
+
             <div class="formulario" *ngIf="!isEmpresa">
                 <div class="login">
                     <div class="text">Datos de empresa</div>
+                    <br>
+                    <p class="campo-requerido">* Campo requerido</p>
                     <form name="form_empresa" (ngSubmit)="g.form.valid && onSubmitEmpresa()" #g="ngForm" novalidate>
+                        <p>Razón social: * <span class="alert alert-danger" role="alert"
+                                *ngIf="razonSocial.errors && g.submitted">Campo requerido</span></p>
                         <div class="data">
-                            <input type="text" name="empresa" [(ngModel)]="form_empresa.empresa" #empresa="ngModel"
-                                placeholder="Nombre de empresa" required>
-                            <div class="alert alert-danger" role="alert" *ngIf="empresa.errors && g.submitted">Ingresa el nombre
-                                de tu empresa</div>
+                            <input type="text" name="razonSocial" [(ngModel)]="form_empresa.razonSocial"
+                                #razonSocial="ngModel" required>
                         </div>
-        
+
+                        <p>RUC: * <span class="alert alert-danger" role="alert" *ngIf="ruc.errors && g.submitted">Campo
+                                requerido </span>
+                                <span class="alert alert-danger" role="alert" *ngIf="ruc.errors?.['minlength']">Mínimo 13 números</span>
+                                <span class="alert alert-danger" role="alert" *ngIf="ruc.errors?.['maxlength']">Máximo 13 números</span>
+                            </p>
                         <div class="data">
-                            <input type="text" name="ruc" [(ngModel)]="form_empresa.ruc" #ruc="ngModel"
-                                placeholder="RUC de empresa" required>
-                            <div class="alert alert-danger" role="alert" *ngIf="ruc.errors && g.submitted">Ingresa el ruc de tu
-                                empresa</div>
+                            <input type="text" name="ruc" [(ngModel)]="form_empresa.ruc" #ruc="ngModel" required minlength="13"
+                            maxlength="13" pattern="[0-9]+">
                         </div>
-        
+
+                        <p>Dirección: * <span class="alert alert-danger" role="alert"
+                                *ngIf="direccion.errors && g.submitted">Campo requerido</span></p>
                         <div class="data">
-                            <!--input type="text" name="mision" [(ngModel)]="form_empresa.mision" #mision="ngModel"
-                                placeholder="Misión de empresa" required >-->
-                            <textarea name="mision" [(ngModel)]="form_empresa.mision" #mision="ngModel"
-                                placeholder="Misión de empresa" required></textarea>
-                            <div class="alert alert-danger" role="alert" *ngIf="mision.errors && g.submitted">Ingresa la misión
-                                de tu empresa</div>
+                            <input type="text" name="direccion" [(ngModel)]="form_empresa.direccion"
+                                #direccion="ngModel" required>
                         </div>
-        
+
+                        <p>Teléfono: * <span class="alert alert-danger" role="alert"
+                                *ngIf="telefono.errors && g.submitted">Campo requerido</span></p>
                         <div class="data">
-                            <!--<input type="text" name="vision" [(ngModel)]="form_empresa.vision" #vision="ngModel"
-                                placeholder="Visión de empresa" required >-->
-                            <textarea name="vision" [(ngModel)]="form_empresa.vision" #vision="ngModel"
-                                placeholder="Visión de empresa" required></textarea>
-                            <div class="alert alert-danger" role="alert" *ngIf="vision.errors && g.submitted">Ingresa la visión
-                                de tu empresa</div>
+                            <input type="text" name="telefono" [(ngModel)]="form_empresa.telefono" #telefono="ngModel"
+                                required>
                         </div>
-        
+
+                        <p>Correo electrónico: * <span class="alert alert-danger" role="alert"
+                                *ngIf="correo.errors && g.submitted">Campo requerido</span>
+                            </p>
                         <div class="data">
-                            <select name="actividad" [(ngModel)]="form_empresa.actividad" #actividad="ngModel"
-                                placeholder="Actividad económica de tu empresa" required>
-                                <option [value]="null" [disabled]="true" [selected]="true">Actividad económica de tu empresa
-                                </option>
-                                <option [value]="a.actividad" *ngFor="let a of actividades">{{a.actividad}}</option>
+                            <input type="email" name="correo" [(ngModel)]="form_empresa.correo" #correo="ngModel"
+                                required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                        </div>
+
+                        <p>Página web: <span class="alert alert-danger" role="alert"
+                                *ngIf="paginaWeb.errors && g.submitted">Campo requerido</span></p>
+                        <div class="data">
+                            <input type="text" name="paginaWeb" [(ngModel)]="form_empresa.paginaWeb"
+                                #paginaWeb="ngModel">
+                        </div>
+
+                        <p>Número de empleados (Hombres): * <span class="alert alert-danger" role="alert"
+                                *ngIf="empleadosHombres.errors && g.submitted">Campo requerido</span></p>
+                        <div class="data">
+                            <input type="number" name="empleadosHombres" [(ngModel)]="form_empresa.empleadosHombres"
+                                #empleadosHombres="ngModel" required>
+                        </div>
+
+                        <p>Número de empleados (Mujeres): * <span class="alert alert-danger" role="alert"
+                                *ngIf="empleadosMujeres.errors && g.submitted">Campo requerido</span></p>
+                        <div class="data">
+                            <input type="number" name="empleadosMujeres" [(ngModel)]="form_empresa.empleadosMujeres"
+                                #empleadosMujeres="ngModel" required>
+                        </div>
+
+                        <p>Tipo de microempresa: * <span class="alert alert-danger" role="alert"
+                                *ngIf="tipo.errors && g.submitted">Campo requerido</span></p>
+                        <div class="data">
+                            <select name="tipo" [(ngModel)]="form_empresa.tipo" #tipo="ngModel" required>
+                                <option [value]="a.tipo" *ngFor="let a of tipos">{{a.tipo}}</option>
                             </select>
-                            <div class="alert alert-danger" role="alert" *ngIf="actividad.errors && g.submitted">Selecciona la
-                                actividad económica de tu empresa</div>
                         </div>
-        
+
+                        <p>Actividad de la microempresa: * <span class="alert alert-danger" role="alert"
+                                *ngIf="actividad.errors && g.submitted">Campo requerido</span></p>
+                        <div class="data">
+                            <input type="text" name="actividad" [(ngModel)]="form_empresa.actividad"
+                                #actividad="ngModel" required>
+                        </div>
+
+                        <p>Subactividad de la microempresa: * <span class="alert alert-danger" role="alert"
+                                *ngIf="subactividad.errors && g.submitted">Campo requerido</span></p>
+                        <div class="data">
+                            <input type="text" name="subactividad" [(ngModel)]="form_empresa.subactividad"
+                                #subactividad="ngModel" required>
+                        </div>
+
+                        <p>¿Pertenece a alguna asociación relacionada con la actividad que realiza la microempresa?: *
+                            <span class="alert alert-danger" role="alert"
+                                *ngIf="perteneceAsociacion.errors && g.submitted">Campo requerido</span></p>
+                        <div class="data">
+                            <select name="perteneceAsociacion" [(ngModel)]="form_empresa.perteneceAsociacion"
+                                #perteneceAsociacion="ngModel" required>
+                                <option [value]="a" *ngFor="let a of pertenece">{{a}}</option>
+                            </select>
+                        </div>
+
+                        <p>¿En caso de no pertenecer a una asociación, estaría dispuesto a asociarse?: * <span
+                                class="alert alert-danger" role="alert"
+                                *ngIf="quiereAsociacion.errors && g.submitted">Campo requerido</span></p>
+                        <div class="data">
+                            <select name="quiereAsociacion" [(ngModel)]="form_empresa.quiereAsociacion"
+                                #quiereAsociacion="ngModel" required>
+                                <option [value]="a" *ngFor="let a of pertenece">{{a}}</option>
+                            </select>
+                        </div>
+
+                        <p>Provincia: * <span class="alert alert-danger" role="alert"
+                                *ngIf="provincia.errors && g.submitted">Campo requerido</span></p>
+                        <div class="data">
+                            <select name="provincia" [(ngModel)]="form_empresa.provincia" #provincia="ngModel" required>
+                                <option [value]="a" *ngFor="let a of provincias">{{a}}</option>
+                            </select>
+                        </div>
+
+                        <p>Imagen de la microempresa:<span class="alert alert-danger" role="alert"
+                                *ngIf="file.errors && g.submitted"></span></p>
                         <div class="data">
                             <input type="file" name="file" (change)="onChange($event)" [(ngModel)]="form_empresa.file"
-                                #file="ngModel" required>
-                            <div class="alert alert-danger" role="alert" *ngIf="file.errors && g.submitted">Carga una
-                                Imagen</div>
+                                #file="ngModel">
                         </div>
-        
+
                         <button type="submit">
                             <p *ngIf="!loading_empresa">Registrar</p>
                             <p>
-                                <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color2" *ngIf="loading_empresa"
-                                    diameter="20"></mat-spinner>
+                                <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color2"
+                                    *ngIf="loading_empresa" diameter="20"></mat-spinner>
                             </p>
                         </button>
                         <div class="form-group">
-                            <div class="alert alert-danger error" role="alert" *ngIf="g.submitted && isSignUpFailed_empresa">{{
+                            <div class="alert alert-danger error" role="alert"
+                                *ngIf="g.submitted && isSignUpFailed_empresa">{{
                                 errorMessage_empresa }}</div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        
+
     </div>
     <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading" diameter="30"></mat-spinner>
 </div>
-

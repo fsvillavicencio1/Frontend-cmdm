@@ -6,7 +6,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 import { Observable } from 'rxjs';
 
 const TOKEN_HEADER_KEY = 'Authorization';       // for Spring Boot back-end
-const SERVICE_API_AZURE = 'https://prod-49.eastus2.logic.azure.com:443/workflows/47c4a422bf8745099ff2ff6ac93f5e03/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=9g623ShbKSK9zGa0v04p3RY1YLe4YFrVjGzNxSDQLcc';
+const UPDATE_RUC_LOGIC_APP = "https://prod-25.eastus2.logic.azure.com:443/workflows/ba2e772f85d2493b84d6e723450589ee/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=cNR-TqWuEcpMAPNIFjLfOs2KG2jjUj5b8TM8zmkPc34";
 const SERVICE_API_EMAIL = 'https://prod-53.eastus2.logic.azure.com:443/workflows/344b41cea2af418fa8abca356e4418fd/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=DeS4uTENIbg1W8ZRsQixnB_uRDCFXWN1gSgmV_3TOE0';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -17,7 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
     const token = this.token.getToken();
     console.log(req.url);
     if (token != null) {
-      if(req.url == SERVICE_API_AZURE || req.url == SERVICE_API_EMAIL){
+      if(req.url == UPDATE_RUC_LOGIC_APP || req.url == SERVICE_API_EMAIL){
         console.log("VAMOS");
       }
       else{

@@ -15,7 +15,7 @@ export class CarouselComponent implements OnInit {
   /*Propiedades*/
   @Input() height = 606;
   @Input() isFullScreen = false;
-  @Input() items : ICarouselItem[] = [];
+  @Input() items: ICarouselItem[] = [];
 
   public finalHeight: string | number = 0;
   public currentPosition = 0;
@@ -27,14 +27,18 @@ export class CarouselComponent implements OnInit {
 
   ngOnInit(): void {
     AOS.init();
-    this.items.map( ( i, index ) => {
+    this.items.map((i, index) => {
       i.id = index;
       i.marginLeft = 0;
     });
   }
 
   openDialog() {
-    this.dialog.open(LoginComponent, {panelClass: 'app-full-bleed-dialog'});
+    this.dialog.open(LoginComponent, { panelClass: 'app-full-bleed-dialog' });
+  }
+
+  abrirLink(url: string) {
+    window.open(url, "_blank");
   }
 
 }

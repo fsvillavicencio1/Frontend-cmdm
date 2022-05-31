@@ -15,19 +15,18 @@
         <div class="formulario">
             <div class="login">
                 <div class="text">Inicia sesión para continuar</div>
+                <br>
+                <p class="campo-requerido">* Campo requerido</p>
                 <form  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                    <p>Nombre de usuario: * <span class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">Campo requerido</span></p>
                     <div class="data">
-                        <input type="text" name="username" [(ngModel)]="form.username" #username="ngModel"
-                            placeholder="Nombre de usuario" required>
-                        <div class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">Ingresa tu nombre
-                            de usuario</div>
+                        <input type="text" name="username" [(ngModel)]="form.username" #username="ngModel" required>
                     </div>
-    
+                    
+                    <p>Contraseña: * <span class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">Campo requerido</span></p>
                     <div class="data">
                         <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required
-                            #password="ngModel" placeholder="Contraseña">
-                        <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">Ingresa tu
-                            contraseña</div>
+                            #password="ngModel">
                     </div>
     
     
