@@ -64,13 +64,11 @@
 
                 <p>Actividad de la microempresa: * <span class="alert alert-danger" role="alert" *ngIf="actividad.errors && g.submitted">Campo requerido</span></p>
                 <div class="data">
-                    <input type="text" name="actividad" [(ngModel)]="form_empresa.actividad" #actividad="ngModel" required>
+                    <select name="actividad" [(ngModel)]="form_empresa.actividad" #actividad="ngModel" required >
+                        <option [value]="a.actividad" *ngFor="let a of actividades">{{a.actividad}}</option>
+                    </select>
                 </div>
-
-                <p>Subactividad de la microempresa: * <span class="alert alert-danger" role="alert" *ngIf="subactividad.errors && g.submitted">Campo requerido</span></p>
-                <div class="data">
-                    <input type="text" name="subactividad" [(ngModel)]="form_empresa.subactividad" #subactividad="ngModel" required>
-                </div>
+               
 
                 <p>¿Pertenece a alguna asociación relacionada con la actividad que realiza la microempresa?: * <span class="alert alert-danger" role="alert" *ngIf="perteneceAsociacion.errors && g.submitted">Campo requerido</span></p>
                 <div class="data">

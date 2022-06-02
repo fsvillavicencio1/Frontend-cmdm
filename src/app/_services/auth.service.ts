@@ -33,7 +33,7 @@ export class AuthService {
     });
   }
 
-  registerEmpresa(razonSocial: string, ruc: string, direccion: string, telefono: string, correo: string, paginaWeb: string, empleadosHombres: Number, empleadosMujeres: Number, tipo: string, actividad: string, subactividad: string, perteneceAsociacion: string, quiereAsociacion: string, provincia: string, imagen: string, user: []): Observable<any> {
+  registerEmpresa(razonSocial: string, ruc: string, direccion: string, telefono: string, correo: string, paginaWeb: string, empleadosHombres: Number, empleadosMujeres: Number, tipo: string, actividad: string, perteneceAsociacion: string, quiereAsociacion: string, provincia: string, imagen: string, user: []): Observable<any> {
     return this.http.post(SERVICE_API + 'microempresa', {
       razonSocial,
       ruc,
@@ -45,7 +45,6 @@ export class AuthService {
       empleadosMujeres,
       tipo,
       actividad,
-      subactividad,
       perteneceAsociacion,
       quiereAsociacion,
       provincia,

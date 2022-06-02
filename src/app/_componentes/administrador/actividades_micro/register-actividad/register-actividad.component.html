@@ -4,13 +4,13 @@
 
 <mat-dialog-content class="mat-typography">
     <div class="container">
-        <div *ngIf="!isSuccessful" class="text">Registro de Actividad</div>
+        <div *ngIf="!isSuccessful" class="text">Registro de Actividad de microempresa</div>
+        <br *ngIf="!isSuccessful">
+        <p *ngIf="!isSuccessful" class="campo-requerido">* Campo requerido</p>
         <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <p>Actividad de microempresa: * <span class="alert alert-danger" role="alert" *ngIf="actividad.errors && f.submitted">Campo requerido</span></p>
             <div class="data">
-                <textarea type="text" name="actividad" [(ngModel)]="form.actividad" required #actividad="ngModel"
-                    placeholder="Actividad"></textarea>
-                <div class="alert alert-danger" role="alert" *ngIf="actividad.errors && f.submitted">Ingresa la
-                    actividad</div>
+                <textarea type="text" name="actividad" [(ngModel)]="form.actividad" required #actividad="ngModel"></textarea>
             </div>
             <button type="submit">
                 <p *ngIf="!loading">Registrar</p>
@@ -27,7 +27,7 @@
 
         <div class="acceso-exitoso" *ngIf="isSuccessful">
             <img src="../../../assets/OkActividad.svg" class="image" alt="" />
-            <h3>La actividad se registró con éxito!</h3>
+            <h3>La actividad de microempresa se registró con éxito!</h3>
         </div>
     </div>
 </mat-dialog-content>

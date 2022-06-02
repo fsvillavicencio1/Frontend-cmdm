@@ -22,12 +22,12 @@
                     <mat-icon mat-list-icon class="nav__icon">apartment</mat-icon>
                     <span *ngIf="isExpanded" class="nav__name">Mi empresa</span>
                 </mat-list-item>
-                <mat-list-item *ngIf="showMicroBoard" class="nav__link" routerLink="/mi-empresa/evaluacion-competitividad" title="Evaluación"
+                <mat-list-item *ngIf="showMicroBoard" class="nav__link" routerLink="/mi-empresa/evaluacion-competitividad" title="Evaluación de Competitividad"
                     routerLinkActive="active">
                     <mat-icon mat-list-icon class="nav__icon">data_exploration</mat-icon>
                     <span *ngIf="isExpanded" class="nav__name">Competitividad</span>
                 </mat-list-item>
-                <mat-list-item *ngIf="showMicroBoard" class="nav__link" routerLink="/mi-empresa/evaluacion-madurez-digital" title="Evaluación"
+                <mat-list-item *ngIf="showMicroBoard" class="nav__link" routerLink="/mi-empresa/evaluacion-madurez-digital" title="Evaluación de Madurez Digital"
                     routerLinkActive="active">
                     <mat-icon mat-list-icon class="nav__icon">devices</mat-icon>
                     <span *ngIf="isExpanded" class="nav__name">Madurez Digital</span>
@@ -44,10 +44,16 @@
                     <span *ngIf="isExpanded" class="nav__name">Dashboard</span>
                 </mat-list-item>
 
-                <mat-list-item *ngIf="showAdminBoard" class="nav__link" routerLink="/mi-empresa/actividades" title="Actividades"
+                <mat-list-item *ngIf="showAdminBoard" class="nav__link" routerLink="/mi-empresa/actividades" title="Actividades de microempresas"
+                    routerLinkActive="active">
+                    <mat-icon mat-list-icon class="nav__icon">construction</mat-icon>
+                    <span *ngIf="isExpanded" class="nav__name">Actividades</span>
+                </mat-list-item>
+
+                <mat-list-item *ngIf="showAdminBoard" class="nav__link" routerLink="/mi-empresa/tipos" title="Tipos de microempresas"
                     routerLinkActive="active">
                     <mat-icon mat-list-icon class="nav__icon">category</mat-icon>
-                    <span *ngIf="isExpanded" class="nav__name">Actividades</span>
+                    <span *ngIf="isExpanded" class="nav__name">Tipos</span>
                 </mat-list-item>
 
                 <mat-list-item *ngIf="showAdminBoard" class="nav__link" routerLink="/mi-empresa/competitividad" title="Competitividad"

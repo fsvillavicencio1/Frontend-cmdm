@@ -20,33 +20,8 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getEmpresa(id: number): Observable<any> {
-    return this.http.get(SERVICE_API + 'get-microempresa-user/' + id, { responseType: 'json' });
-  }
-
-  getTipos(): Observable<any> {
-    return this.http.get(SERVICE_API + 'tipos-microempresa', {responseType: 'json'});
-  }
-
-  getActividadId(id: number): Observable<any>{
-    return this.http.get(SERVICE_API + 'actividad-id/' + id, {responseType: 'json'})
-  }
-
-  registerActividad(actividad: string): Observable<any> {
-    return this.http.post(SERVICE_API + 'actividad', {
-      actividad
-    });
-  }
-
-  
-
-  cargarImagen(file: File): Observable<any> {
-    let formData = new FormData();
-    formData.append('file', file);
-    return this.http.post(SERVICE_API + 'upload', formData, { responseType: 'text' });
-  }
-
-  updateEmpresaNombre(id:number, razonSocial: string, ruc: string, direccion: string, telefono: string, correo: string, paginaWeb: string, empleadosHombres: Number, empleadosMujeres: Number, tipo: string, actividad: string, subactividad: string, perteneceAsociacion: string, quiereAsociacion: string, provincia: string, imagen: string): Observable<any> {
+  /*Empresas*/
+  updateEmpresaNombre(id:number, razonSocial: string, ruc: string, direccion: string, telefono: string, correo: string, paginaWeb: string, empleadosHombres: Number, empleadosMujeres: Number, tipo: string, actividad: string, perteneceAsociacion: string, quiereAsociacion: string, provincia: string, imagen: string): Observable<any> {
     return this.http.put(SERVICE_API + 'update-microempresa-nombre/' + id, {
       razonSocial,
       ruc,
@@ -58,7 +33,6 @@ export class UserService {
       empleadosMujeres,
       tipo,
       actividad,
-      subactividad,
       perteneceAsociacion,
       quiereAsociacion,
       provincia,
@@ -66,7 +40,7 @@ export class UserService {
     });
   }
 
-  updateEmpresaRuc(id:number, razonSocial: string, ruc: string, direccion: string, telefono: string, correo: string, paginaWeb: string, empleadosHombres: Number, empleadosMujeres: Number, tipo: string, actividad: string, subactividad: string, perteneceAsociacion: string, quiereAsociacion: string, provincia: string, imagen: string): Observable<any> {
+  updateEmpresaRuc(id:number, razonSocial: string, ruc: string, direccion: string, telefono: string, correo: string, paginaWeb: string, empleadosHombres: Number, empleadosMujeres: Number, tipo: string, actividad: string, perteneceAsociacion: string, quiereAsociacion: string, provincia: string, imagen: string): Observable<any> {
     return this.http.put(SERVICE_API + 'update-microempresa-ruc/' + id, {
       razonSocial,
       ruc,
@@ -78,15 +52,14 @@ export class UserService {
       empleadosMujeres,
       tipo,
       actividad,
-      subactividad,
       perteneceAsociacion,
       quiereAsociacion,
       provincia,
       imagen
     });
   }
-
-  updateEmpresaDetalles(id:number, razonSocial: string, ruc: string, direccion: string, telefono: string, correo: string, paginaWeb: string, empleadosHombres: Number, empleadosMujeres: Number, tipo: string, actividad: string, subactividad: string, perteneceAsociacion: string, quiereAsociacion: string, provincia: string, imagen: string): Observable<any> {
+  
+  updateEmpresaDetalles(id:number, razonSocial: string, ruc: string, direccion: string, telefono: string, correo: string, paginaWeb: string, empleadosHombres: Number, empleadosMujeres: Number, tipo: string, actividad: string, perteneceAsociacion: string, quiereAsociacion: string, provincia: string, imagen: string): Observable<any> {
     return this.http.put(SERVICE_API + 'update-microempresa-detalles/' + id, {
       razonSocial,
       ruc,
@@ -98,7 +71,6 @@ export class UserService {
       empleadosMujeres,
       tipo,
       actividad,
-      subactividad,
       perteneceAsociacion,
       quiereAsociacion,
       provincia,
@@ -106,10 +78,8 @@ export class UserService {
     });
   }
 
-  updateActividad(id:number, actividad: string): Observable<any> {
-    return this.http.put(SERVICE_API + 'update-actividad/' + id, {
-      actividad
-    });
+  getEmpresa(id: number): Observable<any> {
+    return this.http.get(SERVICE_API + 'get-microempresa-user/' + id, { responseType: 'json' });
   }
 
   getEmpresaId(id: number): Observable<any> {
@@ -123,6 +93,71 @@ export class UserService {
     }, httpOptions);
   }
 
+  getAllEmpresas(): Observable<any> {
+    return this.http.get(SERVICE_API + 'microempresas', { responseType: 'json' });
+  }
+
+  /*Tipos de microempresas*/
+  getTipos(): Observable<any> {
+    return this.http.get(SERVICE_API + 'tipos-microempresa', {responseType: 'json'});
+  }
+
+  getTipoId(id: number): Observable<any>{
+    return this.http.get(SERVICE_API + 'tipo-microempresa/' + id, {responseType: 'json'})
+  }
+
+  registerTipo(tipo: string): Observable<any> {
+    return this.http.post(SERVICE_API + 'tipo-microempresa', {
+      tipo
+    });
+  }
+
+  updateTipo(id:number, tipo: string): Observable<any> {
+    return this.http.put(SERVICE_API + 'update-tipo-microempresa/' + id, {
+      tipo
+    });
+  }
+
+  deleteTipo(id: number): Observable<any> {
+    return this.http.delete(SERVICE_API + 'delete-tipo-microempresa/' + id, {responseType: 'text'})
+  }
+
+  /*Actividades de microrempresas*/
+  getActividades(): Observable<any> {
+    return this.http.get(SERVICE_API + 'actividades-microempresa', {responseType: 'json'});
+  }
+
+  getActividadId(id: number): Observable<any>{
+    return this.http.get(SERVICE_API + 'actividad-microempresa/' + id, {responseType: 'json'})
+  }
+
+  registerActividad(actividad: string): Observable<any> {
+    return this.http.post(SERVICE_API + 'actividad-microempresa', {
+      actividad
+    });
+  }
+
+  updateActividad(id:number, actividad: string): Observable<any> {
+    return this.http.put(SERVICE_API + 'update-actividad-microempresa/' + id, {
+      actividad
+    });
+  }
+
+  deleteActividad(id: number): Observable<any> {
+    return this.http.delete(SERVICE_API + 'delete-actividad-microempresa/' + id, {responseType: 'text'})
+  }
+
+  /*Imagenes*/
+
+  cargarImagen(file: File): Observable<any> {
+    let formData = new FormData();
+    formData.append('file', file);
+    return this.http.post(SERVICE_API + 'upload', formData, { responseType: 'text' });
+  }
+
+
+  /*Correo a estudiantes*/
+
   sendEmailStudent(email: string, cuerpo: string, url: string): Observable<any> {
     return this.http.post(SERVICE_API_EMAIL, {
       email,
@@ -131,21 +166,19 @@ export class UserService {
     }, httpOptions);
   }
 
-  getAllEmpresas(): Observable<any> {
-    return this.http.get(SERVICE_API + 'microempresas', { responseType: 'json' });
-  }
-
   /*POSTS*/
 
   getPublicaciones(): Observable<any> {
     return this.http.get(SERVICE_API + 'posts', {responseType: 'json'});
   }
 
-  registerPublicacion(titulo: string, descripcion: string, imagen: string): Observable<any> {
+  registerPublicacion(fecha: string, titulo: string, descripcion: string, imagen: string, autor: string): Observable<any> {
     return this.http.post(SERVICE_API + 'post', {
+      fecha,
       titulo,
       descripcion, 
-      imagen
+      imagen,
+      autor
     });
   }
 

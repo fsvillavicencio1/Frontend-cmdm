@@ -13,6 +13,8 @@ export class UpdateEmpresaComponent implements OnInit {
   loading = false;
   microempresa: any = {};
   tipos: any = [];
+  actividades: any = [];
+
 
   form_empresa: any = {
     razonSocial: null,
@@ -25,7 +27,6 @@ export class UpdateEmpresaComponent implements OnInit {
     empleadosMujeres: null,
     tipo: null,
     actividad: null,
-    subactividad: null,
     perteneceAsociacion: null,
     quiereAsociacion: null,
     provincia: null
@@ -64,6 +65,7 @@ export class UpdateEmpresaComponent implements OnInit {
     this.userService.getEmpresaId(this.d.id).subscribe(
       data => {
         this.getTipos();
+        this.getActividades();
         this.microempresa = data;
         this.form_empresa.razonSocial = data.razonSocial;
         this.form_empresa.ruc = data.ruc;
@@ -75,7 +77,6 @@ export class UpdateEmpresaComponent implements OnInit {
         this.form_empresa.empleadosMujeres = data.empleadosMujeres;
         this.form_empresa.tipo = data.tipo;
         this.form_empresa.actividad = data.actividad;
-        this.form_empresa.subactividad = data.subactividad;
         this.form_empresa.perteneceAsociacion = data.perteneceAsociacion;
         this.form_empresa.quiereAsociacion = data.quiereAsociacion;
         this.form_empresa.provincia = data.provincia;
@@ -98,6 +99,17 @@ export class UpdateEmpresaComponent implements OnInit {
       err => {
         console.log(err);
         this.loading = false;
+      }
+    );
+  }
+
+  public getActividades(){
+    this.userService.getActividades().subscribe(
+      data => {
+        this.actividades = data;
+      },
+      err => {
+        console.log(err);
       }
     );
   }
@@ -128,11 +140,10 @@ export class UpdateEmpresaComponent implements OnInit {
   cargarMicroempresa(imagen: string) {
     const { razonSocial, ruc, direccion, telefono, correo, 
       paginaWeb, empleadosHombres, empleadosMujeres, tipo, 
-      actividad, subactividad, perteneceAsociacion, quiereAsociacion, provincia} = this.form_empresa;
-    //this.actividadOk.push(actividad);
+      actividad, perteneceAsociacion, quiereAsociacion, provincia} = this.form_empresa;
 
     if (razonSocial == this.microempresa.razonSocial && ruc == this.microempresa.ruc) {
-      this.userService.updateEmpresaDetalles(this.microempresa.id, razonSocial, ruc, direccion, telefono, correo, paginaWeb, parseInt(empleadosHombres), parseInt(empleadosMujeres), tipo, actividad, subactividad, perteneceAsociacion, quiereAsociacion, provincia,imagen).subscribe(
+      this.userService.updateEmpresaDetalles(this.microempresa.id, razonSocial, ruc, direccion, telefono, correo, paginaWeb, parseInt(empleadosHombres), parseInt(empleadosMujeres), tipo, actividad, perteneceAsociacion, quiereAsociacion, provincia,imagen).subscribe(
         data => {
           this.isSuccessful = true;
           this.isSignUpFailed = false;
@@ -148,7 +159,7 @@ export class UpdateEmpresaComponent implements OnInit {
     }
 
     if(razonSocial != this.microempresa.razonSocial){
-      this.userService.updateEmpresaNombre(this.microempresa.id, razonSocial, ruc, direccion, telefono, correo, paginaWeb, parseInt(empleadosHombres), parseInt(empleadosMujeres), tipo, actividad, subactividad, perteneceAsociacion, quiereAsociacion, provincia,imagen).subscribe(
+      this.userService.updateEmpresaNombre(this.microempresa.id, razonSocial, ruc, direccion, telefono, correo, paginaWeb, parseInt(empleadosHombres), parseInt(empleadosMujeres), tipo, actividad, perteneceAsociacion, quiereAsociacion, provincia,imagen).subscribe(
         data => {
           this.isSuccessful = true;
           this.isSignUpFailed = false;
@@ -164,7 +175,7 @@ export class UpdateEmpresaComponent implements OnInit {
     }
 
     if(ruc != this.microempresa.ruc){
-      this.userService.updateEmpresaRuc(this.microempresa.id, razonSocial, ruc, direccion, telefono, correo, paginaWeb, parseInt(empleadosHombres), parseInt(empleadosMujeres), tipo, actividad, subactividad, perteneceAsociacion, quiereAsociacion, provincia,imagen).subscribe(
+      this.userService.updateEmpresaRuc(this.microempresa.id, razonSocial, ruc, direccion, telefono, correo, paginaWeb, parseInt(empleadosHombres), parseInt(empleadosMujeres), tipo, actividad, perteneceAsociacion, quiereAsociacion, provincia,imagen).subscribe(
         data => {
           /*this.userService.updateEmpresaRUC_JSON(this.microempresa.ruc, ruc).subscribe(
             data => {
@@ -193,33 +204,6 @@ export class UpdateEmpresaComponent implements OnInit {
       );
     }
 
-    /*else {
-      this.userService.updateEmpresa(this.microempresa.id, empresa, ruc, mision, vision, imagen, this.actividadOk).subscribe(
-        data => {
-
-          this.userService.updateEmpresaJSON(this.microempresa.empresa, empresa).subscribe(
-            data => {
-              this.isSuccessful = true;
-              this.isSignUpFailed = false;
-              this.loading2 = false;
-              console.log(this.microempresa.empresa, empresa);
-            },
-            err => {
-              this.errorMessage = err.error.message;
-              this.isSignUpFailed = true;
-              this.loading2 = false;
-    
-            }
-          )
-        },
-        err => {
-          this.errorMessage = err.error.message;
-          this.isSignUpFailed = true;
-          this.loading2 = false;
-
-        }
-      );
-    }*/
   }
 
 

@@ -23,9 +23,10 @@
                     <p class="title">Número de empleados (Mujeres): <span>{{empresa[0].empleadosMujeres}}</span></p>
                     <p class="title">Tipo de microempresa: <span>{{empresa[0].tipo}}</span></p>
                     <p class="title">Actividad de la microempresa: <span>{{empresa[0].actividad}}</span></p>
-                    <p class="title">Subactividad de la microempresa: <span>{{empresa[0].subactividad}}</span></p>
-                    <p class="title">¿Pertenece a alguna asociación relacionada con la actividad que realiza la microempresa?: <span>{{empresa[0].perteneceAsociacion}}</span></p>
-                    <p class="title">¿En caso de no pertenecer a una asociación, estaría dispuesto a asociarse?: <span>{{empresa[0].quiereAsociacion}}</span></p>
+                    <p class="title">¿Pertenece a alguna asociación relacionada con la actividad que realiza la
+                        microempresa?: <span>{{empresa[0].perteneceAsociacion}}</span></p>
+                    <p class="title">¿En caso de no pertenecer a una asociación, estaría dispuesto a asociarse?:
+                        <span>{{empresa[0].quiereAsociacion}}</span></p>
                     <p class="title">Provincia: <span>{{empresa[0].provincia}}</span></p>
                     <div class="button">
                         <button class="btn-registro" (click)="openDialogUpdate()">
@@ -51,12 +52,14 @@
 
                         <p>RUC: * <span class="alert alert-danger" role="alert" *ngIf="ruc.errors && g.submitted">Campo
                                 requerido </span>
-                                <span class="alert alert-danger" role="alert" *ngIf="ruc.errors?.['minlength']">Mínimo 13 números</span>
-                                <span class="alert alert-danger" role="alert" *ngIf="ruc.errors?.['maxlength']">Máximo 13 números</span>
-                            </p>
+                            <span class="alert alert-danger" role="alert" *ngIf="ruc.errors?.['minlength']">Mínimo 13
+                                números</span>
+                            <span class="alert alert-danger" role="alert" *ngIf="ruc.errors?.['maxlength']">Máximo 13
+                                números</span>
+                        </p>
                         <div class="data">
-                            <input type="text" name="ruc" [(ngModel)]="form_empresa.ruc" #ruc="ngModel" required minlength="13"
-                            maxlength="13" pattern="[0-9]+">
+                            <input type="text" name="ruc" [(ngModel)]="form_empresa.ruc" #ruc="ngModel" required
+                                minlength="13" maxlength="13" pattern="[0-9]+">
                         </div>
 
                         <p>Dirección: * <span class="alert alert-danger" role="alert"
@@ -75,7 +78,7 @@
 
                         <p>Correo electrónico: * <span class="alert alert-danger" role="alert"
                                 *ngIf="correo.errors && g.submitted">Campo requerido</span>
-                            </p>
+                        </p>
                         <div class="data">
                             <input type="email" name="correo" [(ngModel)]="form_empresa.correo" #correo="ngModel"
                                 required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
@@ -111,22 +114,17 @@
                         </div>
 
                         <p>Actividad de la microempresa: * <span class="alert alert-danger" role="alert"
-                                *ngIf="actividad.errors && g.submitted">Campo requerido</span></p>
+                            *ngIf="actividad.errors && g.submitted">Campo requerido</span></p>
                         <div class="data">
-                            <input type="text" name="actividad" [(ngModel)]="form_empresa.actividad"
-                                #actividad="ngModel" required>
-                        </div>
-
-                        <p>Subactividad de la microempresa: * <span class="alert alert-danger" role="alert"
-                                *ngIf="subactividad.errors && g.submitted">Campo requerido</span></p>
-                        <div class="data">
-                            <input type="text" name="subactividad" [(ngModel)]="form_empresa.subactividad"
-                                #subactividad="ngModel" required>
+                            <select name="actividad" [(ngModel)]="form_empresa.actividad" #actividad="ngModel" required>
+                                <option [value]="a.actividad" *ngFor="let a of actividades">{{a.actividad}}</option>
+                            </select>
                         </div>
 
                         <p>¿Pertenece a alguna asociación relacionada con la actividad que realiza la microempresa?: *
                             <span class="alert alert-danger" role="alert"
-                                *ngIf="perteneceAsociacion.errors && g.submitted">Campo requerido</span></p>
+                                *ngIf="perteneceAsociacion.errors && g.submitted">Campo requerido</span>
+                        </p>
                         <div class="data">
                             <select name="perteneceAsociacion" [(ngModel)]="form_empresa.perteneceAsociacion"
                                 #perteneceAsociacion="ngModel" required>

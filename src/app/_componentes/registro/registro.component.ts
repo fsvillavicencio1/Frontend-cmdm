@@ -11,6 +11,8 @@ import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 })
 export class RegistroComponent implements OnInit {
   tipos: any = [];
+  actividades: any = [];
+
   form: any = {
     nombres: null,
     apellidos: null,
@@ -36,7 +38,6 @@ export class RegistroComponent implements OnInit {
     empleadosMujeres: null,
     tipo: null,
     actividad: null,
-    subactividad: null,
     perteneceAsociacion: null,
     quiereAsociacion: null,
     provincia: null
@@ -68,6 +69,7 @@ export class RegistroComponent implements OnInit {
   
   ngOnInit(): void {
     this.getTipos();
+    this.getActividades();
   }
 
   public getTipos(){
@@ -81,11 +83,21 @@ export class RegistroComponent implements OnInit {
     );
   }
 
-  
+  public getActividades(){
+    this.userService.getActividades().subscribe(
+      data => {
+        this.actividades = data;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
   onSubmit(): void {
     this.loading = true;
-    const { nombres, apellidos, /*email,*/ username, password } = this.form;
-    this.authService.registerUser(nombres, apellidos, /*email,*/ username, password).subscribe(
+    const { nombres, apellidos, username, password } = this.form;
+    this.authService.registerUser(nombres, apellidos, username, password).subscribe(
       data => {
         console.log(data);
         this.isSuccessful = true;
@@ -126,9 +138,9 @@ export class RegistroComponent implements OnInit {
   cargarEmpresa(imagen: string){
     const { razonSocial, ruc, direccion, telefono, correo, 
       paginaWeb, empleadosHombres, empleadosMujeres, tipo, 
-      actividad, subactividad, perteneceAsociacion, quiereAsociacion, provincia} = this.form_empresa;
+      actividad, perteneceAsociacion, quiereAsociacion, provincia} = this.form_empresa;
     
-    this.authService.registerEmpresa(razonSocial, ruc, direccion, telefono, correo, paginaWeb, parseInt(empleadosHombres), parseInt(empleadosMujeres), tipo, actividad, subactividad, perteneceAsociacion, quiereAsociacion, provincia, imagen, this.usernameOk).subscribe(
+    this.authService.registerEmpresa(razonSocial, ruc, direccion, telefono, correo, paginaWeb, parseInt(empleadosHombres), parseInt(empleadosMujeres), tipo, actividad, perteneceAsociacion, quiereAsociacion, provincia, imagen, this.usernameOk).subscribe(
       data => {
         console.log(data);
         this.isSuccessful_empresa = true;

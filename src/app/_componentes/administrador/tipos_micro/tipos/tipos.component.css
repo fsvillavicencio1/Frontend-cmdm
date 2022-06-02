@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+.container{
+    background-color: #ffffff;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.container h1{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0px 0px 0px 40px;
+}
+
+.left-panel{
+    width: 50%;
+    height: 50%;
+    background-color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 75px;
+}
+
+.left-panel .image{
+    width: 30%;
+    margin-left: 0px;
+    
+}
+
+.left-panel h3{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    color: #000;
+    font-size: 20px;
+    padding: 20px 0px 0px 0px;
+}
+
+.left-panel p{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    padding: 0px 30px 10px 30px;
+    color: #000;
+    font-size: 16px;
+}
+
+.wrapper{
+    width: 85%;
+    margin: 0 auto;
+    background-color: #ffffff;
+}
+
+.tabla{
+    width: 100%;
+    background-color: #ffffff;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.tabla table{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tabla table th{
+    text-align: center;
+    font-size: 15px;
+    color:   #000;
+}
+
+.account_circle{
+    color:  #000;
+}
+
+
+.short { 
+    max-width: 150px;
+    margin: 0 auto;
+    
+}
+
+.tabla td{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.mat-toolbar{
+    background-color: #ffffff;
+    top: 0;
+    bottom: auto;
+    font-family: 'Quicksand', sans-serif;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.mat-toolbar span{
+    font-weight: bold;
+}
+
+.login-button{
+    font-family: 'Quicksand', sans-serif;
+    background-color:  #F4AB14;
+    color: #0A66C2;
+    font-weight: 550;
+}
+

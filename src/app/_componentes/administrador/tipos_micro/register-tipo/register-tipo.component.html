@@ -1,0 +1,33 @@
+<button mat-icon-button mat-dialog-title mat-dialog-close>
+    <mat-icon class="expand_more">close</mat-icon>
+</button>
+
+<mat-dialog-content class="mat-typography">
+    <div class="container">
+        <div *ngIf="!isSuccessful" class="text">Registro de Tipo de microempresa</div>
+        <br *ngIf="!isSuccessful">
+        <p *ngIf="!isSuccessful" class="campo-requerido">* Campo requerido</p>
+        <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <p>Tipo de microempresa: * <span class="alert alert-danger" role="alert" *ngIf="tipo.errors && f.submitted">Campo requerido</span></p>
+            <div class="data">
+                <input type="text" name="tipo" [(ngModel)]="form.tipo" required #tipo="ngModel">
+            </div>
+            <button type="submit">
+                <p *ngIf="!loading">Registrar</p>
+                <p>
+                    <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading" diameter="20">
+                    </mat-spinner>
+                </p>
+            </button>
+            <div class="form-group">
+                <div class="alert alert-danger error" role="alert" *ngIf="f.submitted && isSignUpFailed">{{
+                    errorMessage }}</div>
+            </div>
+        </form>
+
+        <div class="acceso-exitoso" *ngIf="isSuccessful">
+            <img src="../../../assets/OkActividad.svg" class="image" alt="" />
+            <h3>El tipo de microempresa se registró con éxito!</h3>
+        </div>
+    </div>
+</mat-dialog-content>

@@ -23,7 +23,7 @@
 
 .competitividad .imagen{
     width: 100%;
-    background-image: url("../../../assets/competitividad.jpg");
+    background-image: url("../../../assets/Home/competitividad.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 350px;
@@ -31,7 +31,7 @@
 
 .digital .imagen{
     width: 100%;
-    background-image: url("../../../assets/empresa.jpg");
+    background-image: url("../../../assets/Home/madurez-digital.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 350px;
@@ -69,13 +69,18 @@
 .competitividad .boton button, .digital .boton button{
         height: 45px;
         width: 25%;
-        background-color: #F4AB14;
+        background-color: #0A66C2;
         border: none;
-        color: #0A66C2;
-        font-size: 15px; 
+        color: #ffffff;
+        font-size: 13px; 
         cursor: pointer;
         float: right;
         font-weight: 550;
+}
+
+.competitividad .boton button:hover, .digital .boton button:hover{
+    background-color: #F4AB14;
+    transition: 0.5s;
 }
 
 @media screen and (max-width: 900px){
@@ -95,12 +100,6 @@
     .competitividad .boton button, .digital .boton button{
         height: 45px;
         width: 30%;
-        background-color: #F4AB14;
-        border: none;
-        color: #0A66C2;
-        font-size: 15px; 
-        cursor: pointer;
-        float: right;
-        font-weight: 550;
+    
 }
 }

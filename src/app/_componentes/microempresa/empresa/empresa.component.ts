@@ -14,6 +14,8 @@ import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 })
 export class EmpresaComponent implements OnInit {
   tipos: any = [];
+  actividades: any = [];
+
   isLoggedIn = false;
   id_user?: number;
   loading = false;
@@ -30,7 +32,6 @@ export class EmpresaComponent implements OnInit {
     empleadosMujeres: null,
     tipo: null,
     actividad: null,
-    subactividad: null,
     perteneceAsociacion: null,
     quiereAsociacion: null,
     provincia: null
@@ -79,6 +80,7 @@ export class EmpresaComponent implements OnInit {
       this.showMicroBoard = this.roles.includes('ROLE_MICRO');
       this.getExistEmpresa();
       this.getTipos();
+      this.getActividades();
     }
   }
 
@@ -86,6 +88,17 @@ export class EmpresaComponent implements OnInit {
     this.userService.getTipos().subscribe(
       data => {
         this.tipos = data;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  public getActividades(){
+    this.userService.getActividades().subscribe(
+      data => {
+        this.actividades = data;
       },
       err => {
         console.log(err);
@@ -137,9 +150,9 @@ export class EmpresaComponent implements OnInit {
   cargarEmpresa(imagen: string){
     const { razonSocial, ruc, direccion, telefono, correo, 
       paginaWeb, empleadosHombres, empleadosMujeres, tipo, 
-      actividad, subactividad, perteneceAsociacion, quiereAsociacion, provincia} = this.form_empresa;
+      actividad, perteneceAsociacion, quiereAsociacion, provincia} = this.form_empresa;
     //this.actividadOk.push(actividad);
-    this.authService.registerEmpresa(razonSocial, ruc, direccion, telefono, correo, paginaWeb, parseInt(empleadosHombres), parseInt(empleadosMujeres), tipo, actividad, subactividad, perteneceAsociacion, quiereAsociacion, provincia, imagen, this.usernameOk).subscribe(
+    this.authService.registerEmpresa(razonSocial, ruc, direccion, telefono, correo, paginaWeb, parseInt(empleadosHombres), parseInt(empleadosMujeres), tipo, actividad, perteneceAsociacion, quiereAsociacion, provincia, imagen, this.usernameOk).subscribe(
       data => {
         console.log(data);
         this.isSuccessful_empresa = true;

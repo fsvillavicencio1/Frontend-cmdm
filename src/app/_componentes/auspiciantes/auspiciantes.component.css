@@ -3,7 +3,7 @@
 .contenedor{
     width: 100%;
     background-color: #ffffff;
-    padding: 2em 0em 2em 0em;
+    padding: 2em 0em 3em 0em;
     box-sizing: border-box;
 }
 
@@ -17,13 +17,13 @@
 }
 
 .carousel{
-    width: 75%;
+    width: 80%;
     margin: 0 auto;
 }
 
 
 img{
-    width: 65% !important;
+    width: 75% !important;
 }
 
 @media screen and (max-width: 1110px){

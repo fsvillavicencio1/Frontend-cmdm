@@ -55,25 +55,25 @@
             <div class="formulario" *ngIf="create_post">
                 <div class="login">
                     <div class="text">Crear Publicación</div>
+                    <br>
+                    <p class="campo-requerido">* Campo requerido</p>
                     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
                         novalidate>
+                        <p>Título de la Publicación: * <span class="alert alert-danger" role="alert" *ngIf="titulo.errors && f.submitted">Campo requerido</span></p>
                         <div class="data">
-                            <input type="text" name="titulo" [(ngModel)]="form.titulo" #titulo="ngModel"
-                                placeholder="Título de la Publicación" required>
-                            <div class="alert alert-danger" role="alert" *ngIf="titulo.errors && f.submitted">Ingresa el
-                                título de la publicación</div>
+                            <input type="text" name="titulo" [(ngModel)]="form.titulo" #titulo="ngModel" required>
                         </div>
+
+                        <p>Imagen de la Publicación: * <span class="alert alert-danger" role="alert" *ngIf="file.errors && f.submitted">Campo requerido</span></p>
                         <div class="data">
                             <input type="file" name="file" (change)="onChange($event)" [(ngModel)]="form.file"
                                 #file="ngModel" required>
-                            <div class="alert alert-danger" role="alert" *ngIf="file.errors && f.submitted">Carga una
-                                Imagen</div>
                         </div>
+
+                        <p>Cuerpo de la Publicación: * <span class="alert alert-danger" role="alert" *ngIf="descripcion.errors && f.submitted">Campo requerido</span></p>
                         <div class="data2">
                             <ckeditor [editor]="Editor" name="descripcion" [(ngModel)]="form.descripcion" required
-                                #descripcion="ngModel" placeholder="Cuerpo de la publicación"></ckeditor>
-                            <div class="alert alert-danger" role="alert" *ngIf="descripcion.errors && f.submitted">
-                                Ingresa el cuerpo de la publicación</div>
+                                #descripcion="ngModel"></ckeditor>
                         </div>
                         <div class="botones">
                             <button type="submit">

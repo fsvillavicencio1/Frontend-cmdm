@@ -68,8 +68,6 @@ export class EvaluacionMdComponent implements OnInit {
             + "&field:empleados_hombres=" + this.empresa[0].empleadosHombres
             + "&field:empleados_mujeres=" + this.empresa[0].empleadosMujeres
             + "&field:tipo_microempresa=" + this.empresa[0].tipo
-            + "&field:actividad_microempresa=" + this.empresa[0].actividad
-            + "&field:sub_actividad_microempresa=" + this.empresa[0].subactividad
             + "&field:pertenece_a_asociacion=" + this.empresa[0].perteneceAsociacion
             + "&field:quirere_pertenecer_a_asociacion=" + this.empresa[0].quiereAsociacion
             + "&field:provincia=" + this.empresa[0].provincia

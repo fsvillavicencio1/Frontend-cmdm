@@ -8,6 +8,7 @@ import { Actividad } from 'src/Actividad';
 import { MatDialog } from '@angular/material/dialog';
 import { RegisterActividadComponent } from '../actividades_micro/register-actividad/register-actividad.component';
 import { UpdateActividadComponent } from '../actividades_micro/update-actividad/update-actividad.component';
+import { DeleteActividadComponent } from '../actividades_micro/delete-actividad/delete-actividad.component';
 
 @Component({
   selector: 'app-actividades',
@@ -32,7 +33,8 @@ export class ActividadesComponent implements OnInit {
 
   constructor(private tokenStorageService: TokenStorageService, private userService: UserService
     , public dialogRegister: MatDialog
-    , public dialogUpdate: MatDialog) { }
+    , public dialogUpdate: MatDialog
+    , public dialogDelete: MatDialog) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -48,7 +50,7 @@ export class ActividadesComponent implements OnInit {
 
   public getAllActividades(){
     this.loading = true;
-    /*let resp = this.userService.getActividad();
+    let resp = this.userService.getActividades();
     resp.subscribe(
       report => {
         this.dataSource.data = report as Actividad[];
@@ -58,7 +60,7 @@ export class ActividadesComponent implements OnInit {
         this.loading = false;
         console.log(err);
       }
-    );*/
+    );
   }
 
   openDialogRegister(){
@@ -68,6 +70,11 @@ export class ActividadesComponent implements OnInit {
 
   openDialogUpdate(id: number){
     const dialogRef = this.dialogUpdate.open(UpdateActividadComponent, { data: {id: id}, disableClose: true });
+    dialogRef.afterClosed().subscribe(() => {this.ngOnInit();});
+  }
+
+  openDialogDelete(id: number){
+    const dialogRef = this.dialogDelete.open(DeleteActividadComponent, {data: {id: id}, disableClose: true});
     dialogRef.afterClosed().subscribe(() => {this.ngOnInit();});
   }
 

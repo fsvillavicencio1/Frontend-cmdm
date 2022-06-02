@@ -10,7 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ViewPublicacionComponent } from '../publicaciones/view-publicacion/view-publicacion.component';
 import { UpdatePublicacionComponent } from '../publicaciones/update-publicacion/update-publicacion.component';
 import { DeletePublicacionComponent } from '../publicaciones/delete-publicacion/delete-publicacion.component';
-
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-competitividad',
@@ -22,6 +22,7 @@ export class CompetitividadComponent implements OnInit {
   isLoggedIn = false;
   id_user?: number;
   loading = false;
+  username = '';
 
   boton_add = true;
   create_post = true;
@@ -54,6 +55,10 @@ export class CompetitividadComponent implements OnInit {
   currentFile!: File;
   url = "";
 
+  today: Date = new Date();
+  pipe = new DatePipe('en-US');
+  todayWithPipe = null;
+
   constructor(private tokenStorageService: TokenStorageService, 
     private userService: UserService,
     public dialogRegister: MatDialog,
@@ -67,8 +72,9 @@ export class CompetitividadComponent implements OnInit {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
       this.id_user = user.id;
+      this.username = user.username;
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      console.log(this.id_user);
+      console.log(this.username);
       this.getAllPublicaciones();
     }
   }
@@ -118,7 +124,7 @@ export class CompetitividadComponent implements OnInit {
   cargarPublicacion(imagen: string){
     const { titulo, descripcion } = this.form;
     
-    this.userService.registerPublicacion(titulo, descripcion.toString() , imagen).subscribe(
+    this.userService.registerPublicacion(this.pipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss')!, titulo, descripcion.toString() , imagen, this.username).subscribe(
       data => {
         console.log(data);
         this.isSuccessful = true;
@@ -157,6 +163,5 @@ export class CompetitividadComponent implements OnInit {
   openDialogDelete(id: number){
     const dialogRef = this.dialogDelete.open(DeletePublicacionComponent, {data: {id: id}, disableClose: true});
     dialogRef.afterClosed().subscribe(() => {this.ngOnInit();});
-
   }
 }

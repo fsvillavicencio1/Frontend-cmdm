@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
 
 .parallax{
-    background-image: url('../../../assets/parallax.jpg');
-    min-height: 500px;
+    background-image: url('../../../assets/Home/parallax.jpg');
+    /*min-height: 500px;*/
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

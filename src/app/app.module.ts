@@ -46,6 +46,16 @@ import { FooterComponent } from './_componentes/footer/footer.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SendEmailComponent } from './_componentes/send-email/send-email.component';
 import { EvaluacionMdComponent } from './_componentes/microempresa/evaluacion-md/evaluacion-md.component';
+import { MadurezDigitalComponent } from './_componentes/madurez-digital/madurez-digital.component';
+import { ProyectoCompetitividadComponent } from './_componentes/proyecto-competitividad/proyecto-competitividad.component';
+import { ProyectoComponent } from './_componentes/proyecto/proyecto.component';
+import { ContactosComponent } from './_componentes/contactos/contactos.component';
+import { BlogComponent } from './_componentes/blog/blog.component';
+import { DeleteActividadComponent } from './_componentes/administrador/actividades_micro/delete-actividad/delete-actividad.component';
+import { TiposComponent } from './_componentes/administrador/tipos_micro/tipos/tipos.component';
+import { RegisterTipoComponent } from './_componentes/administrador/tipos_micro/register-tipo/register-tipo.component';
+import { UpdateTipoComponent } from './_componentes/administrador/tipos_micro/update-tipo/update-tipo.component';
+import { DeleteTipoComponent } from './_componentes/administrador/tipos_micro/delete-tipo/delete-tipo.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +85,17 @@ import { EvaluacionMdComponent } from './_componentes/microempresa/evaluacion-md
     PublicacionComponent,
     FooterComponent,
     SendEmailComponent,
-    EvaluacionMdComponent
+    EvaluacionMdComponent,
+    MadurezDigitalComponent,
+    ProyectoCompetitividadComponent,
+    ProyectoComponent,
+    ContactosComponent,
+    BlogComponent,
+    DeleteActividadComponent,
+    TiposComponent,
+    RegisterTipoComponent,
+    UpdateTipoComponent,
+    DeleteTipoComponent
   ],
   imports: [
     BrowserModule,

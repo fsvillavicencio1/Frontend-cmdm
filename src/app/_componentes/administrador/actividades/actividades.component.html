@@ -1,7 +1,7 @@
 <div class="container">
     <mat-toolbar>
         <mat-toolbar-row>
-            <span>Actividades</span>
+            <span>Actividades de microempresa</span>
             <span class="example-spacer"></span>
             <button *ngIf="showAdminBoard" mat-stroked-button class="login-button" (click)="openDialogRegister()"><mat-icon mat-list-icon class="nav__icon">add</mat-icon> Nueva Actividad</button>
         </mat-toolbar-row>
@@ -32,6 +32,10 @@
                                 <button mat-menu-item (click)="openDialogUpdate(element.id)">
                                     <mat-icon class="account_circle">edit_note</mat-icon>
                                     <span>Editar</span>
+                                </button>
+                                <button mat-menu-item (click)="openDialogDelete(element.id)">
+                                    <mat-icon class="account_circle">delete_outline</mat-icon>
+                                    <span>Eliminar</span>
                                 </button>
                             </mat-menu>
                         </td>
