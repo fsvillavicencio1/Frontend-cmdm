@@ -1,0 +1,23 @@
+.scroll-to-top {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    opacity: 0;
+    border-radius: 100%;
+    transition: all .2s ease-in-out;
+}
+
+.show-scrollTop {
+    opacity: 1;
+    transition: all .2s ease-in-out;
+    background-color: #0A66C2;
+    border: 2px solid #ffffff;
+}
+
+.expand_more{
+    color:#ffffff;
+}
+
+.show-scrollTop:hover{
+    background-color: #F4AB14;
+}

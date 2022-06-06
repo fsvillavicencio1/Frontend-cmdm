@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+.contenido{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+    background-color: #ffffff;
+}
+
+.contenido .titulo{
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.contenido .ultima_publicacion{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.contenido .ultima_publicacion .imagen_ultima{
+    width: 100%;
+}
+
+.contenido .ultima_publicacion .imagen_ultima img{
+    width: 100%;
+}
+
+.contenido .ultima_publicacion .titulo_ultima{
+    width: 100%;
+    margin-top: 20px;
+    line-height: 40px;
+}
+
+.contenido .ultima_publicacion .titulo_ultima p{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0A66C2;
+}
+
+.contenido .ultima_publicacion .texto_ultima{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.contenido .ultima_publicacion .texto_ultima p{
+    text-align: justify;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+.contenido .ultima_publicacion .titulo_ultima p:hover{
+    color: #F4AB14;
+    cursor: pointer;
+}
+
+.contenido .ultima_publicacion .texto_ultima .leer_mas{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    color: #0A66C2;
+}
+
+.contenido .ultima_publicacion .texto_ultima .leer_mas:hover{
+    color: #F4AB14;
+    cursor: pointer;
+}
+
+.contenido .ultima_publicacion .fecha_ultima{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.contenido .ultima_publicacion .fecha_ultima p{
+    color: #949494;
+}
+
+.contenido .subtitulo{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    width: 70%;
+    font-weight: 550;
+    color: #000000;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.contenido .resto_publicacones{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.contenido .resto_publicacones .publicacion{
+    width: 30.5%;
+    display: inline-block;
+    padding: 15px 15px;
+    vertical-align: top;
+}
+
+.contenido .resto_publicacones .publicacion .imagen_publicaciones{
+    width: 100%;
+}
+
+.contenido .resto_publicacones .publicacion .imagen_publicaciones img{
+    width: 100%;
+}
+
+.contenido .resto_publicacones .publicacion .titulo_publicacion{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.contenido .resto_publicacones .publicacion .titulo_publicacion p{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0A66C2;
+}
+
+.contenido .resto_publicacones .publicacion .texto_publicacion{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.contenido .resto_publicacones .publicacion .texto_publicacion p{
+    text-align: justify;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.contenido .resto_publicacones .publicacion .titulo_publicacion p:hover{
+    color: #F4AB14;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 900px){
+    .contenido .resto_publicacones .publicacion{
+        width: 44%;
+    }
+
+    .contenido .ultima_publicacion{
+        width: 90%;
+    }
+    
+}
+
+@media screen and (max-width: 800px){
+    .contenido .resto_publicacones .publicacion{
+        width: 100%;
+    }
+    
+}

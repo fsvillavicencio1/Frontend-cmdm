@@ -1,1 +1,39 @@
-<p>blog works!</p>
+<app-header [titulo]="titulo" [imagen]="imagen"></app-header>
+<br>
+<mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading" diameter="40"></mat-spinner>
+<div class="contenido" *ngIf="!loading">
+    <div class="titulo">Últimas publicaciones</div>
+    <div class="ultima_publicacion">
+        <div class="imagen_ultima">
+            <img src="{{ultima_publicacion.imagen}}" alt="">
+        </div>
+        <div class="titulo_ultima">
+            <p routerLink="/publicaciones/{{ultima_publicacion.id}}">{{ultima_publicacion.titulo}}</p>
+        </div>
+        <div class="fecha_ultima">
+            <p>Fecha: {{ultima_publicacion.fecha}}</p>
+        </div>
+        <div class="texto_ultima">
+            <p [innerHTML]="texto_resumido_ultima"></p><span class="leer_mas" routerLink="/publicaciones/{{ultima_publicacion.id}}">Leer publicación completa</span>
+        </div>
+    </div>
+    <div class="subtitulo">Otras publicaciones:</div>
+    <div class="resto_publicacones">
+        <div class="publicacion" *ngFor="let p of resto_publicaciones">
+            <div class="imagen_publicaciones">
+                <img src="{{p.imagen}}" alt="">
+            </div>
+            <div class="titulo_publicacion">
+                <p routerLink="/publicaciones/{{p.id}}">{{p.titulo}}</p>
+            </div>
+            <div class="texto_publicacion">
+                <p [innerHTML]="recortar_texto(p.descripcion)"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-auspiciantes *ngIf="!loading"></app-auspiciantes>
+<app-footer *ngIf="!loading"></app-footer>
+<app-button-top></app-button-top>
+

@@ -23,13 +23,13 @@ import { SendEmailComponent } from './_componentes/send-email/send-email.compone
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'registro', component: RegistroComponent },
-  { path: 'publicacion/:nombre', component: PublicacionComponent},
+  { path: 'publicaciones/:id', component: PublicacionComponent},
   { path: 'share', component: SendEmailComponent},
   { path: 'proyecto/competitividad', component: ProyectoCompetitividadComponent},
   { path: 'proyecto/madurez-digital', component: MadurezDigitalComponent},
   { path: 'proyecto', component: ProyectoComponent},
   { path: 'contactos', component: ContactosComponent},
-  { path: 'blog', component: BlogComponent},
+  { path: 'publicaciones', component: BlogComponent},
   { path: 'mi-empresa', component: LoginComponent,
   children: [
     { path: 'dashboard', component: DashboardComponent },
@@ -46,7 +46,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

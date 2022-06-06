@@ -173,6 +173,13 @@ form button{
     font-family: 'Quicksand', sans-serif;
 }
 
+.btn-registro:hover{
+    background-color: #0A66C2;
+    color: #ffffff;
+    transition: 1s;
+}
+
+
 ::placeholder{
     font-family: 'Quicksand', sans-serif;
 }

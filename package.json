@@ -35,7 +35,8 @@
     "arcgis-js-api": "^4.22.2",
     "jquery": "^3.6.0",
     "ng2-parallaxscroll": "^2.2.1",
-    "ngx-owl-carousel-o": "^7.0.1",
+    "ngx-owl-carousel-o": "^7.0.2",
+    "ngx-scrollreveal": "^3.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

@@ -1,6 +1,6 @@
-<div class="contenido">
-    <h1 class="titulo">Proceso de Competitividad</h1>
-    <p class="subtitulo">Pasos y consejos para mejorar en Competitividad y Madurez Digital</p>
+<div class="contenido" data-aos="fade-up" data-aos-duration="1200">
+    <h1 class="titulo">Proceso de Competitividad y Madurez digital</h1>
+    <p class="subtitulo">Pasos y consejos para mejorar en competitividad y madurez digital</p>
     <div class="empresas">
         <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading" diameter="40"></mat-spinner>
         <div class="empresas-card" *ngIf="!loading">
@@ -10,7 +10,7 @@
                     </div>
                 </div>
                 <div class="texto">
-                    <p routerLink="/publicacion/{{m.titulo}}">{{m.titulo}}</p>
+                    <p routerLink="/publicaciones/{{m.id}}">{{m.titulo}}</p>
                 </div>
             </div>
             <div class="boton">

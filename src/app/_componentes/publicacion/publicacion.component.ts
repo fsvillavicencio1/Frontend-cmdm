@@ -25,19 +25,19 @@ export class PublicacionComponent implements OnInit {
   ngOnInit(): void {
   
     this.publi = {
-      titulo: this.rutaActiva.snapshot.params?.['nombre'],
+      titulo: this.rutaActiva.snapshot.params?.['id'],
     };
-    this.init(this.publi!.titulo);
+    this.init(parseInt(this.publi!.titulo));
   }
 
-  public init(titulo: string){
+  public init(titulo: number){
     this.getPublicacion(titulo);
   }
 
-  public getPublicacion(titulo: String){
+  public getPublicacion(titulo: number){
     this.loading = true;
     this.loading2 = true;
-    this.userService.getPublicacionNombre(titulo).subscribe(
+    this.userService.getPublicacionesId(titulo).subscribe(
       data => {
         this.publicacion = data;
         this.loading = false;
@@ -51,7 +51,7 @@ export class PublicacionComponent implements OnInit {
     );
   }
 
-  public getPublicaciones(titulo: String){
+  public getPublicaciones(titulo: number){
     this.loading2 = true;
     this.userService.getPublicaciones().subscribe(
       data => {
@@ -66,27 +66,31 @@ export class PublicacionComponent implements OnInit {
     );
   }
 
-  public filterPublicaciones(titulo: String){
+  public filterPublicaciones(titulo: number){
     let size = this.publicaciones.length;
     this.publi_filter = [];
-    if(size <= 5){
+    if(size <= 4){
       for (var i of this.publicaciones) {
-        if(i.titulo != titulo){
+        if(i.id != titulo){
           this.publi_filter.push(i);
         }
       }
     }
     else{
-      for (let i = 0; i < 5; i++) {
-        if(this.publicaciones[i].titulo != titulo){
+      for (let i = 0; i < 4; i++) {
+        if(this.publicaciones[i].id != titulo){
         this.publi_filter.push(this.publicaciones[i]);
         }
       }
     }
   }
 
-  public reload(titulo: string){
+  public reload(titulo: number){
     this.init(titulo);
+  }
+
+  public recortar_texto(texto: string){
+    return texto.substr(0, 120) + "....";
   }
 
 }

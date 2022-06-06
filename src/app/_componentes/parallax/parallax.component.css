@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
 
 .parallax{
-    background-image: url('../../../assets/Home/parallax.jpg');
+    /*background-image: url('../../../assets/Home/parallax.jpg');*/
     /*min-height: 500px;*/
     background-attachment: fixed;
     background-position: center;
@@ -42,6 +42,15 @@
 
     .parallax h1{
         font-size: 26px;
+        line-height: 40px;
+    }
+}
+
+@media screen and (max-width: 500px){
+ 
+
+    .parallax h1{
+        font-size: 22px;
         line-height: 40px;
     }
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IParallaxScrollConfig } from './ng2-parallaxscroll';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-parallax',
@@ -11,9 +12,14 @@ export class ParallaxComponent implements OnInit {
     axis: 'Y',
     speed: 1
   };
+
+  @Input() titulo: string = '';
+  @Input() imagen: string = '';
+  
   constructor() { }
 
   ngOnInit(): void {
+    AOS.init();
   }
 
 }

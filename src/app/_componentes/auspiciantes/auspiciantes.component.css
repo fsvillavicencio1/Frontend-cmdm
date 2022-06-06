@@ -3,8 +3,8 @@
 .contenedor{
     width: 100%;
     background-color: #ffffff;
-    padding: 2em 0em 3em 0em;
     box-sizing: border-box;
+    margin-top: 50px;
 }
 
 .contenedor .titulo{
@@ -21,9 +21,8 @@
     margin: 0 auto;
 }
 
-
 img{
-    width: 75% !important;
+    width: 90% !important;
 }
 
 @media screen and (max-width: 1110px){

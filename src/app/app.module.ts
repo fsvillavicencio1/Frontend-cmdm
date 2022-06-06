@@ -56,6 +56,8 @@ import { TiposComponent } from './_componentes/administrador/tipos_micro/tipos/t
 import { RegisterTipoComponent } from './_componentes/administrador/tipos_micro/register-tipo/register-tipo.component';
 import { UpdateTipoComponent } from './_componentes/administrador/tipos_micro/update-tipo/update-tipo.component';
 import { DeleteTipoComponent } from './_componentes/administrador/tipos_micro/delete-tipo/delete-tipo.component';
+import { ButtonTopComponent } from './_componentes/button-top/button-top.component';
+import { HeaderComponent } from './_componentes/header/header.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +97,9 @@ import { DeleteTipoComponent } from './_componentes/administrador/tipos_micro/de
     TiposComponent,
     RegisterTipoComponent,
     UpdateTipoComponent,
-    DeleteTipoComponent
+    DeleteTipoComponent,
+    ButtonTopComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

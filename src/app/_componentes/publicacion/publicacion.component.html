@@ -2,28 +2,41 @@
     <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading2" diameter="30"></mat-spinner>
     <div *ngIf="!loading2">
         <div class="publicacion">
-            <div class="titulo">
-                <p>{{publicacion.titulo}}</p>
-            </div>
             <div class="imagen">
                 <img src="{{publicacion.imagen}}" alt="">
+            </div>
+            <div class="datos">
+                <p>Autor: <span>{{publicacion.autor}}</span></p>
+                <p>Fecha de publicación: <span>{{publicacion.fecha}}</span></p>
+            </div>
+            <div class="titulo">
+                <p>{{publicacion.titulo}}</p>
             </div>
             <div class="texto">
                 <p [innerHTML]="publicacion.descripcion"></p>
             </div>
         </div>
         <div class="otras" *ngIf="!loading2">
-            <p class="titulo_otras">Otras publicaciones que te pueden interesar</p>
-            <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading2" diameter="25"></mat-spinner>
-            <div class="list_publicaciones">
-                <div  class="pub" *ngFor="let p of publi_filter">
-                    <p routerLink="/publicacion/{{p.titulo}}" (click)="reload(p.titulo)">{{p.titulo}}</p>
+            <p class="titulo_otras">Otras publicaciones que te pueden interesar: </p>
+            <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading2" diameter="25">
+            </mat-spinner>
+            <div class="pub" *ngFor="let p of publi_filter">
+                <div class="imagen_publicaciones">
+                    <img src="{{p.imagen}}" alt="">
                 </div>
+                <div class="titulo_publicacion">
+                    <p routerLink="/publicaciones/{{p.id}}" (click)="reload(p.id)">{{p.titulo}}</p>
+                </div>
+                <div class="texto_publicacion">
+                    <p [innerHTML]="recortar_texto(p.descripcion)"></p>
+                </div>
+
             </div>
         </div>
     </div>
-    
+
 </div>
-<div class="footer" *ngIf="!loading2">
-    <app-footer></app-footer>
-</div>
+
+<app-auspiciantes *ngIf="!loading2"></app-auspiciantes>
+<app-footer *ngIf="!loading2"></app-footer>
+<app-button-top></app-button-top>

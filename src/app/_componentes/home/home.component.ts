@@ -10,6 +10,9 @@ export class HomeComponent implements OnInit {
 
   public carouselData: ICarouselItem[] = CAROUSEL_DATA_ITEMS;
   
+  titulo = 'No hay que perder de vista que cualquier empresa competitiva deberá ofrecer calidad, fiabilidad, rapidez y flexibilidad a la vez que rentabilidad.';
+  imagen = '../../../assets/Parallax/parallax-home.jpg';
+
   constructor() { }
 
   ngOnInit(): void {

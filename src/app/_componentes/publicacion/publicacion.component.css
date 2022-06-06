@@ -2,32 +2,43 @@
 
 
 .contenedor{
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .contenedor .publicacion{
     width: 70%;
-    display: inline-block;
+    margin: 0 auto;
+    border-bottom: 1px solid #635d5d;
+}
+
+.contenedor .publicacion .datos{
+    width: 100%;
+    margin-top: 15px;
+    
+}
+
+.contenedor .publicacion .datos p{
+    color: #635d5d;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .contenedor .publicacion .titulo{
-    width: 90%;
-    margin: 0 auto;
+    width: 100%;
 }
 
 .contenedor .publicacion .titulo p{
-    font-size: 30px;
+    font-size: 20px;
     font-family: 'Quicksand', sans-serif;
     line-height: 40px;
-    font-weight: 550;
-    padding: 10px 0px 0px 0px;
+    font-weight: 600;
+    margin-top: 20px;
+    color: #0A66C2;
 }
 
 .contenedor .publicacion .imagen{
-    width: 90%;
-    margin: 0 auto;
+    width: 100%;
     margin-top: 30px;
 }
 
@@ -36,39 +47,69 @@
 }
 
 .contenedor .publicacion .texto{
-    width: 90%;
-    margin: 0 auto;
+    width: 100%;
     margin-top: 30px;
     text-align: justify;
     font-size: 15px;
     line-height: 25px;
+    font-family: 'Quicksand', sans-serif;
+    margin-bottom: 30px;
+
 }
 
 .contenedor .otras{
-    width: 29%;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.contenedor .otras .pub{
+    width: 30.5%;
     display: inline-block;
+    padding: 15px 15px;
     vertical-align: top;
-    border-left: 2px solid #000000;
 }
 
 .contenedor .otras .titulo_otras{
-    font-size: 15px;
+    font-size: 16px;
     font-family: 'Quicksand', sans-serif;
     font-weight: 550;
-    padding: 20px;
-    text-transform: uppercase;
+    margin-top: 30px;
 }
 
-.contenedor .otras .list_publicaciones .pub{
-    font-size: 15px;
+.contenedor .otras .pub .imagen_publicaciones{
+    width: 100%;
+}
+
+.contenedor .otras .pub .imagen_publicaciones img{
+    width: 100%;
+}
+
+.contenedor .otras .pub .titulo_publicacion{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.contenedor .otras .pub .titulo_publicacion p{
     font-family: 'Quicksand', sans-serif;
-    font-weight: 550;
-    padding: 10px 20px;
-    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
     color: #0A66C2;
 }
 
-.contenedor .otras .list_publicaciones .pub p:hover{
+.contenedor .otras .pub .texto_publicacion{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.contenedor .otras .pub .texto_publicacion p{
+    text-align: justify;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.contenedor .otras .pub .titulo_publicacion p:hover{
     color: #F4AB14;
     cursor: pointer;
 }
@@ -76,13 +117,17 @@
 
 @media screen and (max-width: 900px) {
     .contenedor .publicacion{
-        width: 100%;
+        width: 90%;
     }
 
-    .contenedor .otras{
+    .contenedor .otras .pub{
+        width: 44%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .contenedor .otras .pub{
         width: 100%;
-        border-left: none;
-        border-top: 2px solid #000000;
     }
 }
 

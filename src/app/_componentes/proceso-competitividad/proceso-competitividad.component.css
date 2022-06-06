@@ -101,14 +101,19 @@
 .contenido .empresas .empresas-card .boton button{
         height: 45px;
         width: 100px;
-        background-color: #F4AB14;
+        background-color: #0A66C2;
         border: none;
-        color: #0A66C2;
-        font-size: 15px; 
+        color: #ffffff;
+        font-size: 13px; 
         cursor: pointer;
         font-weight: 550;
         margin-left: 15px;
         margin-right: 15px;
+}
+
+.contenido .empresas .empresas-card .boton button:hover{
+    background-color: #F4AB14;
+    transition: 0.5s;
 }
 
 @media screen and (max-width: 1470px){
@@ -154,7 +159,25 @@
 
 @media screen and (max-width: 990px){
     .contenido .empresas .empresas-card .card{
-        width: 21%;
+        width: 25%;
+    }
+
+    .contenido .empresas .empresas-card .card .imagen{
+        height: 190px;
+    }
+    
+    .contenido .empresas .empresas-card .card .fondo{
+        height: 190px;
+    }
+    
+    .contenido .empresas .empresas-card .card .texto p{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .contenido .empresas .empresas-card .card{
+        width: 25%;
     }
 
     .contenido .empresas .empresas-card .card .imagen{
@@ -171,13 +194,16 @@
 }
 
 @media screen and (max-width: 870px){
-
+    .contenido .empresas .empresas-card .card{
+        width: 25%;
+    }
+    
     .contenido .empresas .empresas-card .card .imagen{
-        height: 180px;
+        height: 160px;
     }
     
     .contenido .empresas .empresas-card .card .fondo{
-        height: 180px;
+        height: 160px;
     }
     
 }

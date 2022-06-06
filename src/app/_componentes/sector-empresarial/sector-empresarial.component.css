@@ -166,6 +166,26 @@
 
 }
 
+@media screen and (max-width: 900px){
+    .contenido .empresas .empresas-card .card{
+        width: 25%;
+        height: 280px;
+    }
+
+    .contenido .empresas .empresas-card .card .imagen{
+        height: 280px;
+    }
+    
+    .contenido .empresas .empresas-card .card .fondo{
+        height: 280px;
+    }
+    
+    .contenido .empresas .empresas-card .card .fondo .marco{
+        height: 280px;
+    }
+
+}
+
 @media screen and (max-width: 780px){
     .contenido .empresas .empresas-card .card{
         width: 45%;

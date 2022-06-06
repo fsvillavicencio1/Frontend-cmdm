@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+.container{
+    width: 90%;
+    background-color: #ffffff;
+    margin: 0 auto;
+}
+
+.container .titulo{
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    padding: 50px 0px 20px 0px;
+}
+
+.container .titulo p{
+    font-size: 23px;
+    line-height: 35px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+}
+
+.container .titulo .subtitle{
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+}
+
+.container .mapa{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.container .mapa iframe{
+    width: 100%;
+}
+
+.container .datos{
+    width: 60%;
+    margin: 0 auto;
+    padding: 50px 0px 20px 0px;
+    text-align: center;
+}
+
+.container .datos div{
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    line-height: 40px;
+}
+
+
+.container .datos div .nav__name{
+    margin-left: 10px;
+    font-weight: 600;
+
+}

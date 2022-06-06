@@ -47,12 +47,12 @@
 }
 
 .wrapper{
-    width: 85%;
+    width: 100%;
     margin: 0 auto;
     background-color: #ffffff;
 }
 
-.tabla{
+.wrapper .tabla{
     width: 100%;
     background-color: #ffffff;
     margin-top: 30px;
@@ -60,7 +60,7 @@
     font-family: 'Quicksand', sans-serif;
 }
 
-.tabla table{
+.wrapper .tabla table{
     width: 80%;
     margin: 0 auto;
     text-align: center;
@@ -219,4 +219,11 @@ form .data input:focus, form .data2 input:focus, form .data select:focus{
 
 .error{
     text-align: center;
+}
+
+@media screen and (max-width: 800px){
+    .titulo{
+        font-size: 14px;
+    }
+    
 }

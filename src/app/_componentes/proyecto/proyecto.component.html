@@ -1,1 +1,29 @@
-<p>proyecto works!</p>
+<app-header [titulo]="titulo" [imagen]="imagen"></app-header>
+
+<div class="container">
+    <div class="titulo" data-aos="fade-up" data-aos-duration="1200">
+        <p>La transformación digital como estrategia para fortalecer la competitividad e innovación en las microempresas 
+            y starup de la provincia de Loja</p>
+    </div>
+    <div class="imagen" data-aos="fade-up" data-aos-duration="1200">
+        <img src="../../../assets/Proyecto/equipo.jpg" alt="">
+    </div>
+    <div class="texto" data-aos="fade-up" data-aos-duration="1200">
+        <p >El proyecto “La transformación digital como estrategia para fortalecer la competitividad e innovación en las microempresas 
+            y starup de la provincia de Loja”, tiene como objetivo evaluar el nivel de madurez digital y competitividad de las 
+            microempresas, por sectores productivos, con el propósito de tener una línea base y proponer estrategias aplicables 
+            que permitan fortalecer las buenas prácticas en función al nivel de madurez digital en cada sector productivo.</p>
+            <br>
+            <p>Además, gracias al proyecto se pretende desarrollar un prototipo que permita a las empresas hacer un autodiagnóstico 
+                sobre su accionar en transformación digital para promover la innovación y competitividad. Actualmente, la planificación, 
+                la tecnología e innovación tiene un papel importante en la gestión empresarial a nivel mundial, convirtiéndose en 
+                instrumentos fundamentales para que las empresas sean eficaces, eficientes y competitivas.</p>
+    </div>
+</div>
+
+<app-parallax [titulo]="titulo_parallax" [imagen]="imagen_parallax"></app-parallax>
+<app-compe-digital></app-compe-digital>
+<br>
+<app-auspiciantes></app-auspiciantes>
+<app-footer></app-footer>
+<app-button-top></app-button-top>

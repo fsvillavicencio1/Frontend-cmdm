@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/_services/user.service';
 import {ThemePalette} from '@angular/material/core';
 import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-proceso-competitividad',
@@ -24,6 +25,7 @@ export class ProcesoCompetitividadComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    AOS.init();
     this.getPublicaciones();
   }
   
