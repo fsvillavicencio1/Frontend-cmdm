@@ -30,7 +30,7 @@
 }
 
 .container .texto{
-    width: 70%;
+    width: 85%;
     margin: 0 auto;
     padding: 30px 0px 0px 0px;
 }
@@ -40,5 +40,14 @@
     font-size: 16px;
     text-align: justify;
     line-height: 25px;
+}
+
+.carousel{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.carousel img{
+    width: 99% !important;
 }
 

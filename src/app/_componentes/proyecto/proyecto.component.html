@@ -5,8 +5,20 @@
         <p>La transformación digital como estrategia para fortalecer la competitividad e innovación en las microempresas 
             y starup de la provincia de Loja</p>
     </div>
-    <div class="imagen" data-aos="fade-up" data-aos-duration="1200">
+    <!--div class="imagen" data-aos="fade-up" data-aos-duration="1200">
         <img src="../../../assets/Proyecto/equipo.jpg" alt="">
+    </div-->
+    <div class="carousel">
+        <owl-carousel-o [options]="customOptions" class="slider">
+            <ng-template carouselSlide class="slide"><img  src="../../../assets/Proyecto/equipo1.jpg" alt=""></ng-template>
+
+            <ng-template carouselSlide class="slide"><img src="../../../assets/Proyecto/equipo2.jpg" alt=""></ng-template>
+
+            <ng-template carouselSlide class="slide"><img src="../../../assets/Proyecto/equipo3.jpg" alt=""></ng-template>
+            
+           
+
+        </owl-carousel-o>
     </div>
     <div class="texto" data-aos="fade-up" data-aos-duration="1200">
         <p >El proyecto “La transformación digital como estrategia para fortalecer la competitividad e innovación en las microempresas 
@@ -19,6 +31,7 @@
                 la tecnología e innovación tiene un papel importante en la gestión empresarial a nivel mundial, convirtiéndose en 
                 instrumentos fundamentales para que las empresas sean eficaces, eficientes y competitivas.</p>
     </div>
+  
 </div>
 
 <app-parallax [titulo]="titulo_parallax" [imagen]="imagen_parallax"></app-parallax>

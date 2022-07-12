@@ -13,6 +13,7 @@ import { EmpresaComponent } from './_componentes/microempresa/empresa/empresa.co
 import { EvaluacionMdComponent } from './_componentes/microempresa/evaluacion-md/evaluacion-md.component';
 import { EvaluacionComponent } from './_componentes/microempresa/evaluacion/evaluacion.component';
 import { MiEmpresaComponent } from './_componentes/microempresa/mi-empresa/mi-empresa.component';
+import { PerfilComponent } from './_componentes/microempresa/perfil/perfil.component';
 import { ResultadosComponent } from './_componentes/microempresa/resultados/resultados.component';
 import { ProyectoCompetitividadComponent } from './_componentes/proyecto-competitividad/proyecto-competitividad.component';
 import { ProyectoComponent } from './_componentes/proyecto/proyecto.component';
@@ -40,6 +41,7 @@ const routes: Routes = [
     { path: 'actividades', component: ActividadesComponent },
     { path: 'tipos', component: TiposComponent },
     { path: 'competitividad', component: CompetitividadComponent },
+    { path: 'perfil', component: PerfilComponent},
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
   ] },
   { path: '', redirectTo: 'home', pathMatch: 'full' }

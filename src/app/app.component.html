@@ -23,7 +23,7 @@
         <mat-icon class="expand_more">expand_more</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+        <button mat-menu-item routerLink="mi-empresa/perfil">
           <mat-icon class="account_circle">person_outline</mat-icon>
           <span>Perfíl</span>
         </button>
@@ -40,7 +40,7 @@
       </button>
       <mat-menu #dropMenu="matMenu">
         <a mat-button class="username">{{username}}</a>
-        <button mat-menu-item>
+        <button mat-menu-item routerLink="mi-empresa/perfil">
           <mat-icon class="account_circle">person_outline</mat-icon>
           <span>Perfíl</span>
         </button>

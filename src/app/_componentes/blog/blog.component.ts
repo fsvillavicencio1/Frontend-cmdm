@@ -35,7 +35,7 @@ export class BlogComponent implements OnInit {
       data => {
         this.publicaciones = data;
         this.ultima_publicacion = this.publicaciones[0];
-        this.texto_resumido_ultima = this.ultima_publicacion.descripcion.substr(0, 170) + "....";
+        this.texto_resumido_ultima = this.ultima_publicacion.descripcion.substr(0, 300) + "....";
         for (let index = 1; index < this.publicaciones.length; index++) {
           this.resto_publicaciones.push(this.publicaciones[index])
         }

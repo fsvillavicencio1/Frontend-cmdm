@@ -27,7 +27,7 @@ export class EvaluacionComponent implements OnInit {
   showAdminBoard = false;
   showMicroBoard = false;
 
-  cadena = "//survey123.arcgis.com/share/330866db6b3541a59b4108e63e663bbd";
+  cadena = "//survey123.arcgis.com/share/38916357707d41afadaaeab86e39c470";
 
   constructor(private tokenStorageService: TokenStorageService, private userService: UserService, private sanitizer: DomSanitizer) {
   }

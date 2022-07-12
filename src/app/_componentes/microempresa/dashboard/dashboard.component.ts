@@ -15,11 +15,15 @@ export class DashboardComponent implements OnInit {
   id_user?: number;
   loading = false;
   isEmpresa = false;
-  isEvaluado = false;
+  isEvaluadoCompetitividad = false;
+  isEvaluadoMadurez = false;
   empresa: any = {};
-  trustedDashboardUrl?: SafeUrl;
+  trustedDashboardUrlCompetitividad?: SafeUrl;
+  trustedDashboardUrlMadurez?: SafeUrl;
 
-  cadena = "https://app.powerbi.com/reportEmbed?reportId=0335a70b-d55a-4e18-86a0-26cbd205829f&autoAuth=true&ctid=6eeb49aa-436d-43e6-becd-bbdf79e5077d&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWNlbnRyYWwtdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D";
+
+  cadena_competitividad = "https://app.powerbi.com/reportEmbed?reportId=557912c7-40f9-4f62-aaf9-2ed74d3e6d47&autoAuth=true&ctid=6eeb49aa-436d-43e6-becd-bbdf79e5077d&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWNlbnRyYWwtdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D&navContentPaneEnabled=false";
+  cadena_madurez = "https://app.powerbi.com/reportEmbed?reportId=073c3f47-4a6e-4c2d-86e3-170a3e590d51&autoAuth=true&ctid=6eeb49aa-436d-43e6-becd-bbdf79e5077d&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWNlbnRyYWwtdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D&navContentPaneEnabled=false";
 
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'indeterminate';
@@ -55,12 +59,17 @@ export class DashboardComponent implements OnInit {
         else {
           this.isEmpresa = true;
           this.empresa = data;
-          this.isEvaluado = this.empresa[0].evaluado;
+          this.isEvaluadoCompetitividad = this.empresa[0].evaluadoCompetitividad;
+          this.isEvaluadoMadurez = this.empresa[0].evaluadoMadurez;
           this.loading = false;
 
-          this.trustedDashboardUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-            this.cadena
-            + "&filter=CMVIEW/empresa eq '" + this.empresa[0].empresa + "'");
+          this.trustedDashboardUrlCompetitividad = this.sanitizer.bypassSecurityTrustResourceUrl(
+            this.cadena_competitividad
+            + "&filter=CMD_EmpresasActual/ruc eq '" + this.empresa[0].ruc + "'");
+
+          this.trustedDashboardUrlMadurez = this.sanitizer.bypassSecurityTrustResourceUrl(
+            this.cadena_madurez
+            + "&filter=CMD_EmpresasActual/ruc eq '" + this.empresa[0].ruc + "'");
         }
       },
       err => {

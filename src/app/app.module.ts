@@ -58,6 +58,8 @@ import { UpdateTipoComponent } from './_componentes/administrador/tipos_micro/up
 import { DeleteTipoComponent } from './_componentes/administrador/tipos_micro/delete-tipo/delete-tipo.component';
 import { ButtonTopComponent } from './_componentes/button-top/button-top.component';
 import { HeaderComponent } from './_componentes/header/header.component';
+import { PerfilComponent } from './_componentes/microempresa/perfil/perfil.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -99,7 +101,8 @@ import { HeaderComponent } from './_componentes/header/header.component';
     UpdateTipoComponent,
     DeleteTipoComponent,
     ButtonTopComponent,
-    HeaderComponent
+    HeaderComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
@@ -120,7 +123,8 @@ import { HeaderComponent } from './_componentes/header/header.component';
     ParallaxScrollModule,
     MatTableModule,
     CKEditorModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatTabsModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

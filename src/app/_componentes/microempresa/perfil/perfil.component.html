@@ -1,0 +1,9 @@
+<div class="contenedor" *ngIf="currentUser">
+    <h1 class="titulo">Perfíl de usuario</h1>
+    <div class="datos">
+        <p>Nombres: <span>{{currentUser.nombres}}</span></p>
+        <p>Apellidos: <span>{{currentUser.apellidos}}</span></p>
+        <p>Nombre de usuario: <span>{{currentUser.username}}</span></p>
+    </div>
+</div>
+<mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="!currentUser" diameter="30"></mat-spinner>

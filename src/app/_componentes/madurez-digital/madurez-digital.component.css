@@ -41,3 +41,10 @@
     text-align: justify;
     line-height: 25px;
 }
+
+.container .texto ol li{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    line-height: 25px;
+}

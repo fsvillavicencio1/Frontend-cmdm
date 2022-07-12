@@ -49,7 +49,8 @@ export class AuthService {
       quiereAsociacion,
       provincia,
       imagen,
-      evaluado: false,
+      evaluadoCompetitividad: false,
+      evaluadoMadurez: false,
       user
     });
   }

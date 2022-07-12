@@ -46,12 +46,13 @@
         </div>
         
     </div>
+    <app-auspiciantes *ngIf="!isLoggedIn"></app-auspiciantes>
     <app-footer *ngIf="!isLoggedIn"></app-footer>
+    <app-button-top *ngIf="!isLoggedIn"></app-button-top>
 </div>
 
 
 <div class="acceso-exitoso" *ngIf="isLoggedIn">
     <app-mi-empresa></app-mi-empresa>
-   
 </div>
 
