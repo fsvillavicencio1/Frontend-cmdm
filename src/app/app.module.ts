@@ -60,6 +60,14 @@ import { ButtonTopComponent } from './_componentes/button-top/button-top.compone
 import { HeaderComponent } from './_componentes/header/header.component';
 import { PerfilComponent } from './_componentes/microempresa/perfil/perfil.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { ResultadosCompetitividadComponent } from './_componentes/resultados-competitividad/resultados-competitividad.component';
+import { ResultadosDigitalizacionComponent } from './_componentes/resultados-digitalizacion/resultados-digitalizacion.component';
+import { RecomenadacionesCompetitividadComponent } from './_componentes/recomenadaciones-competitividad/recomenadaciones-competitividad.component';
+import { EvaluateComponent } from './_componentes/evaluate/evaluate.component';
+import { EvaluateMdComponent } from './_componentes/evaluate-md/evaluate-md.component';
+import { EvaluateCompetitividadComponent } from './_componentes/evaluate-competitividad/evaluate-competitividad.component';
+import { EstadisticasComponent } from './_componentes/estadisticas/estadisticas.component';
+import { DatosComponent } from './_componentes/datos/datos.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +110,15 @@ import {MatTabsModule} from '@angular/material/tabs';
     DeleteTipoComponent,
     ButtonTopComponent,
     HeaderComponent,
-    PerfilComponent
+    PerfilComponent,
+    ResultadosCompetitividadComponent,
+    ResultadosDigitalizacionComponent,
+    RecomenadacionesCompetitividadComponent,
+    EvaluateComponent,
+    EvaluateMdComponent,
+    EvaluateCompetitividadComponent,
+    EstadisticasComponent,
+    DatosComponent
   ],
   imports: [
     BrowserModule,

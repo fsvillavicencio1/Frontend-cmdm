@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
 
   public carouselData: ICarouselItem[] = CAROUSEL_DATA_ITEMS;
   
-  titulo = 'No hay que perder de vista que cualquier empresa competitiva deberá ofrecer calidad, fiabilidad, rapidez y flexibilidad a la vez que rentabilidad.';
+  titulo = 'Para las empresas la transformación digital es un paso fundamental que les permitirá mantenerse en el mercado y seguir creciendo de forma sostenida.';
   imagen = '../../../assets/Parallax/parallax-home.jpg';
 
   constructor() { }

@@ -1,0 +1,26 @@
+<div class="contenedor">
+    <button (click)="generatePDF()" class="boton">Descargar PDF</button>
+    <div class="content" #content> 
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="4" style="font-size: 16px; padding: 20px 0px;">Recomendaciones para mejorar el nivel de competitividad de la empresa "{{empresa}}"</th>
+                </tr>
+                <tr>
+                    <th>Dimensión</th>
+                    <th>Nivel</th>
+                    <th>Porcentaje dimensión</th>
+                    <th>Estrategia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of resultados">
+                    <td style="background-color: #F5F5F5; width: 18%;">{{i.dimension}}</td>
+                    <td [ngStyle]="{'background-color': i.color}">{{i.nivel}}</td>
+                    <td [ngStyle]="{'background-color': i.color}">{{i.porcentaje}}</td>
+                    <td style="background-color: #F5F5F5; width: 60%;">{{i.recomendacion}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

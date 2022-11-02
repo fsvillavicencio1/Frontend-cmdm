@@ -9,6 +9,8 @@ const SERVICE_API_EMAIL = 'https://prod-53.eastus2.logic.azure.com:443/workflows
 const UPDATE_RUC_LOGIC_APP = "https://prod-25.eastus2.logic.azure.com:443/workflows/ba2e772f85d2493b84d6e723450589ee/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=cNR-TqWuEcpMAPNIFjLfOs2KG2jjUj5b8TM8zmkPc34";
 /*const SRI_API = 'https://srienlinea.sri.gob.ec/sri-catastro-sujeto-servicio-internet/rest/ConsolidadoContribuyente/obtenerPorNumerosRuc';*/
 
+const DJANDO_API = 'http://127.0.0.1:8000/api/';
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'} )
 };
@@ -208,6 +210,27 @@ export class UserService {
 
   deletePublicacion(id: number): Observable<any> {
     return this.http.delete(SERVICE_API + 'delete-post/' + id, {responseType: 'text'})
+  }
+
+  /*Metodos para API DJANGO*/
+  getResultadosEmpresaCompetitividad(ruc: String, password: String): Observable<any> {
+    return this.http.get(DJANDO_API + 'competitividad/' + ruc + '/' + password, { responseType: 'json' });
+  }
+
+  getResultadosPromedioCompetitividad(actividad: String): Observable<any> {
+    return this.http.get(DJANDO_API + 'comp-promedio/' + actividad, { responseType: 'json' });
+  }
+
+  getResultadosEmpresaMadurez(ruc: String, password: String): Observable<any> {
+    return this.http.get(DJANDO_API + 'madurez/' + ruc + '/' + password, { responseType: 'json' });
+  }
+
+  getResultadosPromedioMadurez(actividad: String): Observable<any> {
+    return this.http.get(DJANDO_API + 'mad-promedio/' + actividad, { responseType: 'json' });
+  }
+
+  getEstadisticas(): Observable<any>{
+    return this.http.get(DJANDO_API + 'estadisticas/', { responseType: 'json'});
   }
 
 

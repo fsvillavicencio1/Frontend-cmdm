@@ -11,7 +11,7 @@
         <ng-container *ngFor="let section of items">
             <div class="dsc-carousel_content-item"
                 [ngStyle]="{'background-image': 'url(' + section.image + ')', 'margin-left': section.marginLeft + '%'}">
-                <div class="content" data-aos="fade-down" data-aos-duration="1200">
+                <div class="content">
                     <h1>{{section?.title?.first}}</h1>
                     <p>{{section.subtitle}}</p>
                     <button mat-flat-button routerLink={{section.link}}>ACCEDER</button>

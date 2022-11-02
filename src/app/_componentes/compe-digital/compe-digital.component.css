@@ -2,24 +2,23 @@
 
 
 .container{
-    background-color: #ffffff;
     width: 85%;
     margin: 0 auto;
     box-sizing: border-box;
     font-family: 'Quicksand', sans-serif;
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 110px;
 }
 
 .competitividad, .digital{
-    width: 48%;
-    display: inline-block;
-    background-color: #ffffff;
+    width: 50%;
+    margin: 0 auto;
+    /*display: inline-block;*/
 }
 
-.digital{
+/*.digital{
     float: right;
-}
+}*/
 
 .container .titulo{
     font-family: 'Quicksand', sans-serif;
@@ -65,7 +64,6 @@
 
 .competitividad .texto, .digital .texto{
     margin-top: 20px;
-    background-color: #ffffff;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -102,9 +100,9 @@
 }
 
 @media screen and (max-width: 900px){
-    .container{
+    /*.container{
         height: 170vh;
-    }
+    }*/
 
     .competitividad, .digital{
         width: 100%;   
@@ -121,9 +119,9 @@
 }
 
 @media screen and (max-width: 700px){
-    .container{
+    /*.container{
         height: 185vh;
-    }
+    }*/
 }
 
 }

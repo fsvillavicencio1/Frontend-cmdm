@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+
+.container{
+    background-color: #ffffff;
+    width: 50%;/*Era 80*/
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+    /*margin-top: 30px;*/
+}
+
+.panel{
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #ffffff;
+    margin-top: 50px;
+}
+
+.panel .left-panel, .panel .rigth-panel{
+    width: 100%;
+    background-color: #e1e1e1;
+    text-align: center;
+    padding: 60px 0px;
+    
+}
+
+.panel .rigth-panel{
+    width: 100%;
+    background-color: #e1e1e1;/*Era azul*/
+}
+
+.content h3{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    color: #0A66C2;
+    font-size: 22px;
+}
+
+.panel .rigth-panel .content h3{
+    color: #0A66C2;
+}
+
+.content p{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    padding: 0px 30px 10px 30px;
+    color: #000000;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.panel .rigth-panel .content p{
+    color: #000000;
+}
+
+.panel .left-panel .image, .panel .rigth-panel .image{
+    width: 30%;
+    margin-top: 40px;   
+}
+
+.btn-registro{
+    height: 35px;
+    width: 125px;
+    border: solid 2px #0A66C2;
+    background-color: transparent;
+    border-radius: 10px;
+    color: #0A66C2;
+    font-size: 14px; 
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.panel .rigth-panel .content .btn-registro{
+    border: solid 2px #0A66C2;
+    color: #0A66C2;
+}
+
+@media screen and (max-width: 800px){
+    .panel{
+        width: 100%;
+        display: block;
+        margin-top: 10px;
+    }
+}

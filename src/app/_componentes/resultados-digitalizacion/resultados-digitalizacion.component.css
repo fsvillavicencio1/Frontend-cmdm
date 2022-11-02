@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+/*.contenedor{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: #ffffff;
+}
+
+.contenedor .titulo{
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #000000;
+}
+
+.informe{
+    width: 85%;
+    margin: 0 auto;
+}*/
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+/*.contenedor{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: #ffffff;
+   
+}
+
+.contenedor .titulo{
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #000000;
+}
+
+.informe{
+    width: 85%;
+    margin: 0 auto;
+}*/
+
+.container {
+    background-color: #ffffff;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.formulario {
+    width: 50%;
+    margin: 0 auto;
+    vertical-align: top;
+    padding: 95px 0px;
+    box-sizing: border-box;
+}
+
+.formulario .login {
+    width: 50%;
+    padding: 30px 30px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 10px #383838;
+}
+
+.formulario .text {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    color: #000;
+}
+
+.campo-requerido{
+    color: red;
+}
+
+.formulario form .data {
+    width: 100%;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+form .data input {
+    height: 35px;
+    width: 100%;
+    background-color: rgb(250, 251, 252);
+    border-color: rgb(223, 225, 230);
+    border-radius: 3px;
+    border-style: solid;
+    box-sizing: border-box;
+    color: #000;
+    display: flex;
+    flex: 1 0 auto;
+    font-size: 14px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    line-height: 1.42857;
+    max-width: 100%;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    border-width: 2px;
+    padding: 6px;
+}
+
+form button {
+    height: 45px;
+    width: 100%;
+    background-color: #0A66C2;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    padding-top: 15px;
+}
+
+.alert,
+.error {
+    padding: 5px 0px 0px 0px;
+    color: red;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.error {
+    text-align: center;
+}
+
+.resultados{
+    width: 55%;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+.resultados .titulo{
+    font-size: 18px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.resultados .datos_empresa{
+    width: 100%;
+    background-color: #e1e1e1;
+    padding: 20px 30px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.resultados .datos_empresa p{
+    font-size: 15px;
+}
+
+.resultados .datos_empresa .bold{
+    font-weight: 600;
+}
+
+.resultados .intro{
+    width: 90%;
+    padding: 20px 30px 0px 30px;
+    margin: 0 auto;
+}
+
+.resultados .intro p{
+    font-size: 15px;
+    line-height: 22px;
+    text-align: justify;
+}
+
+.resultados .resultados-empresa{
+    width: 100%;
+}
+
+.resultados .resultados-promedio{
+    width: 100%;
+}
+
+.resultados .recomendaciones{
+    width: 100%;
+}
+
+.resultados .resultados-empresa .tabla-empresa, .resultados .resultados-promedio .tabla-empresa, .resultados .recomendaciones .tabla-empresa,
+.resultados .semaforo .tabla-empresa{
+    width: 100%;
+    background-color: #eeeeee;
+    padding: 20px 30px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+table, td, th {
+    border: 1px solid #555555;
+}
+  
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.resultados .resultados-empresa .tabla-empresa .tabla{
+    padding: 20px 0px;
+}
+
+.resultados .resultados-empresa .tabla-empresa .tabla .bold{
+    font-weight: 600;
+}
+
+.resultados .resultados-promedio .tabla-empresa .bold{
+    font-weight: 600;
+}
+
+.boton{
+    height: 35px;
+    width: 200px;
+    border: solid 2px #0A66C2;
+    background-color: transparent;
+    border-radius: 10px;
+    color: #0A66C2;
+    font-size: 14px; 
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 800px){
+    .formulario {
+        width: 60%;
+
+    }
+    .formulario .login {
+        width: 100%;
+    }
+}

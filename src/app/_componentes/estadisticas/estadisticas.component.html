@@ -1,0 +1,34 @@
+<div class="contenido">
+    <h1 class="titulo">Resultados del proyecto</h1>
+    <p class="subtitulo">Empresas que se han evaluado para conocer su  nivel de madurez digital</p>
+    <div class="resultados">
+        <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading" diameter="40"></mat-spinner>
+        <div class="estadisticas" *ngIf="!loading">
+            <!--div class="competitividad">
+                <p>Competitividad</p>
+                <br>
+                <p class="icono"><fa-icon [icon]="faRocket" ></fa-icon> {{estadisticas.empresas_competitividad}}</p>
+                <p class="sub">Empresas evaluadas</p>
+                <br>
+                <br>
+                <p class="icono"><fa-icon [icon]="faChartLine" ></fa-icon> {{estadisticas.promedio_competitividad}}</p>
+                <p class="sub">Nivel promedio de competitividad</p>
+            </div-->
+            <div class="madurez">
+                <p>Madurez digital</p>
+                <br>
+                <p class="icono"><fa-icon [icon]="faRocket" ></fa-icon> {{estadisticas.empresas_madurez}}</p>
+                <p class="sub">Empresas evaluadas</p>
+                <br>
+                <br>
+                <p class="icono"><fa-icon [icon]="faLayerGroup" ></fa-icon> {{estadisticas.promedio_madurez}}</p>
+                <p class="sub">Nivel promedio de madurez digital</p>
+            </div>
+        </div>
+        <div class="boton">
+            <button routerLink="/datos">
+                Ver todos los datos
+            </button>
+        </div>
+    </div>
+</div>

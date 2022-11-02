@@ -126,3 +126,8 @@
 .menu >.active{
     background-color: #F4AB14;
 }
+
+.opciones .evaluate{
+    background-color: #0A66C2;
+    color: #ffffff;
+}

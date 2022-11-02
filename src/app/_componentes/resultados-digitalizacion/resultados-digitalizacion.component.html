@@ -1,0 +1,179 @@
+<!--div class="contenedor">
+    <div>
+        <p class="titulo">Mis resultados</p>
+    </div>
+    <div class="informe">
+        <iframe width="100%" height="700" [src]=trustedDashboardUrlMadurez frameborder="0" allowFullScreen="true"></iframe>
+    </div>
+</div-->
+
+<div class="container">
+    <div class="formulario" *ngIf="!isLoggedIn">
+        <div class="login">
+            <div class="text">Ingresa tus credenciales para ver tus resultados</div>
+            <br>
+            <p class="campo-requerido">* Campo requerido</p>
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                <p>RUC: * <span class="alert alert-danger" role="alert" *ngIf="ruc.errors && f.submitted">Campo
+                        requerido</span></p>
+                <div class="data">
+                    <input type="text" name="ruc" [(ngModel)]="form.ruc" #ruc="ngModel" required readonly>
+                </div>
+
+                <p>Contraseña: * <span class="alert alert-danger" role="alert"
+                        *ngIf="password.errors && f.submitted">Campo requerido</span></p>
+                <div class="data">
+                    <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required
+                        #password="ngModel">
+                </div>
+
+
+                <button type="submit">
+                    <p *ngIf="!loading">Ver mis resultados</p>
+                    <p>
+                        <mat-spinner style="margin:0 auto;" [mode]="mode" [color]="color" *ngIf="loading" diameter="20">
+                        </mat-spinner>
+                    </p>
+                </button>
+                <div class="form-group">
+                    <div class="alert alert-danger error" role="alert" *ngIf="f.submitted && isLoginFailed">{{
+                        state }}</div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="resultados" *ngIf="isLoggedIn">
+        <div class="content" #content>
+            <p class="titulo" style="font-size: 18px; text-align: center; font-weight: 600; margin-top: 25px;">
+                Resultados de evaluación de madurez digital empresarial</p>
+            <div class="datos_empresa" style="width: 60%; background-color: #e1e1e1; padding: 20px 30px;  border-radius: 20px; margin: 0 auto;">
+                <p class="bold"><b>Razón social</b></p><p>{{razon_social}}</p>
+                <p class="bold"><b>RUC</b></p><p>{{ruc}}</p>
+                <p class="bold"><b>Actividad económica</b></p><p>{{actividad}}</p>
+                <p class="bold"><b>Fecha de última evalución</b></p><p>{{fecha}}</p>
+            </div>
+            <div class="intro" style="width: 90%; margin: 0 auto;">
+                <p>Para una mejor comprensión de los resultados le presentamos la escala de semaforización 
+                    en la cual se indica los niveles de madurez digital respectivos.
+                </p>
+            </div>
+            <div class="semaforo">
+                <div class="tabla-empresa" style="width: 90%; margin: 0 auto;">
+                    <span class="bold"><b>Niveles de madurez digital</b></span>
+                    <br>
+                    <br>
+                    <table>
+                        <tr>
+                            <th>Muy Alto</th>
+                            <th>Alto</th>
+                            <th>Mediano</th>
+                            <th>Bajo</th>
+                            <th>Muy Bajo</th>
+                            <th>No existe</th>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #17942E;">81% a 100%</td>
+                            <td style="background-color: #5BCD18;">61% a 80.99%</td>
+                            <td style="background-color: #CCC01D;">41% a 60.99%</td>
+                            <td style="background-color: #E1770D;">21% a 40.99%</td>
+                            <td style="background-color: #E02525;">0.1% a 20.99%</td>
+                            <td style="background-color: #808080;">0%</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="intro" style="width: 90%; margin: 0 auto;">
+                <p>A continuación, detallamos los resultados por dimensión y la puntuación obtenida de acuerdo 
+                    a los parametros evaluados con el fin de que internamente identifique los aspectos a mejorar 
+                    para incrementar su nivel de madurez digital.
+                </p>
+            </div>
+            <div class="resultados-empresa" >
+                <div class="tabla-empresa" style="width: 90%; margin: 0 auto;">
+                    <div class="tabla" *ngFor="let i of datos_empresa; index as c">
+                        <span class="bold">Fecha evaluación: </span><span>{{i.fecha}}</span>
+                        <br>
+                        <br>
+                        <table>
+                            <tr>
+                                <th>Identificar oportunidades potenciales de crecimiento digital (sobre 25)</th>
+                                <th>Desarrollar una estrategia y mentalidad de crecimiento digital (sobre 25)</th>
+                                <th>Aprovechar las oportunidades potenciales de crecimiento sustentado en lo digital (sobre 25)</th>
+                                <th>Gestionar recursos para la transformación digital (sobre 25)</th>
+                                <th>Total (sobre 100)</th>
+                            </tr>
+                            <tr>
+                                <td>{{i.dimension1}}</td>
+                                <td>{{i.dimension2}}</td>
+                                <td>{{i.dimension3}}</td>
+                                <td>{{i.dimension4}}</td>
+                                <td [ngStyle]="{'background-color': colores[c]}">{{i.total}}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="intro" style="width: 90%; margin: 0 auto;">
+                <p>Además, se presenta el indicador promedio de la actividad economica al que corresponde su 
+                    empresa, los mismos que han sido calculados en base al número de microempresarios que han dado 
+                    respuesta a la encuesta.
+                </p>
+            </div>
+            <div class="resultados-promedio" style="margin-top: 20px;">
+                <div class="tabla-empresa" style="width: 90%; margin: 0 auto;">
+                    <span class="bold">Promedio de actividad económica: </span><span>{{actividad}}</span>
+                    <br>
+                    <br>
+                    <table>
+                        <tr>
+                            <th>Identificar oportunidades potenciales de crecimiento digital (sobre 25)</th>
+                            <th>Desarrollar una estrategia y mentalidad de crecimiento digital (sobre 25)</th>
+                            <th>Aprovechar las oportunidades potenciales de crecimiento sustentado en lo digital (sobre 25)</th>
+                            <th>Gestionar recursos para la transformación digital (sobre 25)</th>
+                            <th>Total (sobre 100)</th>
+                        </tr>
+                        <tr>
+                            <td>{{promedios.promedio1}}</td>
+                            <td>{{promedios.promedio2}}</td>
+                            <td>{{promedios.promedio3}}</td>
+                            <td>{{promedios.promedio4}}</td>
+                            <td [ngStyle]="{'background-color': color_promedio}">{{promedios.promediototal}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="intro" style="width: 90%; margin: 0 auto;">
+                <p>Finalmente, se indican algunas estrategias que podría aplicar en su empresa en cada una de las
+                    dimensiones con el objetivo de mejorar su nivel de madurez digital.
+                </p>
+            </div>
+            <div class="recomendaciones">
+                <div class="tabla-empresa" style="width: 90%; margin: 0 auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dimensión</th>
+                                <th>Nivel</th>
+                                <th>Porcentaje dimensión</th>
+                                <th>Estrategia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let i of resultados">
+                                <td style="background-color: #F5F5F5; width: 18%;">{{i.dimension}}</td>
+                                <td [ngStyle]="{'background-color': i.color}">{{i.nivel}}</td>
+                                <td [ngStyle]="{'background-color': i.color}">{{i.porcentaje}}</td>
+                                <td style="background-color: #F5F5F5; width: 60%;">{{i.recomendacion}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <button (click)="generatePDF()" class="boton">Descargar PDF</button>
+    </div>
+</div>
+
+<app-footer></app-footer>
+<app-button-top></app-button-top>
