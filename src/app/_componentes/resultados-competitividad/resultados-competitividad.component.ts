@@ -4,6 +4,7 @@ import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { UserService } from '../../_services/user.service';
 import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-resultados-competitividad',
@@ -11,7 +12,10 @@ import jsPDF from 'jspdf';
   styleUrls: ['./resultados-competitividad.component.css']
 })
 export class ResultadosCompetitividadComponent implements OnInit {
-  @ViewChild('content', {static:false}) el!: ElementRef;
+  @ViewChild('semaforo') screen!: ElementRef;
+  @ViewChild('resultados_ind') screen2!: ElementRef;
+  @ViewChild('resultados_pro') screen3!: ElementRef;
+  @ViewChild('recomendaciones_dim') screen4!: ElementRef;
   empresa?: { ruc: string };
   form: any = {
     ruc: null,
@@ -461,14 +465,62 @@ export class ResultadosCompetitividadComponent implements OnInit {
     console.log(this.resultados)
   }
 
-  generatePDF(){
-    let pdf = new jsPDF('l', 'pt', 'a4');
+  generatePDF() {
+    /*let pdf = new jsPDF('l', 'pt', 'a4');
 
     pdf.html(this.el.nativeElement, {
       callback: (pdf) => {
-        pdf.save("RecomendacionesCompetitividad.pdf");
+        pdf.save("RecomendacionesMadurezDigital.pdf");
       }
-    })
+    })*/
+
+    const doc = new jsPDF('p', 'pt', 'a4');
+    const options = {
+      background: 'white',
+      scale: 3
+    };
+    var img = new Image()
+    img.src = 'assets/Auspiciantes/utpl.png'
+    doc.addImage(img, 'png', 40, 30, 150, 60)
+    doc.setFontSize(18);
+    doc.text('Informe de resultados de evaluación de competitividad', 75, 120);
+    doc.setFontSize(12);
+    doc.text('Razón social: ' + this.razon_social, 50, 160);
+    doc.text('RUC: ' + this.ruc, 50, 190);
+    doc.text('Actividad económica: ' + this.actividad, 50, 220);
+    doc.text('Última evaluación: ' + this.fecha, 50, 250);
+    doc.text('Para una mejor comprensión de los resultados le presentamos la escala de semaforización en la', 40, 290);
+    doc.text('cual se indica los niveles de competitividad respectivos.', 40, 310);
+
+    html2canvas(this.screen.nativeElement, options).then((canvas) => {
+      const img1 = canvas.toDataURL('image1/PNG');
+      doc.addImage(img1, 'png', 55, 330, 480, 100);
+      doc.text('A continuación, detallamos los resultados por dimensión y la puntuación obtenida de acuerdo a', 40, 455);
+      doc.text('los parametros evaluados con el fin de que internamente identifique los aspectos a mejorar para', 40, 475);
+      doc.text('incrementar su nivel de competitividad.', 40, 495);
+      html2canvas(this.screen2.nativeElement, options).then((canvas) => {
+        const img2 = canvas.toDataURL('image2/PNG');
+        doc.addImage(img2, 'png', 40, 510, 520, 190);
+        doc.text('Además, se presenta el indicador promedio de la actividad economica al que corresponde su', 40, 730);
+        doc.text('empresa, los mismos que han sido calculados en base al número de microempresarios que han', 40, 750);
+        doc.text('dado respuesta a la encuesta.', 40, 770);
+        doc.addPage()
+        html2canvas(this.screen3.nativeElement, options).then((canvas) => {
+          const img3 = canvas.toDataURL('image3/PNG');
+          doc.addImage(img3, 'png', 40, 40, 520, 190);
+          doc.text('Finalmente, se indican algunas estrategias que podría aplicar en su empresa en cada una de', 40, 260);
+          doc.text('las dimensiones con el objetivo de mejorar su nivel de competitividad.', 40, 280);
+          
+          html2canvas(this.screen4.nativeElement, options).then((canvas) => {
+            const img4 = canvas.toDataURL('image4/PNG');
+            doc.addImage(img4, 'png', 40, 300, 520, 500);
+            doc.save('Estrategias-Competitividad.pdf')
+          });
+        });
+      });
+
+    });
+
   }
 
 }

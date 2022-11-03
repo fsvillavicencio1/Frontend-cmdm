@@ -43,22 +43,28 @@
         </div>
     </div>
     <div class="resultados" *ngIf="isLoggedIn">
-        <div class="content" #content>
-            <p class="titulo" style="font-size: 18px; text-align: center; font-weight: 600; margin-top: 25px;">
+        <div class="content">
+            <p class="titulo">
                 Resultados de evaluación de competitividad empresarial</p>
-            <div class="datos_empresa" style="width: 60%; background-color: #e1e1e1; padding: 20px 30px;  border-radius: 20px; margin: 0 auto;">
-                <p class="bold"><b>Razón social</b></p><p>{{razon_social}}</p>
-                <p class="bold"><b>RUC</b></p><p>{{ruc}}</p>
-                <p class="bold"><b>Actividad económica</b></p><p>{{actividad}}</p>
-                <p class="bold"><b>Fecha de última evalución</b></p><p>{{fecha}}</p>
+            <div class="datos_empresa" >
+                <span class="bold">Razón social: </span><span>{{razon_social}}</span>
+                <br>
+                <br>
+                <span class="bold">RUC: </span><span>{{ruc}}</span>
+                <br>
+                <br>
+                <span class="bold">Actividad económica: </span><span>{{actividad}}</span>
+                <br>
+                <br>
+                <span class="bold">Fecha de última evalución: </span><span>{{fecha}}</span>
             </div>
-            <div class="intro" style="width: 90%; margin: 0 auto;">
+            <div class="intro">
                 <p>Para una mejor comprensión de los resultados le presentamos la escala de semaforización 
                     en la cual se indica los niveles de competitividad respectivos.
                 </p>
             </div>
-            <div class="semaforo">
-                <div class="tabla-empresa" style="width: 90%; margin: 0 auto;">
+            <div class="semaforo" #semaforo>
+                <div class="tabla-empresa">
                     <span class="bold"><b>Niveles de competitividad</b></span>
                     <br>
                     <br>
@@ -82,14 +88,14 @@
                     </table>
                 </div>
             </div>
-            <div class="intro" style="width: 90%; margin: 0 auto;">
+            <div class="intro">
                 <p>A continuación, detallamos los resultados por dimensión y la puntuación obtenida de acuerdo 
                     a los parametros evaluados con el fin de que internamente identifique los aspectos a mejorar 
                     para incrementar su nivel de competitividad.
                 </p>
             </div>
-            <div class="resultados-empresa" >
-                <div class="tabla-empresa" style="width: 90%; margin: 0 auto;">
+            <div class="resultados-empresa" #resultados_ind>
+                <div class="tabla-empresa" >
                     <div class="tabla" *ngFor="let i of datos_empresa; index as c">
                         <span class="bold">Fecha evaluación: </span><span>{{i.fecha}}</span>
                         <br>
@@ -122,14 +128,14 @@
 
                 </div>
             </div>
-            <div class="intro" style="width: 90%; margin: 0 auto;">
+            <div class="intro" >
                 <p>Además, se presenta el indicador promedio de la actividad economica al que corresponde su 
                     empresa, los mismos que han sido calculados en base al número de microempresarios que han dado 
                     respuesta a la encuesta.
                 </p>
             </div>
-            <div class="resultados-promedio" style="margin-top: 20px;">
-                <div class="tabla-empresa" style="width: 90%; margin: 0 auto;">
+            <div class="resultados-promedio" #resultados_pro>
+                <div class="tabla-empresa">
                     <span class="bold">Promedio de actividad económica: </span><span>{{actividad}}</span>
                     <br>
                     <br>
@@ -159,13 +165,13 @@
                     </table>
                 </div>
             </div>
-            <div class="intro" style="width: 90%; margin: 0 auto;">
+            <div class="intro" >
                 <p>Finalmente, se indican algunas estrategias que podría aplicar en su empresa en cada una de las
                     dimensiones con el objetivo de mejorar su nivel de competitividad.
                 </p>
             </div>
-            <div class="recomendaciones">
-                <div class="tabla-empresa" style="width: 90%; margin: 0 auto;">
+            <div class="recomendaciones" #recomendaciones_dim>
+                <div class="tabla-empresa" >
                     <table>
                         <thead>
                             <tr>
