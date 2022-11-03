@@ -53,4 +53,4 @@ jobs:
           app-name: 'digi-com'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ACEE9668D9F44A4EB5242926D7D6622C }}
-          package: ./dist/digi-com
+          package: ./dist/competitividad
