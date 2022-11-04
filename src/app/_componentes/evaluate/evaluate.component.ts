@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-evaluate',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EvaluateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private titulo_page:Title) {
+    titulo_page.setTitle('Evalúate')
+  }
 
   ngOnInit(): void {
   }

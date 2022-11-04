@@ -5,6 +5,7 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contactos',
@@ -21,7 +22,9 @@ export class ContactosComponent implements OnInit {
   faPhone = faPhone;
   faClock = faClock;
 
-  constructor() { }
+  constructor(private titulo_page:Title) {
+    titulo_page.setTitle('Contactos')
+  }
 
   ngOnInit(): void {
     AOS.init();

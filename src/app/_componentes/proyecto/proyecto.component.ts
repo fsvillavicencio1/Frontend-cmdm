@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-proyecto',
@@ -41,7 +42,9 @@ export class ProyectoComponent implements OnInit {
     nav: false
   }
 
-  constructor() { }
+  constructor(private titulo_page:Title) {
+    titulo_page.setTitle('Proyecto')
+  }
 
   ngOnInit(): void {
     AOS.init();
