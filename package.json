@@ -39,7 +39,6 @@
     "html2canvas": "^1.4.1",
     "jquery": "^3.6.0",
     "jspdf": "^2.5.1",
-    "ng2-parallaxscroll": "^2.2.1",
     "ngx-owl-carousel-o": "^7.0.2",
     "ngx-scrollreveal": "^3.0.0",
     "rxjs": "~7.4.0",
