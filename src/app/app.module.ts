@@ -29,7 +29,6 @@ import { UpdateEmpresaComponent } from './_componentes/microempresa/update-empre
 import { ResultadosComponent } from './_componentes/microempresa/resultados/resultados.component';
 import { CompeDigitalComponent } from './_componentes/compe-digital/compe-digital.component';
 import { ParallaxComponent } from './_componentes/parallax/parallax.component';
-import { ParallaxScrollModule } from 'ng2-parallaxscroll';
 import { SectorEmpresarialComponent } from './_componentes/sector-empresarial/sector-empresarial.component';
 import { ActividadesComponent } from './_componentes/administrador/actividades/actividades.component';
 import { CompetitividadComponent } from './_componentes/administrador/competitividad/competitividad.component';
@@ -136,7 +135,6 @@ import { DatosComponent } from './_componentes/datos/datos.component';
     CarouselModule,
     MatSidenavModule,
     MatListModule,
-    ParallaxScrollModule,
     MatTableModule,
     CKEditorModule,
     FlexLayoutModule,
