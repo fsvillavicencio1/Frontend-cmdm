@@ -61,21 +61,28 @@
 }
 
 .btn-registro{
-    height: 35px;
-    width: 125px;
+    height: 40px;
+    width: 158px;
     border: solid 2px #0A66C2;
-    background-color: transparent;
+    background-color: #F4AB14;
     border-radius: 10px;
     color: #0A66C2;
-    font-size: 14px; 
+    font-weight: 600;
+    font-size: 15px; 
     cursor: pointer;
     font-family: 'Quicksand', sans-serif;
 }
 
-.panel .rigth-panel .content .btn-registro{
+.btn-registro:hover{
+    background-color: #0A66C2;
+    color: #F4AB14;
+    transition: 0.5s;
+}
+
+/*.panel .rigth-panel .content .btn-registro{
     border: solid 2px #0A66C2;
     color: #0A66C2;
-}
+}*/
 
 @media screen and (max-width: 800px){
     .panel{
