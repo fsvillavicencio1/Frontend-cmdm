@@ -109,11 +109,11 @@
                                 <th>Total (sobre 100)</th>
                             </tr>
                             <tr>
-                                <td>{{i.dimension1}}</td>
-                                <td>{{i.dimension2}}</td>
-                                <td>{{i.dimension3}}</td>
-                                <td>{{i.dimension4}}</td>
-                                <td [ngStyle]="{'background-color': colores[c]}">{{i.total}}</td>
+                                <td>{{i.dimension1 | number}}</td>
+                                <td>{{i.dimension2 | number}}</td>
+                                <td>{{i.dimension3 | number}}</td>
+                                <td>{{i.dimension4 | number}}</td>
+                                <td [ngStyle]="{'background-color': colores[c]}">{{i.total | number}}</td>
                             </tr>
                         </table>
                     </div>
@@ -140,11 +140,11 @@
                             <th>Total (sobre 100)</th>
                         </tr>
                         <tr>
-                            <td>{{promedios.promedio1}}</td>
-                            <td>{{promedios.promedio2}}</td>
-                            <td>{{promedios.promedio3}}</td>
-                            <td>{{promedios.promedio4}}</td>
-                            <td [ngStyle]="{'background-color': color_promedio}">{{promedios.promediototal}}</td>
+                            <td>{{promedios.promedio1 | number}}</td>
+                            <td>{{promedios.promedio2 | number}}</td>
+                            <td>{{promedios.promedio3 | number}}</td>
+                            <td>{{promedios.promedio4 | number}}</td>
+                            <td [ngStyle]="{'background-color': color_promedio}">{{promedios.promediototal | number}}</td>
                         </tr>
                     </table>
                 </div>
